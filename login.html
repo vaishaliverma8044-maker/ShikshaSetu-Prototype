@@ -1,0 +1,290 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>ShikshaSetu | Login</title>
+
+  <link rel="stylesheet" href="../style.css">
+
+</head>
+
+
+<body class="login-body">
+
+
+  <div class="login-wrapper">
+
+
+    <!-- BRAND -->
+
+    <div class="login-brand">
+
+      <div class="brand-icon">
+        S
+      </div>
+
+      <div>
+
+        <strong>
+          ShikshaSetu
+        </strong>
+
+        <small>
+          Education Beyond Connectivity
+        </small>
+
+      </div>
+
+    </div>
+
+
+    <!-- LOGIN CARD -->
+
+    <div class="login-card">
+
+      <span class="eyebrow">
+        STUDENT LOGIN
+      </span>
+
+      <h1>
+        Welcome 👋
+      </h1>
+
+      <p class="login-subtitle">
+        Login to access your personalized learning dashboard.
+      </p>
+
+
+      <form id="loginForm">
+
+
+        <!-- EMAIL -->
+
+        <label>
+          Email Address
+        </label>
+
+        <input
+          type="email"
+          id="email"
+          placeholder="Enter your email"
+          required
+        >
+
+
+        <!-- PASSWORD -->
+
+        <label>
+          Password
+        </label>
+
+        <input
+          type="password"
+          id="password"
+          placeholder="Enter your password"
+          required
+        >
+
+
+        <!-- LOGIN BUTTON -->
+
+        <button
+          type="submit"
+          class="btn btn-primary login-button"
+        >
+          Login →
+        </button>
+
+
+        <p
+          id="loginMessage"
+          class="login-message"
+        ></p>
+
+      </form>
+
+
+      <div class="login-info">
+
+        <span>🔒</span>
+
+        <p>
+          Your learning journey starts here.
+        </p>
+
+      </div>
+
+
+    </div>
+
+
+    <!-- BACK -->
+
+    <a
+      href="../index.html"
+      class="back-home"
+    >
+      ← Back to Home
+    </a>
+
+
+  </div>
+
+
+  <script>
+
+    document
+      .getElementById("loginForm")
+      .addEventListener("submit", function(event) {
+
+        event.preventDefault();
+
+
+        const email =
+          document.getElementById("email").value.trim();
+
+        const password =
+          document.getElementById("password").value.trim();
+
+        const message =
+          document.getElementById("loginMessage");
+
+
+        if (email === "" || password === "") {
+
+          message.textContent =
+            "Please enter email and password.";
+
+          return;
+
+        }
+
+
+        /*
+          CREATE STUDENT NAME FROM EMAIL
+
+          Example:
+          rahul123@gmail.com
+          becomes
+          Rahul123
+        */
+
+        let studentName =
+          email.split("@")[0];
+
+        studentName =
+          studentName
+            .replace(/[._-]+/g, " ")
+            .replace(/\d+/g, "")
+            .trim();
+
+
+        if (studentName === "") {
+          studentName = "Student";
+        }
+
+
+        studentName =
+          studentName
+            .split(" ")
+            .map(function(word) {
+
+              return word.charAt(0).toUpperCase()
+                   + word.slice(1);
+
+            })
+            .join(" ");
+
+
+        /*
+          SAVE LOGIN DATA
+        */
+
+        localStorage.setItem(
+          "shikshaSetuLoggedIn",
+          "true"
+        );
+
+        localStorage.setItem(
+          "shikshaSetuUser",
+          email
+        );
+
+        localStorage.setItem(
+          "shikshaSetuStudentName",
+          studentName
+        );
+
+
+        /*
+          CREATE INITIAL PROGRESS
+          ONLY IF IT DOES NOT EXIST
+        */
+
+        if (!localStorage.getItem("shikshaSetuProgress")) {
+
+          const initialProgress = {
+
+            cpp: 0,
+
+            dsa: 0,
+
+            maths: 0
+
+          };
+
+          localStorage.setItem(
+            "shikshaSetuProgress",
+            JSON.stringify(initialProgress)
+          );
+
+        }
+
+
+        /*
+          INITIAL QUIZ COUNT
+        */
+
+        if (
+          !localStorage.getItem(
+            "shikshaSetuQuizzesCompleted"
+          )
+        ) {
+
+          localStorage.setItem(
+            "shikshaSetuQuizzesCompleted",
+            "0"
+          );
+
+        }
+
+
+        message.textContent =
+          "Login successful! Opening dashboard...";
+
+
+        setTimeout(function() {
+
+          window.location.href =
+            "dashboard.html";
+
+        }, 700);
+
+      });
+
+  </script>
+
+
+</body>
+
+</html>
+```

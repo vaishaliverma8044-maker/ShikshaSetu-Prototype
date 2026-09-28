@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DSA Beginner Notes - ShikshaSetu</title>
+
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f5f9fc;color:#294b66}
+.page{max-width:1050px;margin:auto;padding:25px 18px 50px}
+.back{display:inline-block;text-decoration:none;color:#1769aa;background:white;border:1px solid #d6e4ee;padding:10px 16px;border-radius:10px;margin-bottom:20px;font-weight:600}
+.header{background:linear-gradient(135deg,#1769aa,#3199df);color:white;border-radius:18px;padding:30px;margin-bottom:25px}
+.header h1{margin:0 0 10px;font-size:30px}
+.header p{margin:0;line-height:1.6}
+.card{background:white;border:1px solid #e0ebf3;border-radius:16px;padding:22px;margin-bottom:18px;box-shadow:0 5px 18px rgba(31,76,105,.05)}
+.card h2{margin:0 0 10px;color:#1769aa;font-size:21px}
+.card h3{color:#294b66}
+.card p,.card li{line-height:1.65}
+table{width:100%;border-collapse:collapse;margin-top:10px}
+th,td{border:1px solid #dce8ef;padding:10px;text-align:left}
+th{background:#eef7ff;color:#1769aa}
+.note{background:#eef8ff;border:1px solid #d6edff;padding:15px;border-radius:12px}
+@media(max-width:600px){.header h1{font-size:25px}table{font-size:13px}}
+</style>
+
+</head>
+
+<body>
+<main class="page">
+
+<a href="offline.html" class="back">← Back to Offline Library</a>
+
+<section class="header">
+<h1>🧩 DSA Beginner Notes</h1>
+<p>Learn the fundamentals of Data Structures and Algorithms step by step.</p>
+</section>
+
+<div class="card">
+<h2>1. What is DSA?</h2>
+<p><b>DSA</b> stands for Data Structures and Algorithms.</p>
+<p>
+A <b>Data Structure</b> is a way of organizing and storing data.
+An <b>Algorithm</b> is a step-by-step procedure used to solve a problem.
+</p>
+
+<div class="note">
+<b>Simple example:</b> An array stores numbers, while an algorithm can be used to find the largest number in that array.
+</div>
+</div>
+
+<div class="card">
+<h2>2. Why Learn DSA?</h2>
+<ul>
+<li>Helps solve programming problems efficiently.</li>
+<li>Improves logical thinking.</li>
+<li>Useful for coding interviews.</li>
+<li>Forms the foundation of advanced computer science topics.</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>3. Time Complexity</h2>
+<p>
+Time complexity describes how the running time of an algorithm changes as the input size increases.
+</p>
+
+<table>
+<tr><th>Complexity</th><th>Meaning</th></tr>
+<tr><td>O(1)</td><td>Constant time</td></tr>
+<tr><td>O(log n)</td><td>Logarithmic time</td></tr>
+<tr><td>O(n)</td><td>Linear time</td></tr>
+<tr><td>O(n log n)</td><td>Common efficient sorting complexity</td></tr>
+<tr><td>O(n²)</td><td>Quadratic time</td></tr>
+</table>
+</div>
+
+<div class="card">
+<h2>4. Arrays</h2>
+<p>
+An array stores multiple elements of the same data type in contiguous memory locations.
+</p>
+
+<pre>
+int arr[5] = {10, 20, 30, 40, 50};
+
+cout &lt;&lt; arr[0];
+</pre>
+
+<p><b>Important:</b> Array indexing starts from 0.</p>
+</div>
+
+<div class="card">
+<h2>5. Searching</h2>
+
+<h3>Linear Search</h3>
+<p>
+Linear search checks elements one by one until the required element is found.
+</p>
+
+<pre>
+for(int i = 0; i &lt; n; i++) {
+    if(arr[i] == key) {
+        cout &lt;&lt; "Found";
+        break;
+    }
+}
+</pre>
+
+<p><b>Time Complexity:</b> O(n)</p>
+
+<h3>Binary Search</h3>
+<p>
+Binary search repeatedly divides a <b>sorted</b> array into halves.
+</p>
+
+<p><b>Time Complexity:</b> O(log n)</p>
+</div>
+
+<div class="card">
+<h2>6. Sorting</h2>
+<p>
+Sorting means arranging data in a particular order, such as ascending or descending.
+</p>
+
+<ul>
+<li>Bubble Sort</li>
+<li>Selection Sort</li>
+<li>Insertion Sort</li>
+<li>Merge Sort</li>
+<li>Quick Sort</li>
+</ul>
+
+<h3>Bubble Sort idea</h3>
+<p>
+Compare adjacent elements and swap them when they are in the wrong order.
+</p>
+</div>
+
+<div class="card">
+<h2>7. Stack</h2>
+<p>
+A stack follows <b>LIFO</b> — Last In, First Out.
+</p>
+
+<p>Example: A stack of plates.</p>
+
+<ul>
+<li>Push → add an element</li>
+<li>Pop → remove the top element</li>
+<li>Top → view the top element</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>8. Queue</h2>
+<p>
+A queue follows <b>FIFO</b> — First In, First Out.
+</p>
+
+<p>Example: People standing in a line.</p>
+
+<ul>
+<li>Enqueue → add element</li>
+<li>Dequeue → remove element</li>
+<li>Front → first element</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>9. Linked List</h2>
+<p>
+A linked list consists of nodes. Each node contains data and a link to another node.
+</p>
+
+<pre>
+struct Node {
+    int data;
+    Node* next;
+};
+</pre>
+
+<p>
+Unlike arrays, linked-list elements do not need to occupy contiguous memory locations.
+</p>
+</div>
+
+<div class="card">
+<h2>10. Recursion</h2>
+<p>
+Recursion occurs when a function calls itself to solve smaller versions of the same problem.
+</p>
+
+<pre>
+int factorial(int n) {
+
+    if(n == 0)
+        return 1;
+
+    return n * factorial(n - 1);
+}
+</pre>
+
+<p>A recursive solution needs a proper <b>base case</b>.</p>
+</div>
+
+<div class="card">
+<h2>11. Trees</h2>
+<p>
+A tree is a hierarchical data structure consisting of nodes connected by edges.
+</p>
+
+<ul>
+<li>Root → top node</li>
+<li>Parent → node having children</li>
+<li>Child → node connected below a parent</li>
+<li>Leaf → node with no children</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>12. Graphs</h2>
+<p>
+A graph consists of <b>vertices</b> and <b>edges</b>.
+</p>
+
+<p>
+Graphs can represent roads, social networks, computer networks and many other relationships.
+</p>
+</div>
+
+<div class="card">
+<h2>13. Important DSA Roadmap</h2>
+
+<table>
+<tr><th>Level</th><th>Topics</th></tr>
+<tr><td>Beginner</td><td>Arrays, Strings, Searching, Sorting</td></tr>
+<tr><td>Intermediate</td><td>Stack, Queue, Linked List, Recursion</td></tr>
+<tr><td>Advanced</td><td>Trees, Graphs, Dynamic Programming</td></tr>
+</table>
+</div>
+
+<div class="card">
+<h2>14. Beginner Practice</h2>
+<ul>
+<li>Find the largest element in an array.</li>
+<li>Reverse an array.</li>
+<li>Search for an element.</li>
+<li>Sort an array.</li>
+<li>Implement a stack.</li>
+<li>Implement a queue.</li>
+<li>Find factorial using recursion.</li>
+</ul>
+</div>
+
+</main>
+</body>
+</html>

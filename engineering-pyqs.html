@@ -1,0 +1,1126 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Engineering PYQs - ShikshaSetu</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#f4f9ff;
+    color:#18324b;
+}
+
+header{
+    background:linear-gradient(135deg,#3199df,#68c5ff);
+    color:white;
+    padding:30px 20px;
+    text-align:center;
+}
+
+header h1{
+    font-size:30px;
+    margin-bottom:8px;
+}
+
+header p{
+    font-size:15px;
+}
+
+.back{
+    display:inline-block;
+    margin-top:16px;
+    padding:10px 20px;
+    background:white;
+    color:#1976b9;
+    text-decoration:none;
+    border-radius:22px;
+    font-weight:bold;
+}
+
+.container{
+    width:92%;
+    max-width:1100px;
+    margin:30px auto;
+}
+
+.notice{
+    background:#fff8df;
+    border-left:5px solid #f2b600;
+    padding:17px;
+    border-radius:10px;
+    margin-bottom:28px;
+    line-height:1.6;
+}
+
+h2{
+    margin-bottom:18px;
+    color:#1976b9;
+}
+
+.subject-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+    gap:18px;
+}
+
+.subject-card{
+    background:white;
+    padding:25px 20px;
+    border-radius:17px;
+    box-shadow:0 4px 15px rgba(0,0,0,.08);
+    cursor:pointer;
+    transition:.25s;
+    border:2px solid transparent;
+}
+
+.subject-card:hover{
+    transform:translateY(-5px);
+    border-color:#3199df;
+}
+
+.subject-icon{
+    font-size:40px;
+    margin-bottom:12px;
+}
+
+.subject-card h3{
+    color:#1976b9;
+    margin-bottom:8px;
+}
+
+.subject-card p{
+    color:#607d8b;
+    font-size:14px;
+    line-height:1.5;
+}
+
+.code{
+    margin-top:9px;
+    font-size:13px;
+    font-weight:bold;
+    color:#888;
+}
+
+.subject-section{
+    display:none;
+    background:white;
+    padding:25px;
+    border-radius:17px;
+    margin-top:28px;
+    box-shadow:0 4px 15px rgba(0,0,0,.08);
+}
+
+.subject-section.active{
+    display:block;
+}
+
+.subject-title{
+    color:#1976b9;
+    font-size:25px;
+    font-weight:bold;
+    margin-bottom:7px;
+}
+
+.subject-code{
+    color:#777;
+    margin-bottom:20px;
+}
+
+.paper-list{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+    gap:15px;
+}
+
+.paper-card{
+    background:#f5fbff;
+    border:1px solid #d7edfa;
+    border-radius:13px;
+    padding:20px;
+}
+
+.paper-card h3{
+    color:#1976b9;
+    margin-bottom:8px;
+}
+
+.paper-card p{
+    font-size:13px;
+    color:#607d8b;
+    margin-bottom:15px;
+}
+
+.open-btn{
+    border:none;
+    background:#3199df;
+    color:white;
+    padding:10px 17px;
+    border-radius:20px;
+    font-size:14px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.open-btn:hover{
+    background:#1976b9;
+}
+
+.viewer{
+    display:none;
+    margin-top:25px;
+    background:#eef8ff;
+    padding:15px;
+    border-radius:14px;
+}
+
+.viewer.active{
+    display:block;
+}
+
+.viewer-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:10px;
+    margin-bottom:12px;
+}
+
+.viewer-title{
+    color:#1976b9;
+    font-size:18px;
+    font-weight:bold;
+}
+
+.close-viewer{
+    border:none;
+    background:#e74c3c;
+    color:white;
+    padding:8px 14px;
+    border-radius:18px;
+    cursor:pointer;
+}
+
+.pdf-frame{
+    width:100%;
+    height:700px;
+    border:none;
+    border-radius:10px;
+    background:white;
+}
+
+.source-note{
+    background:#eef8ff;
+    padding:15px;
+    border-radius:10px;
+    margin-top:22px;
+    font-size:13px;
+    line-height:1.6;
+    color:#536d7e;
+}
+
+.close-btn{
+    margin-top:22px;
+    padding:10px 20px;
+    border:none;
+    border-radius:20px;
+    background:#555;
+    color:white;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.footer{
+    text-align:center;
+    padding:30px 10px;
+    color:#607d8b;
+    font-size:14px;
+}
+
+@media(max-width:600px){
+
+    header h1{
+        font-size:25px;
+    }
+
+    .pdf-frame{
+        height:550px;
+    }
+
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+    <h1>📚 Engineering PYQs</h1>
+
+    <p>
+        First Year B.Tech • Subject-wise Previous Year Question Papers
+    </p>
+
+    <a href="college-dashboard.html" class="back">
+        ← Back to College Dashboard
+    </a>
+
+</header>
+
+
+<div class="container">
+
+    <div class="notice">
+
+        <strong>📌 How to use:</strong><br>
+
+        Subject select karo → 2025 / 2024 / 2023 par click karo.
+
+        <br>
+
+        <strong></strong> 
+    
+
+    </div>
+
+
+    <h2>📖 Select Your Subject</h2>
+
+
+    <div class="subject-grid">
+
+        <div class="subject-card"
+             onclick="openSubject('maths')">
+
+            <div class="subject-icon">📐</div>
+
+            <h3>Engineering Mathematics-I</h3>
+
+            <p>
+                Calculus, differentiation, integration,
+                series and Mathematics-I topics.
+            </p>
+
+            <div class="code">BT102</div>
+
+        </div>
+
+
+        <div class="subject-card"
+             onclick="openSubject('physics')">
+
+            <div class="subject-icon">⚛️</div>
+
+            <h3>Engineering Physics</h3>
+
+            <p>
+                Quantum physics, optics, lasers,
+                solids and electromagnetic topics.
+            </p>
+
+            <div class="code">BT201</div>
+
+        </div>
+
+
+        <div class="subject-card"
+             onclick="openSubject('chemistry')">
+
+            <div class="subject-icon">🧪</div>
+
+            <h3>Engineering Chemistry</h3>
+
+            <p>
+                Water chemistry, corrosion,
+                fuels, polymers and materials.
+            </p>
+
+            <div class="code">BT101</div>
+
+        </div>
+
+
+        <div class="subject-card"
+             onclick="openSubject('beee')">
+
+            <div class="subject-icon">⚡</div>
+
+            <h3>Basic Electrical & Electronics</h3>
+
+            <p>
+                Electrical circuits, AC/DC,
+                machines and electronics basics.
+            </p>
+
+            <div class="code">BT104</div>
+
+        </div>
+
+
+        <div class="subject-card"
+             onclick="openSubject('english')">
+
+            <div class="subject-icon">📘</div>
+
+            <h3>English for Communication</h3>
+
+            <p>
+                Communication, grammar,
+                writing and professional skills.
+            </p>
+
+            <div class="code">BT103</div>
+
+        </div>
+
+
+        <div class="subject-card"
+             onclick="openSubject('graphics')">
+
+            <div class="subject-icon">📏</div>
+
+            <h3>Engineering Graphics</h3>
+
+            <p>
+                Orthographic projection,
+                sections and engineering drawing.
+            </p>
+
+            <div class="code">BT105</div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= MATHEMATICS ================= -->
+
+    <div id="maths" class="subject-section">
+
+        <div class="subject-title">
+            📐 Engineering Mathematics-I
+        </div>
+
+        <div class="subject-code">
+            Subject Code: BT102
+        </div>
+
+        <div class="paper-list">
+
+            <div class="paper-card">
+                <h3>📄 2025</h3>
+                <p>June 2025 • BT102</p>
+
+                <button class="open-btn"
+                    onclick="openPDF(
+                    'https://rgpvinfo.com/wp-content/uploads/2026/01/bt-102-mathematics-1-jun-2025.pdf',
+                    'Engineering Mathematics-I — 2025'
+                    )">
+                    Open 2025 Paper
+                </button>
+            </div>
+
+
+            <div class="paper-card">
+                <h3>📄 2024</h3>
+                <p>December 2024 • BT102</p>
+
+                <button class="open-btn"
+                    onclick="openPDF(
+                    'https://www.rgpvonline.com/be/bt-102-mathematics-1-dec-2024.pdf',
+                    'Engineering Mathematics-I — 2024'
+                    )">
+                    Open 2024 Paper
+                </button>
+            </div>
+
+
+            <div class="paper-card">
+                <h3>📄 2023</h3>
+                <p>June 2023 • BT102</p>
+
+                <button class="open-btn"
+                    onclick="openPDF(
+                    'https://www.rgpvonline.com/be/bt-102-mathematics-1-jun-2023.pdf',
+                    'Engineering Mathematics-I — 2023'
+                    )">
+                    Open 2023 Paper
+                </button>
+            </div>
+
+        </div>
+
+
+        <div id="viewer-maths" class="viewer">
+
+            <div class="viewer-header">
+
+                <div class="viewer-title" id="title-maths">
+                    PDF
+                </div>
+
+                <button class="close-viewer"
+                        onclick="closePDF('maths')">
+                    ✕ Close
+                </button>
+
+            </div>
+
+            <iframe id="frame-maths"
+                    class="pdf-frame">
+            </iframe>
+
+        </div>
+
+
+        <div class="source-note">
+            
+        </div>
+
+
+        <button class="close-btn"
+                onclick="closeSubjects()">
+            Close Subject
+        </button>
+
+    </div>
+
+
+    <!-- ================= PHYSICS ================= -->
+
+    <div id="physics" class="subject-section">
+
+        <div class="subject-title">
+            ⚛️ Engineering Physics
+        </div>
+
+        <div class="subject-code">
+            Subject Code: BT201
+        </div>
+
+        <div class="paper-list">
+
+            <div class="paper-card">
+                <h3>📄 2025</h3>
+                <p>June 2025 • BT201</p>
+
+                <button class="open-btn"
+                    onclick="openPDF(
+                    'https://rgpvinfo.com/wp-content/uploads/2026/03/bt-201-engineering-physics-jun-2025.pdf',
+                    'Engineering Physics — 2025'
+                    )">
+                    Open 2025 Paper
+                </button>
+            </div>
+
+
+            <div class="paper-card">
+                <h3>📄 2024</h3>
+                <p>December 2024 • BT201</p>
+
+                <button class="open-btn"
+                    onclick="openPDF(
+                    'https://rgpvinfo.com/wp-content/uploads/2026/03/bt-201-engineering-physics-dec-2024.pdf',
+                    'Engineering Physics — 2024'
+                    )">
+                    Open 2024 Paper
+                </button>
+            </div>
+
+
+            <div class="paper-card">
+                <h3>📄 2023</h3>
+                <p>December 2023 • BT201</p>
+
+                <button class="open-btn"
+                    onclick="openPDF(
+                    'https://rgpvinfo.com/wp-content/uploads/2026/03/bt-201-engineering-physics-dec-2023.pdf',
+                    'Engineering Physics — 2023'
+                    )">
+                    Open 2023 Paper
+                </button>
+            </div>
+
+        </div>
+
+
+        <div id="viewer-physics" class="viewer">
+
+            <div class="viewer-header">
+
+                <div class="viewer-title" id="title-physics">
+                    PDF
+                </div>
+
+                <button class="close-viewer"
+                        onclick="closePDF('physics')">
+                    ✕ Close
+                </button>
+
+            </div>
+
+            <iframe id="frame-physics"
+                    class="pdf-frame">
+            </iframe>
+
+        </div>
+
+
+        <div class="source-note">
+            
+        </div>
+
+
+        <button class="close-btn"
+                onclick="closeSubjects()">
+            Close Subject
+        </button>
+
+    </div>
+
+
+    <!-- ================= CHEMISTRY ================= -->
+
+    <div id="chemistry" class="subject-section">
+
+        <div class="subject-title">
+            🧪 Engineering Chemistry
+        </div>
+
+        <div class="subject-code">
+            Subject Code: BT101
+        </div>
+
+        <div class="paper-list">
+
+            <div class="paper-card">
+                <h3>📄 2025</h3>
+                <p>June 2025 • BT101</p>
+
+                <button class="open-btn"
+                    onclick="openPDF(
+                    'https://rgpvinfo.com/wp-content/uploads/2026/01/bt-101-engineering-chemistry-june-2025.pdf',
+                    'Engineering Chemistry — 2025'
+                    )">
+                    Open 2025 Paper
+                </button>
+            </div>
+
+
+            <div class="paper-card">
+                <h3>📄 2024</h3>
+                <p>December 2024 • BT101</p>
+
+                <button class="open-btn"
+                    onclick="openPDF(
+                    'https://rgpvinfo.com/wp-content/uploads/2026/01/bt-101-engineering-chemistry-dec-2024.pdf',
+                    'Engineering Chemistry — 2024'
+                    )">
+                    Open 2024 Paper
+                </button>
+            </div>
+
+
+            <div class="paper-card">
+                <h3>📄 2023</h3>
+                <p>December 2023 • BT101</p>
+
+                <button class="open-btn"
+                    onclick="openPDF(
+                    'https://rgpvinfo.com/wp-content/uploads/2026/01/bt-101-engineering-chemistry-dec-2023.pdf',
+                    'Engineering Chemistry — 2023'
+                    )">
+                    Open 2023 Paper
+                </button>
+            </div>
+
+        </div>
+
+
+        <div id="viewer-chemistry" class="viewer">
+
+            <div class="viewer-header">
+
+                <div class="viewer-title" id="title-chemistry">
+                    PDF
+                </div>
+
+                <button class="close-viewer"
+                        onclick="closePDF('chemistry')">
+                    ✕ Close
+                </button>
+
+            </div>
+
+            <iframe id="frame-chemistry"
+                    class="pdf-frame">
+            </iframe>
+
+        </div>
+
+
+        <div class="source-note">
+      
+        </div>
+
+
+        <button class="close-btn"
+                onclick="closeSubjects()">
+            Close Subject
+        </button>
+
+    </div>
+
+
+    <!-- ================= BEEE ================= -->
+
+    <div id="beee" class="subject-section">
+
+        <div class="subject-title">
+            ⚡ Basic Electrical & Electronics Engineering
+        </div>
+
+        <div class="subject-code">
+            Subject Code: BT104
+        </div>
+
+        <div class="paper-list">
+
+            <div class="paper-card">
+                <h3>📄 2025</h3>
+                <p>June 2025 • BT104</p>
+
+                <button class="open-btn"
+                    onclick="openPDF(
+                    'https://rgpvinfo.com/wp-content/uploads/2026/01/bt-104-basic-electrical-and-electronics-engineering-jun-2025.pdf',
+                    'BEEE — 2025'
+                    )">
+                    Open 2025 Paper
+                </button>
+            </div>
+
+
+            <div class="paper-card">
+                <h3>📄 2024</h3>
+                <p>December 2024 • BT104</p>
+
+                <button class="open-btn"
+                    onclick="openPDF(
+                    'https://rgpvinfo.com/wp-content/uploads/2026/01/bt-104-basic-electrical-and-electronics-engineering-dec-2024.pdf',
+                    'BEEE — 2024'
+                    )">
+                    Open 2024 Paper
+                </button>
+            </div>
+
+
+            <div class="paper-card">
+                <h3>📄 2023</h3>
+                <p>December 2023 • BT104</p>
+
+                <button class="open-btn"
+                    onclick="openPDF(
+                    'https://rgpvinfo.com/wp-content/uploads/2026/01/bt-104-basic-electrical-and-electronics-engineering-dec-2023.pdf',
+                    'BEEE — 2023'
+                    )">
+                    Open 2023 Paper
+                </button>
+            </div>
+
+        </div>
+
+
+        <div id="viewer-beee" class="viewer">
+
+            <div class="viewer-header">
+
+                <div class="viewer-title" id="title-beee">
+                    PDF
+                </div>
+
+                <button class="close-viewer"
+                        onclick="closePDF('beee')">
+                    ✕ Close
+                </button>
+
+            </div>
+
+            <iframe id="frame-beee"
+                    class="pdf-frame">
+            </iframe>
+
+        </div>
+
+
+        <div class="source-note">
+            📌 PDF same page ke andar open hogi.
+        </div>
+
+
+        <button class="close-btn"
+                onclick="closeSubjects()">
+            Close Subject
+        </button>
+
+    </div>
+
+
+    <!-- ================= ENGLISH ================= -->
+
+    <div id="english" class="subject-section">
+
+        <div class="subject-title">
+            📘 English for Communication
+        </div>
+
+        <div class="subject-code">
+            Subject Code: BT103
+        </div>
+
+        <div class="paper-list">
+
+            <div class="paper-card">
+                <h3>📄 2025</h3>
+                <p>June 2025 • BT103</p>
+
+                <button class="open-btn"
+                    onclick="openPDF(
+                    'https://rgpvinfo.com/wp-content/uploads/2026/01/bt-103-english-for-communication-june-2025.pdf',
+                    'English for Communication — 2025'
+                    )">
+                    Open 2025 Paper
+                </button>
+            </div>
+
+
+            <div class="paper-card">
+                <h3>📄 2024</h3>
+                <p>December 2024 • BT103</p>
+
+                <button class="open-btn"
+                    onclick="openPDF(
+                    'https://rgpvinfo.com/wp-content/uploads/2026/01/bt-103-english-for-communication-dec-2024.pdf',
+                    'English for Communication — 2024'
+                    )">
+                    Open 2024 Paper
+                </button>
+            </div>
+
+
+            <div class="paper-card">
+                <h3>📄 2023</h3>
+                <p>December 2023 • BT103</p>
+
+                <button class="open-btn"
+                    onclick="openPDF(
+                    'https://rgpvinfo.com/wp-content/uploads/2026/01/bt-103-english-for-communication-dec-2023.pdf',
+                    'English for Communication — 2023'
+                    )">
+                    Open 2023 Paper
+                </button>
+            </div>
+
+        </div>
+
+
+        <div id="viewer-english" class="viewer">
+
+            <div class="viewer-header">
+
+                <div class="viewer-title" id="title-english">
+                    PDF
+                </div>
+
+                <button class="close-viewer"
+                        onclick="closePDF('english')">
+                    ✕ Close
+                </button>
+
+            </div>
+
+            <iframe id="frame-english"
+                    class="pdf-frame">
+            </iframe>
+
+        </div>
+
+
+        <div class="source-note">
+        
+        </div>
+
+
+        <button class="close-btn"
+                onclick="closeSubjects()">
+            Close Subject
+        </button>
+
+    </div>
+
+
+    <!-- ================= GRAPHICS ================= -->
+
+    <div id="graphics" class="subject-section">
+
+        <div class="subject-title">
+            📏 Engineering Graphics
+        </div>
+
+        <div class="subject-code">
+            Subject Code: BT105
+        </div>
+
+        <div class="paper-list">
+
+            <div class="paper-card">
+                <h3>📄 2025</h3>
+                <p>June 2025 • BT105</p>
+
+                <button class="open-btn"
+                    onclick="openPDF(
+                    'https://rgpvinfo.com/wp-content/uploads/2026/01/bt-105-engineering-graphics-jun-2025.pdf',
+                    'Engineering Graphics — 2025'
+                    )">
+                    Open 2025 Paper
+                </button>
+            </div>
+
+
+            <div class="paper-card">
+                <h3>📄 2024</h3>
+                <p>December 2024 • BT105</p>
+
+                <button class="open-btn"
+                    onclick="openPDF(
+                    'https://rgpvinfo.com/wp-content/uploads/2026/01/bt-105-engineering-graphics-dec-2024.pdf',
+                    'Engineering Graphics — 2024'
+                    )">
+                    Open 2024 Paper
+                </button>
+            </div>
+
+
+            <div class="paper-card">
+                <h3>📄 2023</h3>
+                <p>December 2023 • BT105</p>
+
+                <button class="open-btn"
+                    onclick="openPDF(
+                    'https://rgpvinfo.com/wp-content/uploads/2026/01/bt-105-engineering-graphics-dec-2023.pdf',
+                    'Engineering Graphics — 2023'
+                    )">
+                    Open 2023 Paper
+                </button>
+            </div>
+
+        </div>
+
+
+        <div id="viewer-graphics" class="viewer">
+
+            <div class="viewer-header">
+
+                <div class="viewer-title" id="title-graphics">
+                    PDF
+                </div>
+
+                <button class="close-viewer"
+                        onclick="closePDF('graphics')">
+                    ✕ Close
+                </button>
+
+            </div>
+
+            <iframe id="frame-graphics"
+                    class="pdf-frame">
+            </iframe>
+
+        </div>
+
+
+        <div class="source-note">
+            .
+        </div>
+
+
+        <button class="close-btn"
+                onclick="closeSubjects()">
+            Close Subject
+        </button>
+
+    </div>
+
+</div>
+
+
+<div class="footer">
+
+    <p>
+        © 2026 ShikshaSetu • Engineering PYQs
+    </p>
+
+</div>
+
+
+<script>
+
+/* OPEN SUBJECT */
+
+function openSubject(id){
+
+    closeSubjects();
+
+    const section=document.getElementById(id);
+
+    if(section){
+
+        section.classList.add("active");
+
+        section.scrollIntoView({
+            behavior:"smooth",
+            block:"start"
+        });
+
+    }
+
+}
+
+
+/* CLOSE SUBJECT */
+
+function closeSubjects(){
+
+    document
+    .querySelectorAll(".subject-section")
+    .forEach(section=>{
+        section.classList.remove("active");
+    });
+
+    document
+    .querySelectorAll(".viewer")
+    .forEach(viewer=>{
+        viewer.classList.remove("active");
+    });
+
+}
+
+
+/* OPEN PDF INSIDE SAME PAGE */
+
+function openPDF(url,title){
+
+    /*
+       Sabhi viewers ko hide karo
+    */
+
+    document
+    .querySelectorAll(".viewer")
+    .forEach(viewer=>{
+        viewer.classList.remove("active");
+    });
+
+
+    /*
+       Current subject identify karo
+    */
+
+    let currentSubject="";
+
+    const sections=[
+        "maths",
+        "physics",
+        "chemistry",
+        "beee",
+        "english",
+        "graphics"
+    ];
+
+    for(let id of sections){
+
+        const section=document.getElementById(id);
+
+        if(section.classList.contains("active")){
+            currentSubject=id;
+            break;
+        }
+
+    }
+
+
+    if(currentSubject===""){
+        return;
+    }
+
+
+    /*
+       PDF iframe mein load karo
+    */
+
+    const frame=document.getElementById(
+        "frame-"+currentSubject
+    );
+
+    const viewer=document.getElementById(
+        "viewer-"+currentSubject
+    );
+
+    const titleElement=document.getElementById(
+        "title-"+currentSubject
+    );
+
+
+    frame.src=url;
+
+    titleElement.innerText=title;
+
+    viewer.classList.add("active");
+
+
+    /*
+       PDF viewer tak automatically scroll
+    */
+
+    setTimeout(function(){
+
+        viewer.scrollIntoView({
+            behavior:"smooth",
+            block:"start"
+        });
+
+    },100);
+
+}
+
+
+/* CLOSE PDF */
+
+function closePDF(subject){
+
+    const viewer=document.getElementById(
+        "viewer-"+subject
+    );
+
+    const frame=document.getElementById(
+        "frame-"+subject
+    );
+
+    viewer.classList.remove("active");
+
+    frame.src="";
+
+}
+
+</script>
+
+</body>
+</html>
+```

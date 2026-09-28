@@ -1,0 +1,236 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>ShikshaSetu | Class 12</title>
+
+  <link rel="stylesheet" href="../style.css">
+
+  <style>
+    .subject-page {
+      max-width: 1100px;
+      margin: auto;
+      padding: 55px 20px;
+    }
+
+    .subject-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .subject-header h1 {
+      color: #294b66;
+      font-size: 38px;
+      margin: 12px 0;
+    }
+
+    .subject-header p {
+      color: #607d94;
+      line-height: 1.6;
+    }
+
+    .subject-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .subject-card {
+      background: white;
+      border: 1px solid #e0edf5;
+      border-radius: 18px;
+      padding: 28px;
+      text-align: center;
+      box-shadow: 0 8px 25px rgba(23, 105, 170, 0.08);
+      transition: 0.25s;
+    }
+
+    .subject-card:hover {
+      transform: translateY(-5px);
+      border-color: #3199df;
+    }
+
+    .subject-icon {
+      font-size: 40px;
+      margin-bottom: 15px;
+    }
+
+    .subject-card h3 {
+      color: #294b66;
+      margin: 8px 0;
+    }
+
+    .subject-card p {
+      color: #71879a;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .subject-button {
+      display: inline-block;
+      margin-top: 12px;
+      padding: 10px 18px;
+      background: #1769aa;
+      color: white;
+      border-radius: 9px;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .back {
+      text-align: center;
+      margin-top: 35px;
+    }
+
+    .back a {
+      color: #1769aa;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    @media(max-width: 800px) {
+      .subject-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media(max-width: 550px) {
+      .subject-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<script>
+  if (localStorage.getItem("shikshaSetuLoggedIn") !== "true") {
+    window.location.href = "login.html";
+  }
+</script>
+
+<header class="topbar">
+
+  <div class="brand">
+    <div class="brand-icon">S</div>
+
+    <div>
+      <strong>ShikshaSetu</strong>
+      <small>Class 12 Learning Hub</small>
+    </div>
+  </div>
+
+  <div class="top-actions">
+
+    <span class="network-badge">
+      ● Online
+    </span>
+
+    <a href="dashboard.html" class="btn btn-outline">
+      Dashboard
+    </a>
+
+  </div>
+
+</header>
+
+
+<main class="subject-page">
+
+  <section class="subject-header">
+
+    <span class="eyebrow">
+      SCHOOL • CLASS 12
+    </span>
+
+    <h1>
+      Class 12 Learning Hub 🎓
+    </h1>
+
+    <p>
+      Prepare for board examinations with subject-wise
+      notes, important questions, PYQs and revision material.
+    </p>
+
+  </section>
+
+
+  <section class="subject-grid">
+
+    <div class="subject-card">
+      <div class="subject-icon">📐</div>
+      <h3>Mathematics</h3>
+      <p>Important formulas, concepts and board exam practice.</p>
+      <a href="maths-12.html" class="subject-button">Open →</a>
+    </div>
+
+
+    <div class="subject-card">
+      <div class="subject-icon">⚡</div>
+      <h3>Physics</h3>
+      <p>Important concepts, formulas and numerical questions.</p>
+      <a href="physics-12.html" class="subject-button">Open →</a>
+    </div>
+
+
+    <div class="subject-card">
+      <div class="subject-icon">🧪</div>
+      <h3>Chemistry</h3>
+      <p>Reactions, concepts and important board topics.</p>
+      <a href="chemistry-12.html" class="subject-button">Open →</a>
+    </div>
+
+
+    <div class="subject-card">
+      <div class="subject-icon">💻</div>
+      <h3>Computer Science</h3>
+      <p>Programming, databases and important computer concepts.</p>
+      <a href="computer-12.html" class="subject-button">Open →</a>
+    </div>
+
+
+    <div class="subject-card">
+      <div class="subject-icon">📝</div>
+      <h3>Previous Year Questions</h3>
+      <p>Practice important questions from previous examinations.</p>
+      <a href="pyq-12.html" class="subject-button">View PYQs →</a>
+    </div>
+
+
+    <div class="subject-card">
+      <div class="subject-icon">🎯</div>
+      <h3>Board Revision</h3>
+      <p>Quick revision notes and important examination topics.</p>
+      <a href="revision-12.html" class="subject-button">Revise →</a>
+    </div>
+
+  </section>
+
+
+  <div class="back">
+    <a href="school-class.html">
+      ← Back to Class Selection
+    </a>
+  </div>
+
+</main>
+
+
+<footer class="footer">
+
+  <b>ShikshaSetu</b>
+  —
+  Learn Anywhere. In Your Language. With or Without Internet.
+
+</footer>
+
+<script src="../app.js"></script>
+
+</body>
+</html>
+```

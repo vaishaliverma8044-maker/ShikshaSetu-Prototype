@@ -1,0 +1,834 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Class 11 Practice Questions | ShikshaSetu</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #f4f9ff;
+      color: #222;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #3199df;
+      color: white;
+      padding: 18px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h2 {
+      font-size: 22px;
+    }
+
+    header a {
+      color: white;
+      text-decoration: none;
+      background: rgba(255,255,255,0.18);
+      padding: 9px 16px;
+      border-radius: 8px;
+    }
+
+    .container {
+      width: 92%;
+      max-width: 950px;
+      margin: 30px auto;
+    }
+
+    .back {
+      display: inline-block;
+      margin-bottom: 20px;
+      color: #1976b9;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .hero {
+      background: white;
+      padding: 25px;
+      border-radius: 15px;
+      margin-bottom: 25px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+    }
+
+    .hero h1 {
+      color: #1976b9;
+      margin-bottom: 8px;
+    }
+
+    .hero p {
+      color: #555;
+    }
+
+    .note {
+      background: #fff8e1;
+      border-left: 5px solid #ffb300;
+      padding: 14px;
+      border-radius: 7px;
+      margin-top: 15px;
+    }
+
+    .section {
+      background: white;
+      padding: 25px;
+      border-radius: 15px;
+      margin-bottom: 22px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.07);
+    }
+
+    .section h2 {
+      color: #1976b9;
+      border-bottom: 2px solid #d9efff;
+      padding-bottom: 8px;
+      margin-bottom: 18px;
+    }
+
+    .question {
+      border: 1px solid #dcefff;
+      border-radius: 10px;
+      padding: 17px;
+      margin-bottom: 15px;
+      background: #f9fcff;
+    }
+
+    .question p {
+      margin-bottom: 10px;
+    }
+
+    .options {
+      margin: 10px 0;
+      padding-left: 10px;
+    }
+
+    .options label {
+      display: block;
+      padding: 7px;
+      cursor: pointer;
+    }
+
+    .answer {
+      display: none;
+      margin-top: 12px;
+      padding: 12px;
+      background: #eef8ff;
+      border-left: 4px solid #3199df;
+      border-radius: 6px;
+    }
+
+    button {
+      border: none;
+      background: #3199df;
+      color: white;
+      padding: 9px 16px;
+      border-radius: 7px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    button:hover {
+      opacity: 0.9;
+    }
+
+    .short-answer {
+      background: #f7f7f7;
+      padding: 12px;
+      border-radius: 7px;
+      margin-top: 10px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      color: #777;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h2>🎓 ShikshaSetu</h2>
+  <a href="11th-dashboard.html">← Back</a>
+</header>
+
+<div class="container">
+
+  <a href="11th-dashboard.html" class="back">
+    ← Back to Class 11 Dashboard
+  </a>
+
+  <section class="hero">
+
+    <h1>📝 Class 11 Exam Practice</h1>
+
+    <p>
+      MP Board | Physics • Chemistry • Mathematics • Computer
+    </p>
+
+    <div class="note">
+      <b>Important:</b>
+      These are MP Board-style practice questions for preparation.
+      They are not being represented as verbatim official previous-year
+      question papers.
+    </div>
+
+  </section>
+
+
+  <!-- OBJECTIVE -->
+
+  <section class="section">
+
+    <h2>1️⃣ Objective Questions</h2>
+
+    <!-- Q1 -->
+
+    <div class="question">
+
+      <p>
+        <b>Q1.</b> The SI unit of force is:
+      </p>
+
+      <div class="options">
+        <label>
+          <input type="radio" name="q1">
+          A. Joule
+        </label>
+
+        <label>
+          <input type="radio" name="q1">
+          B. Newton
+        </label>
+
+        <label>
+          <input type="radio" name="q1">
+          C. Watt
+        </label>
+
+        <label>
+          <input type="radio" name="q1">
+          D. Pascal
+        </label>
+      </div>
+
+      <button onclick="showAnswer('a1')">
+        Show Answer
+      </button>
+
+      <div class="answer" id="a1">
+        <b>Answer:</b> B. Newton
+      </div>
+
+    </div>
+
+
+    <!-- Q2 -->
+
+    <div class="question">
+
+      <p>
+        <b>Q2.</b> The value of i² is:
+      </p>
+
+      <div class="options">
+
+        <label>
+          <input type="radio" name="q2">
+          A. 1
+        </label>
+
+        <label>
+          <input type="radio" name="q2">
+          B. 0
+        </label>
+
+        <label>
+          <input type="radio" name="q2">
+          C. −1
+        </label>
+
+        <label>
+          <input type="radio" name="q2">
+          D. 2
+        </label>
+
+      </div>
+
+      <button onclick="showAnswer('a2')">
+        Show Answer
+      </button>
+
+      <div class="answer" id="a2">
+        <b>Answer:</b> C. −1
+      </div>
+
+    </div>
+
+
+    <!-- Q3 -->
+
+    <div class="question">
+
+      <p>
+        <b>Q3.</b> One mole of a substance contains approximately:
+      </p>
+
+      <div class="options">
+
+        <label>
+          <input type="radio" name="q3">
+          A. 6.022 × 10²³ particles
+        </label>
+
+        <label>
+          <input type="radio" name="q3">
+          B. 6.022 × 10² particles
+        </label>
+
+        <label>
+          <input type="radio" name="q3">
+          C. 3.14 × 10²³ particles
+        </label>
+
+        <label>
+          <input type="radio" name="q3">
+          D. 9.8 × 10²³ particles
+        </label>
+
+      </div>
+
+      <button onclick="showAnswer('a3')">
+        Show Answer
+      </button>
+
+      <div class="answer" id="a3">
+        <b>Answer:</b> A. 6.022 × 10²³ particles
+      </div>
+
+    </div>
+
+
+    <!-- Q4 -->
+
+    <div class="question">
+
+      <p>
+        <b>Q4.</b> Which Python function is used to display output?
+      </p>
+
+      <div class="options">
+
+        <label>
+          <input type="radio" name="q4">
+          A. input()
+        </label>
+
+        <label>
+          <input type="radio" name="q4">
+          B. display()
+        </label>
+
+        <label>
+          <input type="radio" name="q4">
+          C. print()
+        </label>
+
+        <label>
+          <input type="radio" name="q4">
+          D. output()
+        </label>
+
+      </div>
+
+      <button onclick="showAnswer('a4')">
+        Show Answer
+      </button>
+
+      <div class="answer" id="a4">
+        <b>Answer:</b> C. print()
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- VERY SHORT -->
+
+  <section class="section">
+
+    <h2>2️⃣ Very Short Answer Questions</h2>
+
+    <div class="question">
+
+      <p>
+        <b>Q5.</b> What is displacement?
+      </p>
+
+      <button onclick="showAnswer('a5')">
+        Show Answer
+      </button>
+
+      <div class="answer" id="a5">
+        <b>Answer:</b>
+        Displacement is the shortest directed distance between
+        the initial and final positions of an object.
+      </div>
+
+    </div>
+
+
+    <div class="question">
+
+      <p>
+        <b>Q6.</b> What is a mole?
+      </p>
+
+      <button onclick="showAnswer('a6')">
+        Show Answer
+      </button>
+
+      <div class="answer" id="a6">
+        <b>Answer:</b>
+        A mole is the amount of substance containing approximately
+        6.022 × 10²³ elementary particles.
+      </div>
+
+    </div>
+
+
+    <div class="question">
+
+      <p>
+        <b>Q7.</b> What is a primary key?
+      </p>
+
+      <button onclick="showAnswer('a7')">
+        Show Answer
+      </button>
+
+      <div class="answer" id="a7">
+        <b>Answer:</b>
+        A primary key is a field or combination of fields that
+        uniquely identifies a record in a relational table.
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- 2 MARK -->
+
+  <section class="section">
+
+    <h2>3️⃣ Short Answer Questions — 2 Marks</h2>
+
+    <div class="question">
+
+      <p>
+        <b>Q8.</b>
+        Write any two differences between distance and displacement.
+      </p>
+
+      <button onclick="showAnswer('a8')">
+        Show Answer
+      </button>
+
+      <div class="answer" id="a8">
+
+        <b>Answer:</b>
+
+        <div class="short-answer">
+          1. Distance is a scalar quantity, while displacement is
+          a vector quantity.
+          <br><br>
+          2. Distance represents the total path travelled, while
+          displacement represents the directed change in position.
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="question">
+
+      <p>
+        <b>Q9.</b>
+        Write two important properties of a chemical bond.
+      </p>
+
+      <button onclick="showAnswer('a9')">
+        Show Answer
+      </button>
+
+      <div class="answer" id="a9">
+
+        <b>Answer:</b>
+
+        <div class="short-answer">
+          A chemical bond is an attractive interaction that holds
+          atoms or ions together. Bond formation generally results
+          in a more stable electronic arrangement.
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="question">
+
+      <p>
+        <b>Q10.</b>
+        What is the difference between a list and a dictionary in Python?
+      </p>
+
+      <button onclick="showAnswer('a10')">
+        Show Answer
+      </button>
+
+      <div class="answer" id="a10">
+
+        <b>Answer:</b>
+
+        <div class="short-answer">
+          A list stores elements in an ordered sequence using indexes,
+          whereas a dictionary stores data as key-value pairs.
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- NUMERICAL -->
+
+  <section class="section">
+
+    <h2>4️⃣ Numerical Practice</h2>
+
+    <div class="question">
+
+      <p>
+        <b>Q11.</b>
+        A body starts from rest and moves with an acceleration of
+        2 m/s² for 5 seconds. Find its final velocity.
+      </p>
+
+      <button onclick="showAnswer('a11')">
+        Show Solution
+      </button>
+
+      <div class="answer" id="a11">
+
+        <b>Solution:</b>
+
+        <div class="short-answer">
+
+          Given:
+          <br>
+          u = 0 m/s
+          <br>
+          a = 2 m/s²
+          <br>
+          t = 5 s
+
+          <br><br>
+
+          Formula:
+          <br>
+          v = u + at
+
+          <br><br>
+
+          v = 0 + (2 × 5)
+
+          <br><br>
+
+          <b>v = 10 m/s</b>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="question">
+
+      <p>
+        <b>Q12.</b>
+        Find the kinetic energy of a 5 kg body moving with a
+        velocity of 4 m/s.
+      </p>
+
+      <button onclick="showAnswer('a12')">
+        Show Solution
+      </button>
+
+      <div class="answer" id="a12">
+
+        <b>Solution:</b>
+
+        <div class="short-answer">
+
+          Given:
+          <br>
+          m = 5 kg
+          <br>
+          v = 4 m/s
+
+          <br><br>
+
+          K.E. = ½mv²
+
+          <br><br>
+
+          = ½ × 5 × 4²
+
+          <br>
+
+          = 2.5 × 16
+
+          <br>
+
+          <b>= 40 J</b>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- LONG ANSWER -->
+
+  <section class="section">
+
+    <h2>5️⃣ Long Answer Practice</h2>
+
+    <div class="question">
+
+      <p>
+        <b>Q13.</b>
+        State and explain Newton's three laws of motion with
+        suitable examples.
+      </p>
+
+      <button onclick="showAnswer('a13')">
+        Show Answer
+      </button>
+
+      <div class="answer" id="a13">
+
+        <b>Answer:</b>
+
+        <div class="short-answer">
+
+          <b>First Law:</b>
+          An object remains at rest or in uniform motion in a straight
+          line unless acted upon by an external unbalanced force.
+
+          <br><br>
+
+          <b>Second Law:</b>
+          The rate of change of momentum is related to the applied force.
+          For constant mass:
+
+          <br><br>
+
+          <b>F = ma</b>
+
+          <br><br>
+
+          <b>Third Law:</b>
+          For every action there is an equal and opposite reaction.
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="question">
+
+      <p>
+        <b>Q14.</b>
+        Explain the mole concept and write its importance in
+        chemical calculations.
+      </p>
+
+      <button onclick="showAnswer('a14')">
+        Show Answer
+      </button>
+
+      <div class="answer" id="a14">
+
+        <b>Answer:</b>
+
+        <div class="short-answer">
+
+          A mole is a unit for measuring the amount of substance.
+          One mole contains approximately 6.022 × 10²³ elementary
+          particles.
+
+          <br><br>
+
+          The mole concept helps in relating the mass of a substance
+          to the number of particles and is widely used in
+          stoichiometric calculations.
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="question">
+
+      <p>
+        <b>Q15.</b>
+        Explain Python conditional statements with an example.
+      </p>
+
+      <button onclick="showAnswer('a15')">
+        Show Answer
+      </button>
+
+      <div class="answer" id="a15">
+
+        <b>Answer:</b>
+
+        <div class="short-answer">
+
+          Conditional statements allow a program to execute different
+          blocks depending on a condition.
+
+          <br><br>
+
+          Example:
+
+          <pre>
+marks = 60
+
+if marks >= 40:
+    print("Pass")
+else:
+    print("Fail")
+          </pre>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- REVISION TEST -->
+
+  <section class="section">
+
+    <h2>🎯 Quick Test</h2>
+
+    <div class="question">
+
+      <p>
+        <b>1.</b> What is the SI unit of work?
+      </p>
+
+      <button onclick="showAnswer('a16')">
+        Show Answer
+      </button>
+
+      <div class="answer" id="a16">
+        <b>Answer:</b> Joule (J)
+      </div>
+
+    </div>
+
+
+    <div class="question">
+
+      <p>
+        <b>2.</b> What is the general formula of alkanes?
+      </p>
+
+      <button onclick="showAnswer('a17')">
+        Show Answer
+      </button>
+
+      <div class="answer" id="a17">
+        <b>Answer:</b> CₙH₂ₙ₊₂
+      </div>
+
+    </div>
+
+
+    <div class="question">
+
+      <p>
+        <b>3.</b> Which Python keyword is used for a condition?
+      </p>
+
+      <button onclick="showAnswer('a18')">
+        Show Answer
+      </button>
+
+      <div class="answer" id="a18">
+        <b>Answer:</b> if
+      </div>
+
+    </div>
+
+  </section>
+
+</div>
+
+
+<footer>
+  © 2026 ShikshaSetu | MP Board Learning Resources
+</footer>
+
+
+<script>
+
+  function showAnswer(id) {
+
+    const answer = document.getElementById(id);
+
+    if (answer.style.display === "block") {
+      answer.style.display = "none";
+    } else {
+      answer.style.display = "block";
+    }
+
+  }
+
+</script>
+
+</body>
+</html>
+```

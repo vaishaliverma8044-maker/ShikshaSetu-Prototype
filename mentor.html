@@ -1,0 +1,1507 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Digital Mentoring | ShikshaSetu</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f4f8fc;
+      color: #172033;
+      line-height: 1.5;
+    }
+
+    button,
+    input,
+    textarea,
+    select {
+      font-family: inherit;
+    }
+
+    /* ================= HEADER ================= */
+
+    .header {
+      background: linear-gradient(135deg, #1687e8, #1769d2);
+      color: white;
+      padding: 18px 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      box-shadow: 0 4px 15px rgba(0, 70, 150, 0.15);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-icon {
+      width: 45px;
+      height: 45px;
+      background: white;
+      color: #1679dd;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .brand h1 {
+      font-size: 22px;
+    }
+
+    .brand p {
+      font-size: 12px;
+      opacity: 0.9;
+    }
+
+    .back-btn {
+      text-decoration: none;
+      color: white;
+      border: 1px solid rgba(255,255,255,0.5);
+      padding: 9px 16px;
+      border-radius: 9px;
+      transition: 0.2s;
+      white-space: nowrap;
+    }
+
+    .back-btn:hover {
+      background: rgba(255,255,255,0.15);
+    }
+
+    /* ================= HERO ================= */
+
+    .hero {
+      background: linear-gradient(135deg, #e9f5ff, #ffffff);
+      padding: 42px 5%;
+      text-align: center;
+      border-bottom: 1px solid #dceaf6;
+    }
+
+    .hero-icon {
+      width: 72px;
+      height: 72px;
+      margin: auto;
+      background: #dff1ff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 36px;
+      margin-bottom: 15px;
+    }
+
+    .hero h2 {
+      font-size: clamp(26px, 4vw, 38px);
+      color: #1269bd;
+      margin-bottom: 8px;
+    }
+
+    .hero p {
+      max-width: 720px;
+      margin: auto;
+      color: #5c6878;
+      font-size: 16px;
+    }
+
+    /* ================= CONTAINER ================= */
+
+    .container {
+      width: 92%;
+      max-width: 1200px;
+      margin: 30px auto 60px;
+    }
+
+    .section-title {
+      font-size: 23px;
+      color: #153b65;
+      margin-bottom: 16px;
+    }
+
+    .section-subtitle {
+      color: #6a7482;
+      margin-top: -8px;
+      margin-bottom: 20px;
+      font-size: 14px;
+    }
+
+    /* ================= GOALS ================= */
+
+    .goal-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 15px;
+      margin-bottom: 35px;
+    }
+
+    .goal-card {
+      background: white;
+      border: 1px solid #e1ebf4;
+      border-radius: 15px;
+      padding: 22px 15px;
+      text-align: center;
+      cursor: pointer;
+      transition: 0.25s;
+      box-shadow: 0 4px 14px rgba(32, 85, 130, 0.06);
+    }
+
+    .goal-card:hover {
+      transform: translateY(-4px);
+      border-color: #43a4ed;
+      box-shadow: 0 8px 22px rgba(22, 126, 220, 0.12);
+    }
+
+    .goal-card.active {
+      border: 2px solid #1785e5;
+      background: #eff8ff;
+    }
+
+    .goal-icon {
+      font-size: 30px;
+      margin-bottom: 10px;
+    }
+
+    .goal-card h3 {
+      font-size: 15px;
+      color: #183c60;
+      margin-bottom: 5px;
+    }
+
+    .goal-card p {
+      font-size: 12px;
+      color: #75808d;
+    }
+
+    /* ================= DASHBOARD GRID ================= */
+
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 0.8fr;
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+
+    .card {
+      background: white;
+      border: 1px solid #e0eaf3;
+      border-radius: 16px;
+      padding: 22px;
+      box-shadow: 0 5px 18px rgba(35, 80, 120, 0.06);
+    }
+
+    .card h3 {
+      color: #183f66;
+      margin-bottom: 6px;
+      font-size: 19px;
+    }
+
+    .card-desc {
+      color: #76818e;
+      font-size: 13px;
+      margin-bottom: 18px;
+    }
+
+    /* ================= TODAY GOAL ================= */
+
+    .today-box {
+      background: linear-gradient(135deg, #eef8ff, #f9fcff);
+      border: 1px solid #cfe8fb;
+      border-radius: 12px;
+      padding: 18px;
+      margin-bottom: 15px;
+    }
+
+    .today-label {
+      color: #1782db;
+      font-size: 12px;
+      font-weight: bold;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .today-box h4 {
+      color: #193e62;
+      font-size: 18px;
+      margin-bottom: 6px;
+    }
+
+    .today-box p {
+      color: #697786;
+      font-size: 13px;
+    }
+
+    .progress-area {
+      margin-top: 16px;
+    }
+
+    .progress-top {
+      display: flex;
+      justify-content: space-between;
+      font-size: 13px;
+      color: #596777;
+      margin-bottom: 7px;
+    }
+
+    .progress-bar {
+      height: 9px;
+      background: #e6edf4;
+      border-radius: 20px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      width: 65%;
+      height: 100%;
+      background: linear-gradient(90deg, #1689e9, #46b0f5);
+      border-radius: 20px;
+      transition: width 0.5s;
+    }
+
+    /* ================= MENTOR ================= */
+
+    .mentor-box {
+      display: flex;
+      gap: 15px;
+      align-items: center;
+      padding: 15px;
+      background: #f7fbff;
+      border: 1px solid #dfedf8;
+      border-radius: 13px;
+    }
+
+    .mentor-avatar {
+      width: 62px;
+      height: 62px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #1788e8, #55b6f5);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 25px;
+      flex-shrink: 0;
+    }
+
+    .mentor-info h4 {
+      color: #173d61;
+      font-size: 16px;
+      margin-bottom: 3px;
+    }
+
+    .mentor-info p {
+      color: #6c7784;
+      font-size: 12px;
+    }
+
+    .verified {
+      color: #1280d8;
+      font-size: 11px;
+      font-weight: bold;
+      margin-top: 4px;
+    }
+
+    /* ================= WEEKLY PLAN ================= */
+
+    .week-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 8px;
+      margin-top: 15px;
+    }
+
+    .day {
+      border: 1px solid #dfebf4;
+      border-radius: 10px;
+      padding: 10px 5px;
+      text-align: center;
+      background: #fafcff;
+      cursor: pointer;
+    }
+
+    .day:hover {
+      border-color: #62b5ef;
+    }
+
+    .day.done {
+      background: #e9f7ef;
+      border-color: #a6dfbf;
+    }
+
+    .day-name {
+      font-size: 11px;
+      color: #778391;
+    }
+
+    .day-icon {
+      font-size: 18px;
+      margin: 6px 0;
+    }
+
+    .day-task {
+      font-size: 10px;
+      color: #526273;
+    }
+
+    /* ================= RECOMMENDATIONS ================= */
+
+    .resource-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+      margin-bottom: 30px;
+    }
+
+    .resource-card {
+      border: 1px solid #dfebf4;
+      border-radius: 13px;
+      padding: 18px;
+      background: white;
+      transition: 0.2s;
+    }
+
+    .resource-card:hover {
+      transform: translateY(-3px);
+      border-color: #4da9ea;
+    }
+
+    .resource-icon {
+      font-size: 27px;
+      margin-bottom: 8px;
+    }
+
+    .resource-card h4 {
+      color: #1b4165;
+      margin-bottom: 5px;
+    }
+
+    .resource-card p {
+      font-size: 12px;
+      color: #707c89;
+      margin-bottom: 12px;
+    }
+
+    .resource-link {
+      display: inline-block;
+      text-decoration: none;
+      color: white;
+      background: #1785df;
+      padding: 8px 12px;
+      border-radius: 7px;
+      font-size: 12px;
+    }
+
+    .resource-link:hover {
+      background: #096bbd;
+    }
+
+    /* ================= QUESTIONS ================= */
+
+    .question-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+
+    textarea,
+    input,
+    select {
+      width: 100%;
+      border: 1px solid #d7e3ed;
+      border-radius: 9px;
+      padding: 11px 12px;
+      outline: none;
+      background: #fbfdff;
+      color: #27384a;
+      font-size: 14px;
+    }
+
+    textarea {
+      min-height: 115px;
+      resize: vertical;
+    }
+
+    textarea:focus,
+    input:focus,
+    select:focus {
+      border-color: #2995e7;
+      box-shadow: 0 0 0 3px rgba(41,149,231,0.08);
+    }
+
+    .form-group {
+      margin-bottom: 13px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 12px;
+      color: #566678;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    .primary-btn {
+      border: none;
+      background: linear-gradient(135deg, #1689e8, #126fc9);
+      color: white;
+      padding: 11px 18px;
+      border-radius: 9px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: 0.2s;
+    }
+
+    .primary-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 5px 13px rgba(22,137,232,0.22);
+    }
+
+    .secondary-btn {
+      border: 1px solid #bfdced;
+      background: #f5fbff;
+      color: #1774b9;
+      padding: 10px 16px;
+      border-radius: 9px;
+      cursor: pointer;
+      font-size: 13px;
+    }
+
+    /* ================= GUIDANCE RESPONSE ================= */
+
+    .guidance-result {
+      display: none;
+      margin-top: 15px;
+      padding: 14px;
+      border-radius: 10px;
+      background: #eaf7ff;
+      border: 1px solid #c6e7fa;
+      color: #24516f;
+      font-size: 13px;
+    }
+
+    .guidance-result.show {
+      display: block;
+    }
+
+    /* ================= FEATURES ================= */
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-bottom: 35px;
+    }
+
+    .feature {
+      background: white;
+      border-radius: 13px;
+      border: 1px solid #e1eaf2;
+      padding: 17px;
+      text-align: center;
+    }
+
+    .feature-icon {
+      font-size: 25px;
+      margin-bottom: 7px;
+    }
+
+    .feature h4 {
+      font-size: 14px;
+      color: #1a4164;
+      margin-bottom: 4px;
+    }
+
+    .feature p {
+      font-size: 11px;
+      color: #788492;
+    }
+
+    /* ================= FOOTER ================= */
+
+    footer {
+      text-align: center;
+      padding: 25px 15px;
+      background: #eaf4fc;
+      border-top: 1px solid #d9e8f4;
+      color: #6d7b89;
+      font-size: 12px;
+    }
+
+    footer strong {
+      color: #1978c5;
+    }
+
+    /* ================= TOAST ================= */
+
+    .toast {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      background: #173f63;
+      color: white;
+      padding: 13px 17px;
+      border-radius: 9px;
+      font-size: 13px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.18);
+      transform: translateY(100px);
+      opacity: 0;
+      transition: 0.3s;
+      z-index: 999;
+      max-width: 330px;
+    }
+
+    .toast.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    /* ================= TABLET ================= */
+
+    @media (max-width: 900px) {
+
+      .goal-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .dashboard-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .resource-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .features {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .question-section {
+        grid-template-columns: 1fr;
+      }
+
+      .week-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    /* ================= MOBILE ================= */
+
+    @media (max-width: 600px) {
+
+      .header {
+        padding: 14px 4%;
+      }
+
+      .brand h1 {
+        font-size: 18px;
+      }
+
+      .brand p {
+        font-size: 10px;
+      }
+
+      .brand-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 21px;
+      }
+
+      .back-btn {
+        padding: 8px 11px;
+        font-size: 12px;
+      }
+
+      .hero {
+        padding: 30px 5%;
+      }
+
+      .hero-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 29px;
+      }
+
+      .hero p {
+        font-size: 14px;
+      }
+
+      .container {
+        width: 94%;
+        margin-top: 22px;
+      }
+
+      .section-title {
+        font-size: 20px;
+      }
+
+      .goal-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+      }
+
+      .goal-card {
+        padding: 17px 9px;
+      }
+
+      .goal-icon {
+        font-size: 25px;
+      }
+
+      .goal-card h3 {
+        font-size: 13px;
+      }
+
+      .goal-card p {
+        font-size: 10px;
+      }
+
+      .card {
+        padding: 16px;
+      }
+
+      .week-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .resource-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .features {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .feature {
+        padding: 14px 8px;
+      }
+
+      .feature h4 {
+        font-size: 12px;
+      }
+
+      .feature p {
+        font-size: 10px;
+      }
+
+      .mentor-box {
+        align-items: flex-start;
+      }
+
+      .toast {
+        left: 15px;
+        right: 15px;
+        bottom: 15px;
+        max-width: none;
+      }
+    }
+
+    /* ================= SMALL MOBILE ================= */
+
+    @media (max-width: 380px) {
+
+      .header {
+        align-items: flex-start;
+      }
+
+      .brand {
+        gap: 8px;
+      }
+
+      .brand h1 {
+        font-size: 16px;
+      }
+
+      .back-btn {
+        font-size: 11px;
+        padding: 7px 9px;
+      }
+
+      .goal-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .features {
+        grid-template-columns: 1fr;
+      }
+
+      .week-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ================= HEADER ================= -->
+
+  <header class="header">
+
+    <div class="brand">
+      <div class="brand-icon">S</div>
+
+      <div>
+        <h1>ShikshaSetu</h1>
+        <p>Digital Mentoring</p>
+      </div>
+    </div>
+
+    <a href="./learning.html" class="back-btn">
+      ← Back
+    </a>
+
+  </header>
+
+
+  <!-- ================= HERO ================= -->
+
+  <section class="hero">
+
+    <div class="hero-icon">🤝</div>
+
+    <h2>Your Digital Mentor</h2>
+
+    <p>
+      Set your goals, follow a learning plan, ask for guidance,
+      and discover resources that help you move towards your academic
+      and career goals.
+    </p>
+
+  </section>
+
+
+  <main class="container">
+
+    <!-- ================= GOAL ================= -->
+
+    <h2 class="section-title">
+      🎯 What is your goal?
+    </h2>
+
+    <p class="section-subtitle">
+      Select a goal to personalize your mentoring dashboard.
+    </p>
+
+    <div class="goal-grid">
+
+      <div class="goal-card active" onclick="selectGoal(this, 'Improve Studies')">
+        <div class="goal-icon">📚</div>
+        <h3>Improve Studies</h3>
+        <p>Build stronger concepts</p>
+      </div>
+
+      <div class="goal-card" onclick="selectGoal(this, 'Learn Coding')">
+        <div class="goal-icon">💻</div>
+        <h3>Learn Coding</h3>
+        <p>Programming & DSA</p>
+      </div>
+
+      <div class="goal-card" onclick="selectGoal(this, 'Career Preparation')">
+        <div class="goal-icon">🎯</div>
+        <h3>Career Preparation</h3>
+        <p>Plan your career path</p>
+      </div>
+
+      <div class="goal-card" onclick="selectGoal(this, 'Exam Preparation')">
+        <div class="goal-icon">📝</div>
+        <h3>Exam Preparation</h3>
+        <p>Prepare effectively</p>
+      </div>
+
+      <div class="goal-card" onclick="selectGoal(this, 'Skill Development')">
+        <div class="goal-icon">🚀</div>
+        <h3>Skill Development</h3>
+        <p>Build useful skills</p>
+      </div>
+
+    </div>
+
+
+    <!-- ================= DASHBOARD ================= -->
+
+    <div class="dashboard-grid">
+
+      <!-- TODAY -->
+
+      <div class="card">
+
+        <h3>📅 Today's Focus</h3>
+
+        <p class="card-desc">
+          Your suggested activity for today.
+        </p>
+
+        <div class="today-box">
+
+          <div class="today-label">
+            Recommended Task
+          </div>
+
+          <h4 id="todayTitle">
+            Revise one important topic
+          </h4>
+
+          <p id="todayText">
+            Spend 30–45 minutes revising a concept
+            and solve a few practice questions.
+          </p>
+
+          <div class="progress-area">
+
+            <div class="progress-top">
+              <span>Today's progress</span>
+              <strong id="progressText">65%</strong>
+            </div>
+
+            <div class="progress-bar">
+              <div class="progress-fill" id="progressFill"></div>
+            </div>
+
+          </div>
+
+        </div>
+
+        <button class="primary-btn" onclick="completeTask()">
+          ✓ Mark Today's Task Complete
+        </button>
+
+      </div>
+
+
+      <!-- MENTOR -->
+
+      <div class="card">
+
+        <h3>👨‍🏫 Mentor Guidance</h3>
+
+        <p class="card-desc">
+          Your digital mentoring profile.
+        </p>
+
+        <div class="mentor-box">
+
+          <div class="mentor-avatar">
+            👨‍🏫
+          </div>
+
+          <div class="mentor-info">
+
+            <h4>ShikshaSetu Mentor</h4>
+
+            <p>
+              Academic & Career Guidance
+            </p>
+
+            <div class="verified">
+              ✓ Guidance Support
+            </div>
+
+          </div>
+
+        </div>
+
+        <br>
+
+        <button class="secondary-btn" onclick="scrollToGuidance()">
+          💬 Request Guidance
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <!-- ================= WEEKLY PLAN ================= -->
+
+    <div class="card" style="margin-bottom:30px;">
+
+      <h3>📆 Weekly Learning Plan</h3>
+
+      <p class="card-desc">
+        Small consistent steps can help you stay on track.
+        Click a day to mark it complete.
+      </p>
+
+      <div class="week-grid">
+
+        <div class="day done" onclick="toggleDay(this)">
+          <div class="day-name">MON</div>
+          <div class="day-icon">✓</div>
+          <div class="day-task">Study</div>
+        </div>
+
+        <div class="day done" onclick="toggleDay(this)">
+          <div class="day-name">TUE</div>
+          <div class="day-icon">✓</div>
+          <div class="day-task">Practice</div>
+        </div>
+
+        <div class="day" onclick="toggleDay(this)">
+          <div class="day-name">WED</div>
+          <div class="day-icon">📖</div>
+          <div class="day-task">Revision</div>
+        </div>
+
+        <div class="day" onclick="toggleDay(this)">
+          <div class="day-name">THU</div>
+          <div class="day-icon">💻</div>
+          <div class="day-task">Coding</div>
+        </div>
+
+        <div class="day" onclick="toggleDay(this)">
+          <div class="day-name">FRI</div>
+          <div class="day-icon">📝</div>
+          <div class="day-task">Practice</div>
+        </div>
+
+        <div class="day" onclick="toggleDay(this)">
+          <div class="day-name">SAT</div>
+          <div class="day-icon">🎯</div>
+          <div class="day-task">Career</div>
+        </div>
+
+        <div class="day" onclick="toggleDay(this)">
+          <div class="day-name">SUN</div>
+          <div class="day-icon">🔄</div>
+          <div class="day-task">Review</div>
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- ================= RECOMMENDED RESOURCES ================= -->
+
+    <h2 class="section-title">
+      📚 Recommended Resources
+    </h2>
+
+    <p class="section-subtitle">
+      Explore ShikshaSetu resources based on your learning journey.
+    </p>
+
+    <div class="resource-grid">
+
+      <div class="resource-card">
+
+        <div class="resource-icon">🤖</div>
+
+        <h4>AI Study Assistant</h4>
+
+        <p>
+          Get step-by-step help with academic doubts
+          and learning questions.
+        </p>
+
+        <a href="./ai-assistant.html" class="resource-link">
+          Ask a Doubt →
+        </a>
+
+      </div>
+
+
+      <div class="resource-card">
+
+        <div class="resource-icon">🧭</div>
+
+        <h4>Career Navigator</h4>
+
+        <p>
+          Explore career paths based on your interests
+          and strengths.
+        </p>
+
+        <a href="./career-navigator.html" class="resource-link">
+          Explore Careers →
+        </a>
+
+      </div>
+
+
+      <div class="resource-card">
+
+        <div class="resource-icon">💻</div>
+
+        <h4>Coding Resources</h4>
+
+        <p>
+          Learn C++, programming fundamentals and
+          DSA through structured resources.
+        </p>
+
+        <a href="./learning.html" class="resource-link">
+          Start Learning →
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <!-- ================= GUIDANCE SECTION ================= -->
+
+    <div class="question-section" id="guidanceSection">
+
+      <!-- REQUEST GUIDANCE -->
+
+      <div class="card">
+
+        <h3>💬 Request Guidance</h3>
+
+        <p class="card-desc">
+          Tell us what you need help with.
+          This prototype stores your request only for the current page session.
+        </p>
+
+        <div class="form-group">
+
+          <label>What do you need guidance about?</label>
+
+          <select id="guidanceTopic">
+
+            <option value="">
+              Select a topic
+            </option>
+
+            <option>
+              Study Planning
+            </option>
+
+            <option>
+              Career Choice
+            </option>
+
+            <option>
+              Coding / Programming
+            </option>
+
+            <option>
+              Exam Preparation
+            </option>
+
+            <option>
+              Skill Development
+            </option>
+
+            <option>
+              Internship Preparation
+            </option>
+
+          </select>
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label>Your message</label>
+
+          <textarea
+            id="guidanceMessage"
+            placeholder="Write your question or what you need help with..."
+          ></textarea>
+
+        </div>
+
+
+        <button class="primary-btn" onclick="submitGuidance()">
+          📩 Submit Guidance Request
+        </button>
+
+        <div class="guidance-result" id="guidanceResult">
+          ✓ Your guidance request has been recorded for this prototype.
+          A mentor-support workflow can be connected here later using a backend.
+        </div>
+
+      </div>
+
+
+      <!-- ASK QUESTION -->
+
+      <div class="card">
+
+        <h3>❓ Ask Your Mentor</h3>
+
+        <p class="card-desc">
+          Try a question and get a sample mentoring response.
+        </p>
+
+        <div class="form-group">
+
+          <label>Your Question</label>
+
+          <textarea
+            id="mentorQuestion"
+            placeholder="Example: How should I start learning DSA?"
+          ></textarea>
+
+        </div>
+
+        <button class="primary-btn" onclick="askMentor()">
+          💡 Get Guidance
+        </button>
+
+        <div class="guidance-result" id="mentorAnswer">
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- ================= FEATURES ================= -->
+
+    <h2 class="section-title">
+      ✨ What Digital Mentoring Provides
+    </h2>
+
+    <div class="features">
+
+      <div class="feature">
+        <div class="feature-icon">🎯</div>
+        <h4>Goal Setting</h4>
+        <p>Define what you want to achieve.</p>
+      </div>
+
+      <div class="feature">
+        <div class="feature-icon">📅</div>
+        <h4>Learning Plan</h4>
+        <p>Break your goal into manageable tasks.</p>
+      </div>
+
+      <div class="feature">
+        <div class="feature-icon">📊</div>
+        <h4>Progress Tracking</h4>
+        <p>Track your learning activities.</p>
+      </div>
+
+      <div class="feature">
+        <div class="feature-icon">💡</div>
+        <h4>Personalized Tips</h4>
+        <p>Receive guidance according to your goal.</p>
+      </div>
+
+      <div class="feature">
+        <div class="feature-icon">❓</div>
+        <h4>Ask Questions</h4>
+        <p>Record questions that need guidance.</p>
+      </div>
+
+      <div class="feature">
+        <div class="feature-icon">📚</div>
+        <h4>Resources</h4>
+        <p>Find relevant learning materials.</p>
+      </div>
+
+      <div class="feature">
+        <div class="feature-icon">🚀</div>
+        <h4>Skill Growth</h4>
+        <p>Work towards practical skills.</p>
+      </div>
+
+      <div class="feature">
+        <div class="feature-icon">🏆</div>
+        <h4>Achievements</h4>
+        <p>Celebrate completed learning goals.</p>
+      </div>
+
+    </div>
+
+  </main>
+
+
+  <!-- ================= FOOTER ================= -->
+
+  <footer>
+
+    <strong>ShikshaSetu</strong> —
+    Connecting students with learning, guidance and opportunities.
+
+    <br><br>
+
+    Digital mentoring shown here is a prototype feature.
+    Real mentor communication can be connected through a backend system.
+
+  </footer>
+
+
+  <!-- ================= TOAST ================= -->
+
+  <div class="toast" id="toast"></div>
+
+
+  <!-- ================= JAVASCRIPT ================= -->
+
+  <script>
+
+    /* ================= TOAST ================= */
+
+    function showToast(message) {
+
+      const toast = document.getElementById("toast");
+
+      toast.textContent = message;
+
+      toast.classList.add("show");
+
+      setTimeout(() => {
+        toast.classList.remove("show");
+      }, 2800);
+    }
+
+
+    /* ================= GOAL SELECTION ================= */
+
+    function selectGoal(card, goal) {
+
+      document.querySelectorAll(".goal-card").forEach(item => {
+        item.classList.remove("active");
+      });
+
+      card.classList.add("active");
+
+      const title = document.getElementById("todayTitle");
+      const text = document.getElementById("todayText");
+
+      if (goal === "Improve Studies") {
+
+        title.textContent = "Revise one important topic";
+
+        text.textContent =
+          "Spend 30–45 minutes revising a concept and solve practice questions.";
+
+      }
+
+      else if (goal === "Learn Coding") {
+
+        title.textContent = "Practice programming";
+
+        text.textContent =
+          "Learn one programming concept and solve at least two coding problems.";
+
+      }
+
+      else if (goal === "Career Preparation") {
+
+        title.textContent = "Explore your career path";
+
+        text.textContent =
+          "Identify one career option and note the skills and education required.";
+
+      }
+
+      else if (goal === "Exam Preparation") {
+
+        title.textContent = "Complete exam revision";
+
+        text.textContent =
+          "Revise important formulas, definitions and previously studied topics.";
+
+      }
+
+      else if (goal === "Skill Development") {
+
+        title.textContent = "Build one practical skill";
+
+        text.textContent =
+          "Spend some focused time learning and practicing a useful skill.";
+
+      }
+
+      document.getElementById("progressFill").style.width = "65%";
+
+      document.getElementById("progressText").textContent = "65%";
+
+      showToast("Goal selected: " + goal);
+    }
+
+
+    /* ================= COMPLETE TASK ================= */
+
+    function completeTask() {
+
+      document.getElementById("progressFill").style.width = "100%";
+
+      document.getElementById("progressText").textContent = "100%";
+
+      showToast("🎉 Today's mentoring task completed!");
+
+    }
+
+
+    /* ================= WEEK DAYS ================= */
+
+    function toggleDay(day) {
+
+      day.classList.toggle("done");
+
+      const icon = day.querySelector(".day-icon");
+
+      if (day.classList.contains("done")) {
+
+        icon.textContent = "✓";
+
+        showToast("Day marked as complete.");
+
+      } else {
+
+        icon.textContent = "📖";
+
+        showToast("Day marked as incomplete.");
+
+      }
+
+    }
+
+
+    /* ================= SCROLL TO GUIDANCE ================= */
+
+    function scrollToGuidance() {
+
+      document.getElementById("guidanceSection").scrollIntoView({
+        behavior: "smooth"
+      });
+
+    }
+
+
+    /* ================= GUIDANCE REQUEST ================= */
+
+    function submitGuidance() {
+
+      const topic =
+        document.getElementById("guidanceTopic").value;
+
+      const message =
+        document.getElementById("guidanceMessage").value.trim();
+
+      const result =
+        document.getElementById("guidanceResult");
+
+      if (topic === "") {
+
+        showToast("Please select a guidance topic.");
+
+        return;
+
+      }
+
+      if (message === "") {
+
+        showToast("Please write your message.");
+
+        return;
+
+      }
+
+      result.innerHTML =
+        "✓ <strong>Guidance request submitted!</strong><br><br>" +
+        "Topic: " + topic +
+        "<br>Your request has been saved for this prototype session.";
+
+      result.classList.add("show");
+
+      document.getElementById("guidanceMessage").value = "";
+
+      showToast("Guidance request submitted successfully.");
+
+    }
+
+
+    /* ================= ASK MENTOR ================= */
+
+    function askMentor() {
+
+      const question =
+        document.getElementById("mentorQuestion").value.trim();
+
+      const answer =
+        document.getElementById("mentorAnswer");
+
+      if (question === "") {
+
+        showToast("Please enter your question.");
+
+        return;
+
+      }
+
+      const lowerQuestion = question.toLowerCase();
+
+      let response = "";
+
+      if (
+        lowerQuestion.includes("dsa") ||
+        lowerQuestion.includes("coding")
+      ) {
+
+        response =
+          "💡 Suggested approach: Start with programming basics, then learn arrays, strings, searching, sorting, linked lists, stacks and queues. Practice small problems regularly.";
+
+      }
+
+      else if (
+        lowerQuestion.includes("career") ||
+        lowerQuestion.includes("future")
+      ) {
+
+        response =
+          "🎯 Suggested approach: Identify your interests and strengths first. Then explore suitable career paths, required education, skills and practical learning opportunities.";
+
+      }
+
+      else if (
+        lowerQuestion.includes("exam") ||
+        lowerQuestion.includes("study")
+      ) {
+
+        response =
+          "📚 Suggested approach: Divide your syllabus into small topics, revise regularly, solve practice questions and keep time for final revision.";
+
+      }
+
+      else if (
+        lowerQuestion.includes("internship")
+      ) {
+
+        response =
+          "🚀 Suggested approach: Build a few practical projects, strengthen your fundamentals, maintain a portfolio and practice explaining your work clearly.";
+
+      }
+
+      else {
+
+        response =
+          "💬 A good first step is to clearly define your goal, break it into smaller tasks and work consistently. You can also use the AI Study Assistant for subject-specific doubts.";
+
+      }
+
+      answer.innerHTML =
+        "<strong>Mentor Suggestion</strong><br><br>" +
+        response +
+        "<br><br><small>This is a demo mentoring response. A real mentor/AI service can be connected to this section later.</small>";
+
+      answer.classList.add("show");
+
+    }
+
+  </script>
+
+</body>
+</html>
+```

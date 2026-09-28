@@ -1,0 +1,1696 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Engineering Physics - ShikshaSetu</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#f4f8fc;
+    color:#172b4d;
+    line-height:1.6;
+}
+
+/* HEADER */
+
+header{
+    background:linear-gradient(135deg,#1677c8,#3199df);
+    color:white;
+    padding:35px 20px;
+    text-align:center;
+}
+
+header h1{
+    font-size:32px;
+    margin-bottom:8px;
+}
+
+header p{
+    font-size:16px;
+}
+
+/* CONTAINER */
+
+.container{
+    width:92%;
+    max-width:1100px;
+    margin:30px auto;
+}
+
+/* BACK BUTTON */
+
+.back-btn{
+    display:inline-block;
+    text-decoration:none;
+    background:#1677c8;
+    color:white;
+    padding:11px 18px;
+    border-radius:8px;
+    margin-bottom:25px;
+    font-weight:bold;
+}
+
+.back-btn:hover{
+    background:#0d5fa5;
+}
+
+/* QUICK REVISION */
+
+.quick{
+    background:linear-gradient(135deg,#1677c8,#3199df);
+    color:white;
+    padding:25px;
+    border-radius:14px;
+    margin-bottom:30px;
+}
+
+.quick h2{
+    margin-bottom:15px;
+}
+
+.quick ul{
+    margin-left:22px;
+}
+
+.quick li{
+    margin-bottom:6px;
+}
+
+/* UNIT */
+
+.unit{
+    background:white;
+    border-radius:14px;
+    margin-bottom:25px;
+    padding:25px;
+    box-shadow:0 4px 15px rgba(0,0,0,0.08);
+}
+
+.unit h2{
+    color:#1677c8;
+    border-bottom:2px solid #dceefa;
+    padding-bottom:10px;
+    margin-bottom:22px;
+}
+
+/* TOPIC */
+
+.topic{
+    margin:22px 0;
+}
+
+.topic h3{
+    color:#205493;
+    margin-bottom:10px;
+}
+
+.topic p{
+    margin-bottom:10px;
+}
+
+/* FORMULA */
+
+.formula{
+    background:#eef7ff;
+    border-left:5px solid #3199df;
+    padding:15px;
+    margin:13px 0;
+    border-radius:7px;
+    overflow-x:auto;
+}
+
+/* EXAMPLE */
+
+.example{
+    background:#f8f9fa;
+    border:1px solid #ddd;
+    padding:16px;
+    border-radius:8px;
+    margin:14px 0;
+}
+
+.example strong{
+    color:#1677c8;
+}
+
+/* PRACTICE */
+
+.practice{
+    background:#fff8e6;
+    border-left:5px solid #f0ad00;
+    padding:18px;
+    border-radius:8px;
+    margin-top:20px;
+}
+
+.practice p{
+    margin-top:12px;
+}
+
+/* BUTTON */
+
+button{
+    border:none;
+    background:#1677c8;
+    color:white;
+    padding:9px 15px;
+    border-radius:6px;
+    cursor:pointer;
+    margin-top:7px;
+}
+
+button:hover{
+    background:#0d5fa5;
+}
+
+/* ANSWER */
+
+.answer{
+    display:none;
+    background:#eefbea;
+    border-left:5px solid #42a942;
+    padding:14px;
+    margin-top:10px;
+    border-radius:6px;
+}
+
+/* LIST */
+
+ul{
+    margin-left:25px;
+}
+
+li{
+    margin-bottom:6px;
+}
+
+/* FOOTER */
+
+footer{
+    text-align:center;
+    padding:25px;
+    background:#172b4d;
+    color:white;
+    margin-top:40px;
+}
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+    header h1{
+        font-size:25px;
+    }
+
+    .container{
+        width:95%;
+    }
+
+    .unit{
+        padding:18px;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<header>
+
+    <h1>⚛️ Engineering Physics</h1>
+
+    <p>
+        RGPV BT201 • First Year Engineering • Exam-Oriented Notes
+    </p>
+
+</header>
+
+
+
+<div class="container">
+
+
+<a href="college-dashboard.html" class="back-btn">
+    ← Back to College Dashboard
+</a>
+
+
+
+<!-- QUICK REVISION -->
+
+<div class="quick">
+
+    <h2>🎯 Quick Revision</h2>
+
+    <ul>
+
+        <li>Quantum Mechanics</li>
+
+        <li>Wave Nature of Particles</li>
+
+        <li>Schrödinger Wave Equation</li>
+
+        <li>Particle in One-Dimensional Box</li>
+
+        <li>Uncertainty Principle</li>
+
+        <li>Young's Double Slit Experiment</li>
+
+        <li>Newton's Rings</li>
+
+        <li>Michelson Interferometer</li>
+
+        <li>Diffraction and Single Slit</li>
+
+        <li>Rayleigh Criterion</li>
+
+        <li>Diffraction Grating</li>
+
+        <li>Resolving Power</li>
+
+    </ul>
+
+</div>
+
+
+
+<!-- MODULE 1 -->
+
+<div class="unit">
+
+<h2>MODULE 1 — Quantum Mechanics</h2>
+
+
+
+<div class="topic">
+
+<h3>1. Introduction to Quantum Mechanics</h3>
+
+<p>
+Quantum mechanics is the branch of physics that deals with the
+behaviour of matter and radiation at microscopic scales such as
+atoms, electrons and other particles.
+</p>
+
+<p>
+Classical mechanics cannot completely explain many microscopic
+phenomena. Quantum mechanics provides a mathematical description
+of such systems.
+</p>
+
+</div>
+
+
+
+<div class="topic">
+
+<h3>2. Wave Nature of Particles</h3>
+
+<p>
+According to de Broglie's hypothesis, a moving particle has an
+associated wave called a matter wave.
+</p>
+
+<div class="formula">
+
+<b>de Broglie wavelength:</b>
+
+<br><br>
+
+λ = h / p
+
+<br><br>
+
+For a particle of mass m and velocity v:
+
+<br><br>
+
+λ = h / mv
+
+</div>
+
+<p>
+where h is Planck's constant.
+</p>
+
+<div class="example">
+
+<strong>Important idea:</strong>
+
+<br><br>
+
+A particle having greater momentum has a smaller de Broglie
+wavelength.
+
+</div>
+
+</div>
+
+
+
+<div class="topic">
+
+<h3>3. Heisenberg Uncertainty Principle</h3>
+
+<p>
+The uncertainty principle states that it is impossible to determine
+the exact position and exact momentum of a microscopic particle
+simultaneously.
+</p>
+
+<div class="formula">
+
+Δx Δp ≥ ħ / 2
+
+<br><br>
+
+where
+
+<br>
+
+ħ = h / 2π
+
+</div>
+
+<p>
+Since p = mv:
+</p>
+
+<div class="formula">
+
+Δx Δv ≥ ħ / 2m
+
+</div>
+
+</div>
+
+
+
+<div class="topic">
+
+<h3>4. Operators in Quantum Mechanics</h3>
+
+<p>
+An operator is a mathematical operation used on a wavefunction to
+obtain a physical quantity.
+</p>
+
+<div class="formula">
+
+Momentum operator:
+
+<br><br>
+
+p̂ = -iħ d/dx
+
+<br><br>
+
+Energy operator:
+
+<br><br>
+
+Ê = iħ ∂/∂t
+
+</div>
+
+</div>
+
+
+
+<div class="topic">
+
+<h3>5. Wave Function</h3>
+
+<p>
+The state of a quantum particle is represented by a wave function
+usually written as ψ.
+</p>
+
+<p>
+The wave function itself is not directly measurable. According to
+Born's interpretation, the probability density is related to:
+</p>
+
+<div class="formula">
+
+Probability density = |ψ|²
+
+</div>
+
+<p>
+For a normalized wavefunction:
+</p>
+
+<div class="formula">
+
+∫ |ψ|² dτ = 1
+
+</div>
+
+</div>
+
+
+
+<div class="topic">
+
+<h3>6. Schrödinger Wave Equation</h3>
+
+<p>
+The Schrödinger equation is the fundamental equation used to
+describe the quantum state of a system.
+</p>
+
+<h3>Time-Dependent Schrödinger Equation</h3>
+
+<div class="formula">
+
+iħ ∂ψ/∂t = Ĥψ
+
+</div>
+
+<p>
+where Ĥ represents the Hamiltonian operator.
+</p>
+
+
+
+<h3>Time-Independent Schrödinger Equation</h3>
+
+<div class="formula">
+
+Ĥψ = Eψ
+
+</div>
+
+<p>
+For a particle in a potential V:
+</p>
+
+<div class="formula">
+
+- ħ²/2m × d²ψ/dx² + Vψ = Eψ
+
+</div>
+
+</div>
+
+
+
+<div class="topic">
+
+<h3>7. Particle in One-Dimensional Box</h3>
+
+<p>
+Consider a particle confined inside a one-dimensional box of length L.
+Inside the box the potential is taken as zero and outside the box it
+is extremely large.
+</p>
+
+<div class="formula">
+
+Energy of nth state:
+
+<br><br>
+
+Eₙ = n²h² / 8mL²
+
+<br><br>
+
+where n = 1, 2, 3, ...
+
+</div>
+
+<p>
+The energy is quantized, meaning that the particle can possess only
+certain allowed energy values.
+</p>
+
+<div class="example">
+
+<strong>Important point:</strong>
+
+<br><br>
+
+For ground state n = 1:
+
+<br><br>
+
+E₁ = h² / 8mL²
+
+</div>
+
+</div>
+
+
+
+<div class="topic">
+
+<h3>8. Free Particle and Wave Packets</h3>
+
+<p>
+A free particle is a particle on which no external force is acting.
+A wave packet can be formed by superposition of waves with different
+wavelengths.
+</p>
+
+<div class="formula">
+
+Group velocity:
+
+<br><br>
+
+v<sub>g</sub> = dω/dk
+
+<br><br>
+
+Phase velocity:
+
+<br><br>
+
+v<sub>p</sub> = ω/k
+
+</div>
+
+<p>
+For matter waves, the relation between group and phase velocity is an
+important result.
+</p>
+
+</div>
+
+
+
+<div class="practice">
+
+<h3>📝 Module 1 Practice</h3>
+
+
+<p>
+<b>1.</b> Write the de Broglie wavelength equation.
+</p>
+
+<button onclick="showAnswer('a1')">
+Show Answer
+</button>
+
+<div id="a1" class="answer">
+
+λ = h/p = h/mv
+
+</div>
+
+
+
+<p>
+<b>2.</b> State Heisenberg's uncertainty principle.
+</p>
+
+<button onclick="showAnswer('a2')">
+Show Answer
+</button>
+
+<div id="a2" class="answer">
+
+Δx Δp ≥ ħ/2
+
+</div>
+
+
+
+<p>
+<b>3.</b> Write the energy equation for a particle in a one-dimensional box.
+</p>
+
+<button onclick="showAnswer('a3')">
+Show Answer
+</button>
+
+<div id="a3" class="answer">
+
+Eₙ = n²h² / 8mL²
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- MODULE 2 -->
+
+<div class="unit">
+
+<h2>MODULE 2 — Wave Optics</h2>
+
+
+
+<div class="topic">
+
+<h3>1. Huygens' Principle</h3>
+
+<p>
+According to Huygens' principle, every point on a wavefront acts as
+a source of secondary wavelets. The new wavefront is obtained as the
+common tangent to these secondary wavelets.
+</p>
+
+</div>
+
+
+
+<div class="topic">
+
+<h3>2. Superposition of Waves</h3>
+
+<p>
+When two or more waves overlap, the resultant displacement is equal
+to the algebraic sum of the individual displacements.
+</p>
+
+<div class="formula">
+
+y = y₁ + y₂
+
+</div>
+
+</div>
+
+
+
+<div class="topic">
+
+<h3>3. Interference of Light</h3>
+
+<p>
+Interference is the redistribution of intensity produced when two
+coherent light waves superpose.
+</p>
+
+<p>
+Two conditions are important:
+</p>
+
+<ul>
+
+<li>Constructive interference → bright fringe</li>
+
+<li>Destructive interference → dark fringe</li>
+
+</ul>
+
+
+
+<div class="formula">
+
+Constructive:
+
+<br>
+
+Path difference = nλ
+
+<br><br>
+
+Destructive:
+
+<br>
+
+Path difference = (2n + 1)λ/2
+
+</div>
+
+</div>
+
+
+
+<div class="topic">
+
+<h3>4. Young's Double Slit Experiment</h3>
+
+<p>
+Young's double slit experiment demonstrates the interference nature
+of light.
+</p>
+
+<div class="formula">
+
+Fringe width:
+
+<br><br>
+
+β = λD/d
+
+</div>
+
+<p>
+where:
+</p>
+
+<ul>
+
+<li>λ = wavelength</li>
+
+<li>D = distance between slit and screen</li>
+
+<li>d = distance between the two slits</li>
+
+</ul>
+
+
+
+<div class="example">
+
+<strong>Important:</strong>
+
+<br><br>
+
+Fringe width increases when wavelength or screen distance increases.
+It decreases when slit separation increases.
+
+</div>
+
+</div>
+
+
+
+<div class="topic">
+
+<h3>5. Newton's Rings</h3>
+
+<p>
+Newton's rings are circular interference fringes produced due to the
+interference of light reflected from the upper and lower surfaces of
+a thin air film.
+</p>
+
+<div class="formula">
+
+For dark rings:
+
+<br><br>
+
+Dₙ² = 4nλR
+
+</div>
+
+<p>
+where R is the radius of curvature of the lens.
+</p>
+
+</div>
+
+
+
+<div class="topic">
+
+<h3>6. Michelson Interferometer</h3>
+
+<p>
+Michelson interferometer is an optical instrument based on the
+principle of interference.
+</p>
+
+<p>
+It can be used for measuring wavelength and small differences in
+optical path.
+</p>
+
+<div class="formula">
+
+2d = nλ
+
+</div>
+
+<p>
+The exact relation depends on the experimental arrangement and
+definition of the displacement used.
+</p>
+
+</div>
+
+
+
+<div class="topic">
+
+<h3>7. Mach-Zehnder Interferometer</h3>
+
+<p>
+Mach-Zehnder interferometer uses beam splitting and recombination to
+produce interference fringes.
+</p>
+
+<p>
+It is useful for studying changes in optical path and refractive
+index.
+</p>
+
+</div>
+
+
+
+<div class="topic">
+
+<h3>8. Fraunhofer Diffraction</h3>
+
+<p>
+Fraunhofer diffraction occurs when the source and observation point
+are effectively at large distances from the diffracting aperture, or
+when suitable lenses are used.
+</p>
+
+
+
+<h3>Single Slit Diffraction</h3>
+
+<div class="formula">
+
+Condition for minima:
+
+<br><br>
+
+a sinθ = nλ
+
+<br><br>
+
+n = 1, 2, 3, ...
+
+</div>
+
+<p>
+Here a is the width of the slit.
+</p>
+
+</div>
+
+
+
+<div class="topic">
+
+<h3>9. Circular Aperture</h3>
+
+<p>
+Diffraction from a circular aperture limits the resolving ability of
+an optical instrument.
+</p>
+
+</div>
+
+
+
+<div class="topic">
+
+<h3>10. Rayleigh Criterion</h3>
+
+<p>
+Rayleigh criterion gives a condition for the minimum angular
+separation at which two point sources can just be resolved.
+</p>
+
+<div class="formula">
+
+θ = 1.22 λ/D
+
+</div>
+
+<p>
+where D is the diameter of the circular aperture.
+</p>
+
+</div>
+
+
+
+<div class="topic">
+
+<h3>11. Diffraction Grating</h3>
+
+<p>
+A diffraction grating consists of a large number of equally spaced
+parallel slits.
+</p>
+
+<div class="formula">
+
+Grating equation:
+
+<br><br>
+
+d sinθ = nλ
+
+</div>
+
+<p>
+where d is the grating element.
+</p>
+
+</div>
+
+
+
+<div class="topic">
+
+<h3>12. Resolving Power of Grating</h3>
+
+<p>
+Resolving power describes the ability of a grating to distinguish
+two wavelengths that are close to each other.
+</p>
+
+<div class="formula">
+
+Resolving Power:
+
+<br><br>
+
+R = λ/Δλ = nN
+
+</div>
+
+<p>
+where n is the order of spectrum and N is the number of illuminated
+lines.
+</p>
+
+</div>
+
+
+
+<div class="practice">
+
+<h3>📝 Module 2 Practice</h3>
+
+
+<p>
+<b>1.</b> Write the fringe-width formula in Young's double slit experiment.
+</p>
+
+<button onclick="showAnswer('a4')">
+Show Answer
+</button>
+
+<div id="a4" class="answer">
+
+β = λD/d
+
+</div>
+
+
+
+<p>
+<b>2.</b> Write the condition for minima in single-slit diffraction.
+</p>
+
+<button onclick="showAnswer('a5')">
+Show Answer
+</button>
+
+<div id="a5" class="answer">
+
+a sinθ = nλ
+
+</div>
+
+
+
+<p>
+<b>3.</b> Write the grating equation.
+</p>
+
+<button onclick="showAnswer('a6')">
+Show Answer
+</button>
+
+<div id="a6" class="answer">
+
+d sinθ = nλ
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- MODULE 3 -->
+
+<div class="unit">
+
+<h2>MODULE 3 — Optical and Electromagnetic Concepts</h2>
+
+<div class="topic">
+
+<h3>1. Polarization of Light</h3>
+
+<p>
+Polarization is the phenomenon in which the vibrations of a
+transverse light wave are restricted to a particular direction.
+</p>
+
+<div class="formula">
+
+Malus' Law:
+
+<br><br>
+
+I = I₀ cos²θ
+
+</div>
+
+</div>
+
+
+
+<div class="topic">
+
+<h3>2. Brewster's Law</h3>
+
+<p>
+When unpolarized light is incident at Brewster's angle, the reflected
+light becomes plane polarized.
+</p>
+
+<div class="formula">
+
+μ = tan iₚ
+
+</div>
+
+<p>
+where iₚ is the polarizing angle.
+</p>
+
+</div>
+
+
+
+<div class="topic">
+
+<h3>3. Electromagnetic Waves</h3>
+
+<p>
+Electromagnetic waves consist of mutually perpendicular electric and
+magnetic fields, both perpendicular to the direction of propagation.
+</p>
+
+<div class="formula">
+
+c = 1/√(μ₀ε₀)
+
+</div>
+
+</div>
+
+
+
+<div class="practice">
+
+<h3>📝 Module 3 Practice</h3>
+
+<p>
+<b>1.</b> State Malus' law.
+</p>
+
+<button onclick="showAnswer('a7')">
+Show Answer
+</button>
+
+<div id="a7" class="answer">
+
+I = I₀ cos²θ
+
+</div>
+
+
+
+<p>
+<b>2.</b> State Brewster's law.
+</p>
+
+<button onclick="showAnswer('a8')">
+Show Answer
+</button>
+
+<div id="a8" class="answer">
+
+μ = tan iₚ
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- MODULE 4 -->
+
+<div class="unit">
+
+<h2>MODULE 4 — Lasers</h2>
+
+
+
+<div class="topic">
+
+<h3>1. Laser</h3>
+
+<p>
+LASER stands for Light Amplification by Stimulated Emission of
+Radiation.
+</p>
+
+<p>
+Laser light is highly directional and can have high coherence and
+monochromaticity.
+</p>
+
+</div>
+
+
+
+<div class="topic">
+
+<h3>2. Absorption and Emission</h3>
+
+<p>
+Atoms can interact with electromagnetic radiation through absorption,
+spontaneous emission and stimulated emission.
+</p>
+
+<ul>
+
+<li><b>Absorption:</b> Atom absorbs energy.</li>
+
+<li><b>Spontaneous emission:</b> Excited atom emits radiation naturally.</li>
+
+<li><b>Stimulated emission:</b> An incoming photon causes emission of
+another photon with related properties.</li>
+
+</ul>
+
+</div>
+
+
+
+<div class="topic">
+
+<h3>3. Population Inversion</h3>
+
+<p>
+Population inversion is the condition in which the number of atoms
+in the higher energy state becomes greater than the number in the
+lower energy state for the relevant laser transition.
+</p>
+
+</div>
+
+
+
+<div class="topic">
+
+<h3>4. Applications of Lasers</h3>
+
+<ul>
+
+<li>Optical communication</li>
+
+<li>Industrial measurements</li>
+
+<li>Scientific research</li>
+
+<li>Medical applications</li>
+
+<li>Barcode and scanning systems</li>
+
+</ul>
+
+</div>
+
+
+
+<div class="practice">
+
+<h3>📝 Module 4 Practice</h3>
+
+<p>
+<b>1.</b> What does LASER stand for?
+</p>
+
+<button onclick="showAnswer('a9')">
+Show Answer
+</button>
+
+<div id="a9" class="answer">
+
+Light Amplification by Stimulated Emission of Radiation.
+
+</div>
+
+
+
+<p>
+<b>2.</b> What is population inversion?
+</p>
+
+<button onclick="showAnswer('a10')">
+Show Answer
+</button>
+
+<div id="a10" class="answer">
+
+It is the condition in which the population of the relevant upper
+energy level exceeds that of the lower energy level.
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- MODULE 5 -->
+
+<div class="unit">
+
+<h2>MODULE 5 — Solid State Physics</h2>
+
+
+
+<div class="topic">
+
+<h3>1. Crystal Structure</h3>
+
+<p>
+A crystal is a solid in which atoms, ions or molecules are arranged
+in a regular repeating pattern.
+</p>
+
+</div>
+
+
+
+<div class="topic">
+
+<h3>2. Unit Cell</h3>
+
+<p>
+The unit cell is the smallest repeating geometrical unit that can
+represent the crystal structure.
+</p>
+
+</div>
+
+
+
+<div class="topic">
+
+<h3>3. Bragg's Law</h3>
+
+<p>
+Bragg's law gives the condition for constructive interference of
+X-rays reflected from crystal planes.
+</p>
+
+<div class="formula">
+
+2d sinθ = nλ
+
+</div>
+
+<p>
+where:
+</p>
+
+<ul>
+
+<li>d = spacing between crystal planes</li>
+
+<li>θ = glancing angle</li>
+
+<li>λ = wavelength</li>
+
+<li>n = order of diffraction</li>
+
+</ul>
+
+</div>
+
+
+
+<div class="topic">
+
+<h3>4. Semiconductor</h3>
+
+<p>
+A semiconductor has electrical conductivity between that of a
+conductor and an insulator.
+</p>
+
+<p>
+Examples include silicon and germanium.
+</p>
+
+</div>
+
+
+
+<div class="topic">
+
+<h3>5. Intrinsic Semiconductor</h3>
+
+<p>
+A pure semiconductor without intentional impurity addition is called
+an intrinsic semiconductor.
+</p>
+
+</div>
+
+
+
+<div class="topic">
+
+<h3>6. Extrinsic Semiconductor</h3>
+
+<p>
+A semiconductor whose conductivity is modified by adding suitable
+impurities is called an extrinsic semiconductor.
+</p>
+
+<ul>
+
+<li>N-type semiconductor</li>
+
+<li>P-type semiconductor</li>
+
+</ul>
+
+</div>
+
+
+
+<div class="practice">
+
+<h3>📝 Module 5 Practice</h3>
+
+<p>
+<b>1.</b> State Bragg's law.
+</p>
+
+<button onclick="showAnswer('a11')">
+Show Answer
+</button>
+
+<div id="a11" class="answer">
+
+2d sinθ = nλ
+
+</div>
+
+
+
+<p>
+<b>2.</b> Give two examples of semiconductors.
+</p>
+
+<button onclick="showAnswer('a12')">
+Show Answer
+</button>
+
+<div id="a12" class="answer">
+
+Silicon and Germanium.
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- FORMULA SHEET -->
+
+<div class="unit">
+
+<h2>📌 Important Physics Formula Sheet</h2>
+
+
+
+<div class="formula">
+
+<b>de Broglie:</b>
+
+λ = h/p = h/mv
+
+</div>
+
+
+
+<div class="formula">
+
+<b>Uncertainty Principle:</b>
+
+ΔxΔp ≥ ħ/2
+
+</div>
+
+
+
+<div class="formula">
+
+<b>Particle in Box:</b>
+
+Eₙ = n²h²/8mL²
+
+</div>
+
+
+
+<div class="formula">
+
+<b>Young's Double Slit:</b>
+
+β = λD/d
+
+</div>
+
+
+
+<div class="formula">
+
+<b>Newton's Rings:</b>
+
+Dₙ² = 4nλR
+
+</div>
+
+
+
+<div class="formula">
+
+<b>Single Slit Diffraction:</b>
+
+a sinθ = nλ
+
+</div>
+
+
+
+<div class="formula">
+
+<b>Rayleigh Criterion:</b>
+
+θ = 1.22λ/D
+
+</div>
+
+
+
+<div class="formula">
+
+<b>Grating:</b>
+
+d sinθ = nλ
+
+</div>
+
+
+
+<div class="formula">
+
+<b>Resolving Power:</b>
+
+R = λ/Δλ = nN
+
+</div>
+
+
+
+<div class="formula">
+
+<b>Malus Law:</b>
+
+I = I₀cos²θ
+
+</div>
+
+
+
+<div class="formula">
+
+<b>Brewster Law:</b>
+
+μ = tan iₚ
+
+</div>
+
+
+
+<div class="formula">
+
+<b>Bragg Law:</b>
+
+2d sinθ = nλ
+
+</div>
+
+</div>
+
+
+
+<!-- EXAM REVISION -->
+
+<div class="unit">
+
+<h2>🎯 Exam Revision — Important Questions</h2>
+
+<ul>
+
+<li>Explain de Broglie's hypothesis and derive the wavelength relation.</li>
+
+<li>State and explain Heisenberg's uncertainty principle.</li>
+
+<li>Derive the time-independent Schrödinger equation.</li>
+
+<li>Explain a particle in a one-dimensional box.</li>
+
+<li>Explain Young's double slit experiment.</li>
+
+<li>Derive the expression for fringe width.</li>
+
+<li>Explain Newton's rings.</li>
+
+<li>Explain Michelson interferometer.</li>
+
+<li>Explain Fraunhofer diffraction at a single slit.</li>
+
+<li>Explain Rayleigh criterion.</li>
+
+<li>Derive the grating equation.</li>
+
+<li>Explain resolving power of a diffraction grating.</li>
+
+<li>State and explain Bragg's law.</li>
+
+<li>Explain intrinsic and extrinsic semiconductors.</li>
+
+</ul>
+
+</div>
+
+
+
+<!-- QUICK TEST -->
+
+<div class="unit">
+
+<h2>🧠 Quick Self-Test</h2>
+
+<p><b>1.</b> What is de Broglie wavelength?</p>
+
+<p><b>2.</b> State Heisenberg's uncertainty principle.</p>
+
+<p><b>3.</b> What is a wavefunction?</p>
+
+<p><b>4.</b> Write the Schrödinger equation.</p>
+
+<p><b>5.</b> What is the energy of a particle in a one-dimensional box?</p>
+
+<p><b>6.</b> What is interference?</p>
+
+<p><b>7.</b> Write the fringe-width formula.</p>
+
+<p><b>8.</b> State Rayleigh criterion.</p>
+
+<p><b>9.</b> Write the grating equation.</p>
+
+<p><b>10.</b> State Bragg's law.</p>
+
+</div>
+
+
+
+<a href="college-dashboard.html" class="back-btn">
+
+← Back to College Dashboard
+
+</a>
+
+
+</div>
+
+
+
+<footer>
+
+<p>
+© 2026 ShikshaSetu | Engineering Physics
+</p>
+
+</footer>
+
+
+
+<script>
+
+function showAnswer(id){
+
+    const answer = document.getElementById(id);
+
+    if(answer.style.display === "block"){
+
+        answer.style.display = "none";
+
+    }
+
+    else{
+
+        answer.style.display = "block";
+
+    }
+
+}
+
+</script>
+
+
+</body>
+</html>
+```

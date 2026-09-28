@@ -1,0 +1,798 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Class 12 Computer | ShikshaSetu</title>
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family:Arial,sans-serif;
+}
+
+body{
+  background:#f4f8fc;
+  color:#222;
+}
+
+header{
+  background:#3199df;
+  color:white;
+  padding:18px 25px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+header h2{
+  font-size:22px;
+}
+
+header a{
+  color:white;
+  text-decoration:none;
+  font-weight:bold;
+}
+
+.container{
+  width:92%;
+  max-width:1100px;
+  margin:30px auto;
+}
+
+.hero{
+  background:white;
+  padding:30px;
+  border-radius:16px;
+  text-align:center;
+  box-shadow:0 4px 15px rgba(0,0,0,.08);
+  margin-bottom:25px;
+}
+
+.hero h1{
+  color:#1976b9;
+  margin-bottom:10px;
+}
+
+.hero p{
+  color:#666;
+}
+
+.chapter{
+  background:white;
+  padding:25px;
+  margin-bottom:22px;
+  border-radius:15px;
+  box-shadow:0 3px 12px rgba(0,0,0,.07);
+}
+
+.chapter h2{
+  color:#1976b9;
+  margin-bottom:15px;
+}
+
+.chapter h3{
+  color:#145f91;
+  margin:18px 0 8px;
+}
+
+.chapter p,
+.chapter li{
+  line-height:1.7;
+}
+
+ul{
+  padding-left:22px;
+}
+
+.code{
+  background:#1e293b;
+  color:#f8fafc;
+  padding:15px;
+  margin:10px 0;
+  border-radius:8px;
+  font-family:"Courier New",monospace;
+  white-space:pre-wrap;
+  overflow-x:auto;
+}
+
+.formula{
+  background:#eef7ff;
+  border-left:5px solid #3199df;
+  padding:12px;
+  margin:10px 0;
+  border-radius:7px;
+  font-family:"Courier New",monospace;
+  font-weight:bold;
+}
+
+.example{
+  background:#f7fbff;
+  padding:15px;
+  border-radius:8px;
+  margin-top:12px;
+}
+
+.tip{
+  background:#fff8e1;
+  padding:14px;
+  border-radius:8px;
+  margin-top:15px;
+}
+
+button{
+  background:#3199df;
+  color:white;
+  border:none;
+  padding:10px 16px;
+  border-radius:7px;
+  cursor:pointer;
+  margin-top:10px;
+}
+
+.answer{
+  display:none;
+  background:#e8f5e9;
+  color:#216b2a;
+  padding:10px;
+  margin-top:8px;
+  border-radius:7px;
+  font-weight:bold;
+}
+
+.back{
+  display:inline-block;
+  padding:12px 18px;
+  background:#3199df;
+  color:white;
+  text-decoration:none;
+  border-radius:8px;
+  margin-bottom:25px;
+}
+
+footer{
+  text-align:center;
+  padding:25px;
+  color:#777;
+}
+</style>
+
+</head>
+
+<body>
+
+<header>
+  <h2>🎓 ShikshaSetu</h2>
+  <a href="dashboard.html">Dashboard</a>
+</header>
+
+<div class="container">
+
+<div class="hero">
+  <h1>💻 Class 12 Computer / IP</h1>
+  <p>MP Board • SQL, Pandas, Matplotlib, Networking & Digital Awareness</p>
+</div>
+
+<!-- CHAPTER 1 -->
+
+<div class="chapter">
+
+<h2>1. Database Query Using SQL</h2>
+
+<h3>Database</h3>
+
+<p>
+A database is an organised collection of related data that can be stored,
+managed and retrieved efficiently.
+</p>
+
+<h3>Important SQL Commands</h3>
+
+<div class="code">CREATE DATABASE school;
+
+CREATE TABLE students(
+rollno INT,
+name VARCHAR(30),
+marks INT
+);</div>
+
+<h3>INSERT</h3>
+
+<div class="code">INSERT INTO students
+VALUES(1,'Rahul',85);</div>
+
+<h3>SELECT</h3>
+
+<div class="code">SELECT * FROM students;</div>
+
+<h3>WHERE</h3>
+
+<div class="code">SELECT name, marks
+FROM students
+WHERE marks > 80;</div>
+
+<h3>UPDATE</h3>
+
+<div class="code">UPDATE students
+SET marks = 90
+WHERE rollno = 1;</div>
+
+<h3>DELETE</h3>
+
+<div class="code">DELETE FROM students
+WHERE rollno = 1;</div>
+
+<h3>ORDER BY</h3>
+
+<div class="code">SELECT * FROM students
+ORDER BY marks DESC;</div>
+
+<h3>GROUP BY</h3>
+
+<div class="code">SELECT city, COUNT(*)
+FROM students
+GROUP BY city;</div>
+
+<h3>HAVING</h3>
+
+<div class="code">SELECT city, AVG(marks)
+FROM students
+GROUP BY city
+HAVING AVG(marks) > 70;</div>
+
+<h3>Aggregate Functions</h3>
+
+<ul>
+<li>MAX() → highest value</li>
+<li>MIN() → lowest value</li>
+<li>AVG() → average</li>
+<li>SUM() → total</li>
+<li>COUNT() → number of values/rows</li>
+</ul>
+
+<div class="tip">
+<b>Exam Tip:</b> WHERE rows ko filter karta hai, while HAVING grouped results ko filter karta hai.
+</div>
+
+</div>
+
+<!-- SQL FUNCTIONS -->
+
+<div class="chapter">
+
+<h2>2. Important SQL Functions</h2>
+
+<h3>Math Functions</h3>
+
+<div class="code">SELECT POWER(2,3);
+SELECT ROUND(12.567,2);
+SELECT MOD(10,3);</div>
+
+<h3>Text Functions</h3>
+
+<div class="code">SELECT UPPER('shikshasetu');
+SELECT LOWER('HELLO');
+SELECT LENGTH('Computer');
+SELECT LEFT('Programming',4);
+SELECT RIGHT('Programming',4);
+SELECT TRIM('  Hello  ');</div>
+
+<h3>Date Functions</h3>
+
+<div class="code">SELECT NOW();
+SELECT YEAR(NOW());
+SELECT MONTH(NOW());
+SELECT DAY(NOW());</div>
+
+<div class="tip">
+<b>Remember:</b> Function names and exact syntax ko exam se pehle revise karo.
+</div>
+
+</div>
+
+<!-- JOIN -->
+
+<div class="chapter">
+
+<h2>3. Working With Multiple Tables</h2>
+
+<h3>Why Join?</h3>
+
+<p>
+A join is used to combine related information stored in multiple tables.
+</p>
+
+<h3>Equi Join</h3>
+
+<div class="code">SELECT students.name, marks.score
+FROM students, marks
+WHERE students.rollno = marks.rollno;</div>
+
+<div class="example">
+<b>Example:</b><br>
+Students table mein student details ho sakti hain aur Marks table mein
+marks. Common roll number ke through dono tables ko connect kiya ja sakta hai.
+</div>
+
+</div>
+
+<!-- PANDAS -->
+
+<div class="chapter">
+
+<h2>4. Data Handling Using Pandas</h2>
+
+<h3>What is Pandas?</h3>
+
+<p>
+Pandas is a Python library used for data handling and analysis.
+</p>
+
+<h3>Import Pandas</h3>
+
+<div class="code">import pandas as pd</div>
+
+<h3>Series</h3>
+
+<p>
+A Series is a one-dimensional labelled data structure.
+</p>
+
+<div class="code">import pandas as pd
+
+s = pd.Series([10,20,30,40])
+
+print(s)</div>
+
+<h3>Series From Dictionary</h3>
+
+<div class="code">data = {
+    "Maths": 80,
+    "Physics": 75,
+    "Chemistry": 85
+}
+
+s = pd.Series(data)
+
+print(s)</div>
+
+<h3>Head and Tail</h3>
+
+<div class="code">s.head()
+s.tail()</div>
+
+<div class="tip">
+<b>Remember:</b> head() beginning ke records aur tail() last ke records show karta hai.
+</div>
+
+</div>
+
+<!-- DATAFRAME -->
+
+<div class="chapter">
+
+<h2>5. DataFrame</h2>
+
+<h3>What is DataFrame?</h3>
+
+<p>
+A DataFrame is a two-dimensional labelled data structure consisting of
+rows and columns.
+</p>
+
+<h3>Create DataFrame</h3>
+
+<div class="code">import pandas as pd
+
+data = {
+"Name":["Aman","Riya","Karan"],
+"Marks":[80,90,75]
+}
+
+df = pd.DataFrame(data)
+
+print(df)</div>
+
+<h3>Select Column</h3>
+
+<div class="code">df["Name"]</div>
+
+<h3>Add Column</h3>
+
+<div class="code">df["Grade"] = ["B","A","B"]</div>
+
+<h3>Delete Column</h3>
+
+<div class="code">df.drop("Grade", axis=1, inplace=True)</div>
+
+<h3>Rename Column</h3>
+
+<div class="code">df.rename(
+    columns={"Marks":"Score"},
+    inplace=True
+)</div>
+
+<h3>Boolean Indexing</h3>
+
+<div class="code">df[df["Marks"] > 80]</div>
+
+<div class="tip">
+<b>Exam Tip:</b> Series = one-dimensional, DataFrame = two-dimensional.
+</div>
+
+</div>
+
+<!-- CSV -->
+
+<div class="chapter">
+
+<h2>6. CSV Files With Pandas</h2>
+
+<h3>Read CSV File</h3>
+
+<div class="code">df = pd.read_csv("students.csv")
+print(df)</div>
+
+<h3>Export DataFrame to CSV</h3>
+
+<div class="code">df.to_csv("output.csv", index=False)</div>
+
+<div class="example">
+<b>Use:</b><br>
+CSV files ko DataFrame mein import karke data analyse ya modify kiya ja sakta hai,
+aur processed data ko wapas CSV file mein export kiya ja sakta hai.
+</div>
+
+</div>
+
+<!-- MATPLOTLIB -->
+
+<div class="chapter">
+
+<h2>7. Data Visualization Using Matplotlib</h2>
+
+<h3>What is Matplotlib?</h3>
+
+<p>
+Matplotlib is a Python library used to create graphs and visualisations.
+</p>
+
+<h3>Import</h3>
+
+<div class="code">import matplotlib.pyplot as plt</div>
+
+<h3>Line Plot</h3>
+
+<div class="code">x = [1,2,3,4]
+y = [10,20,15,30]
+
+plt.plot(x,y)
+plt.xlabel("X")
+plt.ylabel("Y")
+plt.title("Line Plot")
+plt.show()</div>
+
+<h3>Bar Graph</h3>
+
+<div class="code">names = ["A","B","C"]
+marks = [80,90,70]
+
+plt.bar(names,marks)
+plt.title("Marks")
+plt.show()</div>
+
+<h3>Histogram</h3>
+
+<div class="code">marks = [45,50,55,60,60,70,75,80]
+
+plt.hist(marks)
+plt.title("Marks Distribution")
+plt.show()</div>
+
+<h3>Useful Plot Functions</h3>
+
+<ul>
+<li>xlabel() → X-axis label</li>
+<li>ylabel() → Y-axis label</li>
+<li>title() → graph title</li>
+<li>legend() → identifies plotted data</li>
+<li>savefig() → saves graph</li>
+</ul>
+
+<div class="code">plt.savefig("graph.png")</div>
+
+</div>
+
+<!-- NETWORKING -->
+
+<div class="chapter">
+
+<h2>8. Computer Networks</h2>
+
+<h3>Network</h3>
+
+<p>
+A computer network is a group of connected devices that can communicate
+and share resources.
+</p>
+
+<h3>Types of Networks</h3>
+
+<ul>
+<li>PAN → Personal Area Network</li>
+<li>LAN → Local Area Network</li>
+<li>MAN → Metropolitan Area Network</li>
+<li>WAN → Wide Area Network</li>
+</ul>
+
+<h3>Network Devices</h3>
+
+<ul>
+<li>Modem → connects a network to communication service.</li>
+<li>Hub → broadcasts data to connected devices.</li>
+<li>Switch → forwards data to the appropriate device.</li>
+<li>Router → connects different networks and forwards packets.</li>
+<li>Repeater → regenerates signals.</li>
+<li>Gateway → connects networks using different protocols.</li>
+</ul>
+
+</div>
+
+<!-- TOPOLOGIES -->
+
+<div class="chapter">
+
+<h2>9. Network Topologies</h2>
+
+<h3>Star Topology</h3>
+
+<p>
+All devices are connected to a central device such as a switch.
+</p>
+
+<h3>Bus Topology</h3>
+
+<p>
+Devices share a common communication line.
+</p>
+
+<h3>Tree Topology</h3>
+
+<p>
+It has a hierarchical arrangement of connected devices.
+</p>
+
+<h3>Mesh Topology</h3>
+
+<p>
+Devices have multiple interconnections with other devices.
+</p>
+
+<div class="tip">
+<b>Quick Memory:</b><br>
+Star → Central device<br>
+Bus → Common backbone<br>
+Tree → Hierarchical<br>
+Mesh → Multiple connections
+</div>
+
+</div>
+
+<!-- INTERNET -->
+
+<div class="chapter">
+
+<h2>10. Internet and Web</h2>
+
+<h3>Internet</h3>
+
+<p>
+The Internet is a global network of interconnected computer networks.
+</p>
+
+<h3>WWW</h3>
+
+<p>
+World Wide Web is a system of interlinked web resources accessed through the Internet.
+</p>
+
+<h3>URL</h3>
+
+<p>
+URL stands for Uniform Resource Locator. It identifies the location of a resource on the Web.
+</p>
+
+<h3>Website vs Webpage</h3>
+
+<ul>
+<li>Website → collection of related web pages.</li>
+<li>Webpage → an individual page/document on a website.</li>
+</ul>
+
+<h3>Static vs Dynamic Web Page</h3>
+
+<ul>
+<li>Static → content generally remains fixed unless manually changed.</li>
+<li>Dynamic → content can be generated or changed based on data or user interaction.</li>
+</ul>
+
+</div>
+
+<!-- SOCIETAL IMPACT -->
+
+<div class="chapter">
+
+<h2>11. Societal Impacts</h2>
+
+<h3>Digital Footprint</h3>
+
+<p>
+The information and traces a person leaves through activities performed online
+are called a digital footprint.
+</p>
+
+<h3>Plagiarism</h3>
+
+<p>
+Plagiarism means presenting another person's work or ideas as your own without
+proper acknowledgement.
+</p>
+
+<h3>Copyright</h3>
+
+<p>
+Copyright gives creators legal rights over their original creative works,
+subject to applicable law.
+</p>
+
+<h3>Phishing</h3>
+
+<p>
+Phishing is a fraudulent attempt to obtain sensitive information by pretending
+to be a trustworthy person or organisation.
+</p>
+
+<h3>Cyber Bullying</h3>
+
+<p>
+Cyber bullying means using digital communication to repeatedly harass,
+threaten or humiliate another person.
+</p>
+
+<h3>FOSS</h3>
+
+<p>
+FOSS means Free and Open Source Software. Its source code is available under
+the applicable open-source licence.
+</p>
+
+<h3>E-Waste</h3>
+
+<p>
+Discarded electronic devices and components are called electronic waste or
+e-waste. Proper collection, recycling and disposal help reduce environmental
+and health risks.
+</p>
+
+</div>
+
+<!-- QUICK REVISION -->
+
+<div class="chapter">
+
+<h2>📌 One-Minute Computer Revision</h2>
+
+<div class="formula">
+SQL → Database Query Language
+</div>
+
+<div class="formula">
+Series → 1D Pandas data structure
+</div>
+
+<div class="formula">
+DataFrame → 2D Pandas data structure
+</div>
+
+<div class="formula">
+Matplotlib → Data visualisation library
+</div>
+
+<div class="formula">
+PAN → Personal Area Network
+</div>
+
+<div class="formula">
+LAN → Local Area Network
+</div>
+
+<div class="formula">
+MAN → Metropolitan Area Network
+</div>
+
+<div class="formula">
+WAN → Wide Area Network
+</div>
+
+<div class="formula">
+URL → Uniform Resource Locator
+</div>
+
+<div class="formula">
+FOSS → Free and Open Source Software
+</div>
+
+</div>
+
+<!-- QUICK TEST -->
+
+<div class="chapter">
+
+<h2>🎯 Quick Computer Test</h2>
+
+<div class="example">
+<b>1. Which SQL command is used to retrieve data?</b><br>
+<button onclick="showAnswer(1)">Show Answer</button>
+<div class="answer" id="ans1">SELECT</div>
+</div>
+
+<div class="example">
+<b>2. What is the difference between Series and DataFrame?</b><br>
+<button onclick="showAnswer(2)">Show Answer</button>
+<div class="answer" id="ans2">
+Series is one-dimensional, while DataFrame is two-dimensional.
+</div>
+</div>
+
+<div class="example">
+<b>3. Which Python library is used for plotting?</b><br>
+<button onclick="showAnswer(3)">Show Answer</button>
+<div class="answer" id="ans3">Matplotlib</div>
+</div>
+
+<div class="example">
+<b>4. What does LAN stand for?</b><br>
+<button onclick="showAnswer(4)">Show Answer</button>
+<div class="answer" id="ans4">Local Area Network</div>
+</div>
+
+<div class="example">
+<b>5. What is phishing?</b><br>
+<button onclick="showAnswer(5)">Show Answer</button>
+<div class="answer" id="ans5">
+A fraudulent attempt to obtain information by pretending to be trustworthy.
+</div>
+</div>
+
+</div>
+
+<a href="12th-dashboard.html" class="back">
+← Back to Class 12 Dashboard
+</a>
+
+</div>
+
+<footer>
+© 2026 ShikshaSetu | Learn • Practice • Grow
+</footer>
+
+<script>
+function showAnswer(num){
+  const answer=document.getElementById("ans"+num);
+
+  if(answer.style.display==="block"){
+    answer.style.display="none";
+  }else{
+    answer.style.display="block";
+  }
+}
+</script>
+
+</body>
+</html>

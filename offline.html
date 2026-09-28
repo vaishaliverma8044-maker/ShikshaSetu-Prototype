@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Offline Library - ShikshaSetu</title>
+
+  <link rel="stylesheet" href="../style.css">
+
+  <style>
+    /* ================================
+       OFFLINE LIBRARY PAGE
+    ================================= */
+
+    body {
+      background: #f5f9fc;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: #294b66;
+    }
+
+    .offline-page {
+      width: 100%;
+      max-width: 1150px;
+      margin: 0 auto;
+      padding: 30px 20px 60px;
+      box-sizing: border-box;
+    }
+
+    /* Header */
+
+    .offline-header {
+      background: linear-gradient(135deg, #1769aa, #3199df);
+      color: white;
+      border-radius: 18px;
+      padding: 30px;
+      margin-bottom: 25px;
+      box-shadow: 0 8px 25px rgba(23, 105, 170, 0.15);
+    }
+
+    .offline-header h1 {
+      margin: 0 0 10px;
+      font-size: 30px;
+    }
+
+    .offline-header p {
+      margin: 0;
+      font-size: 15px;
+      opacity: 0.95;
+      line-height: 1.6;
+    }
+
+    /* Online Status */
+
+    .network-status {
+      margin-top: 20px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,0.16);
+      padding: 9px 14px;
+      border-radius: 30px;
+      font-size: 14px;
+    }
+
+    .status-dot {
+      width: 9px;
+      height: 9px;
+      background: #49e28b;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    /* Back Button */
+
+    .back-button {
+      display: inline-block;
+      text-decoration: none;
+      color: #1769aa;
+      background: white;
+      border: 1px solid #d6e4ee;
+      padding: 10px 16px;
+      border-radius: 10px;
+      margin-bottom: 25px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .back-button:hover {
+      background: #eef7ff;
+    }
+
+    /* Search */
+
+    .offline-controls {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 25px;
+      flex-wrap: wrap;
+    }
+
+    .offline-search {
+      flex: 1;
+      min-width: 230px;
+      height: 48px;
+      padding: 0 16px;
+      border: 1px solid #d6e4ee;
+      border-radius: 12px;
+      outline: none;
+      background: white;
+      font-size: 15px;
+      box-sizing: border-box;
+    }
+
+    .offline-search:focus {
+      border-color: #1769aa;
+      box-shadow: 0 0 0 3px #eaf5ff;
+    }
+
+    .category-filter {
+      height: 48px;
+      padding: 0 15px;
+      border: 1px solid #d6e4ee;
+      border-radius: 12px;
+      background: white;
+      color: #294b66;
+      font-size: 14px;
+      outline: none;
+      cursor: pointer;
+    }
+
+    /* Section */
+
+    .library-section {
+      margin-top: 25px;
+    }
+
+    .library-section h2 {
+      margin: 0 0 18px;
+      color: #163f5c;
+      font-size: 23px;
+    }
+
+    /* Cards Grid */
+
+    .resources-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    /* Resource Card */
+
+    .resource-card {
+      background: white;
+      border: 1px solid #e0ebf3;
+      border-radius: 16px;
+      padding: 22px;
+      box-sizing: border-box;
+      transition: 0.2s ease;
+      box-shadow: 0 5px 18px rgba(31, 76, 105, 0.05);
+    }
+
+    .resource-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(31, 76, 105, 0.10);
+    }
+
+    .resource-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: #eaf5ff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 25px;
+      margin-bottom: 15px;
+    }
+
+    .resource-card h3 {
+      margin: 0 0 8px;
+      color: #17496b;
+      font-size: 19px;
+    }
+
+    .resource-card p {
+      margin: 0 0 14px;
+      color: #688094;
+      line-height: 1.6;
+      font-size: 14px;
+    }
+
+    .resource-tag {
+      display: inline-block;
+      background: #f0f7fc;
+      color: #1769aa;
+      border-radius: 20px;
+      padding: 5px 10px;
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 17px;
+    }
+
+    /* Buttons */
+
+    .resource-button {
+      display: inline-block;
+      text-decoration: none;
+      border: none;
+      background: #1769aa;
+      color: white;
+      padding: 11px 17px;
+      border-radius: 9px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    .resource-button:hover {
+      background: #125687;
+    }
+
+    .coming-button {
+      background: #e8eef3;
+      color: #708292;
+      cursor: default;
+    }
+
+    .coming-button:hover {
+      background: #e8eef3;
+    }
+
+    /* Download Information */
+
+    .pdf-info {
+      background: #eef8ff;
+      border: 1px solid #d6edff;
+      border-radius: 14px;
+      padding: 17px 20px;
+      margin-top: 30px;
+      color: #35627d;
+      line-height: 1.6;
+      font-size: 14px;
+    }
+
+    .pdf-info strong {
+      color: #1769aa;
+    }
+
+    /* No result */
+
+    .no-result {
+      display: none;
+      background: white;
+      border: 1px solid #e0ebf3;
+      border-radius: 14px;
+      padding: 30px;
+      text-align: center;
+      color: #718797;
+      margin-top: 15px;
+    }
+
+    /* Mobile */
+
+    @media (max-width: 700px) {
+
+      .offline-page {
+        padding: 20px 14px 40px;
+      }
+
+      .offline-header {
+        padding: 22px;
+      }
+
+      .offline-header h1 {
+        font-size: 25px;
+      }
+
+      .resources-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .offline-controls {
+        flex-direction: column;
+      }
+
+      .offline-search,
+      .category-filter {
+        width: 100%;
+      }
+    }
+    .open-btn{
+    display:inline-block;
+    margin-top:18px;
+    padding:11px 18px;
+    background:#1769aa;
+    color:white;
+    text-decoration:none;
+    border-radius:9px;
+    font-weight:bold;
+}
+
+.open-btn:hover{
+    background:#3199df;
+}
+
+.resource-tag{
+    display:inline-block;
+    margin-top:15px;
+    padding:6px 12px;
+    background:#e8f5ff;
+    color:#1769aa;
+    border-radius:20px;
+    font-size:13px;
+    font-weight:bold;
+}
+.resource-button{
+    display:inline-block;
+    padding:10px 18px;
+    margin-top:10px;
+    background:#1769aa;
+    color:white;
+    text-decoration:none;
+    border:none;
+    border-radius:8px;
+    font-weight:bold;
+    cursor:pointer;
+}
+  </style>
+</head>
+
+<body>
+
+  <!-- Login Protection -->
+  <script>
+    if (localStorage.getItem("shikshaSetuLoggedIn") !== "true") {
+      window.location.href = "login.html";
+    }
+  </script>
+
+
+  <main class="offline-page">
+
+    <!-- Back -->
+    <a href="dashboard.html" class="back-button">
+      ← Back to Dashboard
+    </a>
+
+
+    <!-- Header -->
+    <section class="offline-header">
+
+      <h1>📚 Offline Library</h1>
+
+      <p>
+        Download and access important study resources even when
+        internet connectivity is limited.
+      </p>
+
+      <div class="network-status">
+        <span class="status-dot" id="statusDot"></span>
+        <span id="networkText">Checking connection...</span>
+      </div>
+
+    </section>
+
+
+    <!-- Search + Filter -->
+    <section class="offline-controls">
+
+      <input
+        type="text"
+        id="resourceSearch"
+        class="offline-search"
+        placeholder="🔍 Search notes, subjects, PYQs..."
+      >
+
+      <select id="categoryFilter" class="category-filter">
+
+        <option value="all">All Categories</option>
+
+        <option value="cpp">
+          C++
+        </option>
+
+        <option value="dsa">
+          DSA
+        </option>
+
+        <option value="maths">
+          Mathematics
+        </option>
+
+        <option value="physics">
+          Physics
+        </option>
+
+        <option value="pyq">
+          PYQs
+        </option>
+
+      </select>
+
+    </section>
+
+
+    <!-- Library -->
+    <section class="library-section">
+
+      <h2>Available Learning Resources</h2>
+
+
+      <div class="resources-grid" id="resourcesGrid">
+
+
+        <!-- =====================================
+             C++ NOTES
+             THIS ONE IS FULLY WORKING
+        ====================================== -->
+
+        <article
+          class="resource-card"
+          data-category="cpp"
+          data-search="c++ cpp programming notes basics variables loops functions arrays oops"
+        >
+
+          <div class="resource-icon">
+            💻
+          </div>
+
+          <h3>
+            C++ Programming Notes
+          </h3>
+
+          <p>
+            Beginner-friendly C++ notes covering programming basics,
+            variables, data types, operators, conditions, loops,
+            functions, arrays, pointers and OOP basics.
+          </p>
+
+          <span class="resource-tag">
+            C++ • Beginner
+          </span>
+
+          <br>
+
+          <!-- IMPORTANT:
+               cpp-notes.html MUST BE IN SAME pages FOLDER
+          -->
+
+          <a
+            href="cpp-notes.html"
+            class="resource-button"
+          >
+            📖 Open Notes
+          </a>
+
+        </article>
+
+
+
+        <!-- =====================================
+             C++ PRACTICE
+        ====================================== -->
+
+        <article
+          class="resource-card"
+          data-category="cpp"
+          data-search="c++ cpp practice programs coding questions"
+        >
+
+          <div class="resource-icon">
+            🧑‍💻
+          </div>
+
+          <h3>
+            C++ Practice Programs
+          </h3>
+
+          <p>
+            Practice programs for beginners including input/output,
+            conditions, loops, functions and arrays.
+          </p>
+
+          <span class="resource-tag">
+            C++ • Practice
+          </span>
+
+          <br>
+
+         <a
+  href="cpp-practice.html"
+  class="resource-button"
+>
+  📖 Open Practice
+</a>
+
+        </article>
+
+
+
+        <!-- =====================================
+             DSA
+        ====================================== -->
+
+        <article
+          class="resource-card"
+          data-category="dsa"
+          data-search="dsa data structures algorithms beginner notes"
+        >
+
+          <div class="resource-icon">
+            🧩
+          </div>
+
+          <h3>
+            DSA Beginner Notes
+          </h3>
+
+          <p>
+            Beginner-level Data Structures and Algorithms topics
+            including arrays, searching, sorting and basic complexity.
+          </p>
+
+          <span class="resource-tag">
+            DSA • Beginner
+          </span>
+
+          <br>
+
+          <a
+  href="dsa-notes.html"
+  class="resource-button"
+>
+  📖 Open Notes
+</a>
+
+        </article>
+
+
+
+        <!-- =====================================
+             MATHEMATICS
+        ====================================== -->
+
+        <article
+          class="resource-card"
+          data-category="maths"
+          data-search="engineering mathematics maths notes"
+        >
+
+          <div class="resource-icon">
+            📐
+          </div>
+
+          <h3>
+            Engineering Mathematics
+          </h3>
+
+          <p>
+            Important engineering mathematics concepts and
+            revision material for first-year students.
+          </p>
+
+          <span class="resource-tag">Mathematics</span>
+
+<a href="maths-notes.html" class="open-btn">
+    📖 Open Notes
+</a>
+        </article>
+
+
+
+        <!-- =====================================
+             PHYSICS
+        ====================================== -->
+
+        <article
+          class="resource-card"
+          data-category="physics"
+          data-search="engineering physics physics notes first year"
+        >
+
+          <div class="resource-icon">
+            ⚛️
+          </div>
+
+          <h3>
+            Engineering Physics
+          </h3>
+
+          <p>
+            First-year engineering physics notes covering important
+            concepts and exam-oriented revision topics.
+          </p>
+
+          <span class="resource-tag">
+            Physics
+          </span>
+
+        <br>
+
+<a href="./physics-notes.html" class="resource-button">
+  📖 Open Notes
+</a>
+        </article>
+
+
+
+        <!-- =====================================
+             PYQs
+        ====================================== -->
+
+        <article
+          class="resource-card"
+          data-category="pyq"
+          data-search="previous year questions pyq engineering exam"
+        >
+
+          <div class="resource-icon">
+            📝
+          </div>
+
+          <h3>
+            Engineering PYQs
+          </h3>
+
+          <p>
+            Previous Year Questions for engineering subjects
+            to help students prepare for examinations.
+          </p>
+
+          <span class="resource-tag">
+            PYQs
+          </span>
+
+          <br>
+
+<a
+  href="./engineering-pyqs.html"
+  class="resource-button"
+>
+  📝 Open PYQs
+</a>
+        </article>
+
+
+
+        <!-- =====================================
+             DSA QUICK REVISION
+        ====================================== -->
+
+        <article
+          class="resource-card"
+          data-category="dsa"
+          data-search="dsa quick revision algorithms cheat sheet"
+        >
+
+          <div class="resource-icon">
+            ⚡
+          </div>
+
+          <h3>
+            DSA Quick Revision
+          </h3>
+
+          <p>
+            Quick revision material for important DSA concepts,
+            algorithms and complexity.
+          </p>
+
+          <span class="resource-tag">
+            DSA • Revision
+          </span>
+
+          <br>
+
+<a 
+  href="./engineering-pyqs.html"
+  class="resource-button"
+>
+  📝 Open PYQs
+</a>
+
+        </article>
+
+
+
+        <!-- =====================================
+             EXAM REVISION
+        ====================================== -->
+
+   <div class="resource-card">
+
+    <div class="resource-icon">📚</div>
+
+    <h2>Exam Revision</h2>
+
+    <p>
+        Quick revision notes, important formulas and
+        last-minute preparation material for exams.
+    </p>
+
+    <span class="resource-tag">Revision</span>
+
+    <a href="exam-revision.html" class="open-btn">
+        ⚡ Start Revision
+    </a>
+
+</div>
+      
+
+
+      <!-- No Result -->
+      <div
+        class="no-result"
+        id="noResult"
+      >
+        😕 No resource found.
+      </div>
+
+
+      <!-- PDF Information -->
+      <div class="pdf-info">
+
+        <strong>📌 C++ Notes:</strong>
+
+        C++ Programming Notes open in a separate notes page.
+        There you can use the
+        <strong>Save as PDF</strong>
+        button to save the complete notes as a PDF on your device.
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <script>
+
+    /* ==========================================
+       ONLINE / OFFLINE STATUS
+    ========================================== */
+
+    function updateNetworkStatus() {
+
+      const networkText =
+        document.getElementById("networkText");
+
+      const statusDot =
+        document.getElementById("statusDot");
+
+
+      if (navigator.onLine) {
+
+        networkText.textContent =
+          "Online • Resources available";
+
+        statusDot.style.background =
+          "#49e28b";
+
+      } else {
+
+        networkText.textContent =
+          "Offline • Offline Library available";
+
+        statusDot.style.background =
+          "#f4a340";
+
+      }
+
+    }
+
+
+    window.addEventListener(
+      "online",
+      updateNetworkStatus
+    );
+
+    window.addEventListener(
+      "offline",
+      updateNetworkStatus
+    );
+
+    updateNetworkStatus();
+
+
+
+    /* ==========================================
+       SEARCH + CATEGORY FILTER
+    ========================================== */
+
+    const searchInput =
+      document.getElementById("resourceSearch");
+
+    const categoryFilter =
+      document.getElementById("categoryFilter");
+
+    const cards =
+      document.querySelectorAll(".resource-card");
+
+    const noResult =
+      document.getElementById("noResult");
+
+
+    function filterResources() {
+
+      const searchText =
+        searchInput.value
+          .toLowerCase()
+          .trim();
+
+      const category =
+        categoryFilter.value;
+
+
+      let visibleCards = 0;
+
+
+      cards.forEach(function(card) {
+
+        const cardCategory =
+          card.dataset.category;
+
+        const searchData =
+          card.dataset.search.toLowerCase();
+
+
+        const categoryMatch =
+          category === "all" ||
+          cardCategory === category;
+
+
+        const searchMatch =
+          searchText === "" ||
+          searchData.includes(searchText);
+
+
+        if (categoryMatch && searchMatch) {
+
+          card.style.display = "";
+
+          visibleCards++;
+
+        } else {
+
+          card.style.display = "none";
+
+        }
+
+      });
+
+
+      if (visibleCards === 0) {
+
+        noResult.style.display = "block";
+
+      } else {
+
+        noResult.style.display = "none";
+
+      }
+
+    }
+
+
+    searchInput.addEventListener(
+      "input",
+      filterResources
+    );
+
+
+    categoryFilter.addEventListener(
+      "change",
+      filterResources
+    );
+
+
+
+  
+function openPhysicsNotes() {
+    window.location.href = "physics-notes.html";
+}
+  </script>
+
+</body>
+</html>

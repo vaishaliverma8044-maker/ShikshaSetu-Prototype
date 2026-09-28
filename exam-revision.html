@@ -1,0 +1,1027 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Exam Revision - ShikshaSetu</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#f4f8fc;
+    color:#172b4d;
+    line-height:1.6;
+}
+
+header{
+    background:linear-gradient(135deg,#1677c8,#3199df);
+    color:white;
+    text-align:center;
+    padding:35px 20px;
+}
+
+header h1{
+    font-size:32px;
+    margin-bottom:8px;
+}
+
+header p{
+    font-size:16px;
+}
+
+.container{
+    width:92%;
+    max-width:1100px;
+    margin:30px auto;
+}
+
+.back-btn{
+    display:inline-block;
+    text-decoration:none;
+    background:#1677c8;
+    color:white;
+    padding:11px 18px;
+    border-radius:8px;
+    margin-bottom:25px;
+    font-weight:bold;
+}
+
+.back-btn:hover{
+    background:#0d5fa5;
+}
+
+.info{
+    background:#fff8e6;
+    border-left:5px solid #f0ad00;
+    padding:18px;
+    border-radius:8px;
+    margin-bottom:25px;
+}
+
+.subject{
+    background:white;
+    border-radius:14px;
+    padding:25px;
+    margin-bottom:25px;
+    box-shadow:0 4px 15px rgba(0,0,0,.08);
+}
+
+.subject h2{
+    color:#1677c8;
+    border-bottom:2px solid #dceefa;
+    padding-bottom:10px;
+    margin-bottom:20px;
+}
+
+.unit{
+    margin:20px 0;
+}
+
+.unit h3{
+    color:#205493;
+    margin-bottom:12px;
+}
+
+.formula{
+    background:#eef7ff;
+    border-left:5px solid #3199df;
+    padding:14px;
+    margin:12px 0;
+    border-radius:7px;
+    overflow-x:auto;
+}
+
+.question{
+    background:#f8fafc;
+    border:1px solid #e1e8ef;
+    padding:15px;
+    border-radius:8px;
+    margin:12px 0;
+}
+
+.question button{
+    border:none;
+    background:#1677c8;
+    color:white;
+    padding:8px 14px;
+    border-radius:6px;
+    cursor:pointer;
+    margin-top:8px;
+}
+
+.question button:hover{
+    background:#0d5fa5;
+}
+
+.answer{
+    display:none;
+    background:#eefbea;
+    border-left:5px solid #42a942;
+    padding:13px;
+    margin-top:10px;
+    border-radius:6px;
+}
+
+.checklist{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:12px;
+}
+
+.check{
+    background:#eef7ff;
+    padding:14px;
+    border-radius:8px;
+}
+
+.timer{
+    background:linear-gradient(135deg,#1677c8,#3199df);
+    color:white;
+    padding:25px;
+    border-radius:14px;
+    margin-bottom:25px;
+}
+
+.timer h2{
+    margin-bottom:12px;
+}
+
+footer{
+    background:#172b4d;
+    color:white;
+    text-align:center;
+    padding:25px;
+    margin-top:40px;
+}
+
+ul{
+    margin-left:25px;
+}
+
+li{
+    margin-bottom:7px;
+}
+
+@media(max-width:700px){
+    .checklist{
+        grid-template-columns:1fr;
+    }
+
+    header h1{
+        font-size:25px;
+    }
+
+    .container{
+        width:95%;
+    }
+
+    .subject{
+        padding:18px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>🎯 Exam Revision</h1>
+    <p>RGPV First Year Engineering • Quick Revision Hub</p>
+</header>
+
+
+<div class="container">
+
+<a href="college-dashboard.html" class="back-btn">
+    ← Back to College Dashboard
+</a>
+
+
+<div class="info">
+    <b>📌 How to use this page:</b>
+    First revise the formulas and definitions, then attempt the
+    important questions without looking at the answers.
+</div>
+
+
+<!-- REVISION PLAN -->
+
+<div class="timer">
+
+<h2>⚡ One-Day Revision Plan</h2>
+
+<ul>
+    <li>1 hour → Engineering Mathematics formulas</li>
+    <li>1 hour → Mathematics important questions</li>
+    <li>1 hour → Engineering Physics formulas</li>
+    <li>1 hour → Physics important questions</li>
+    <li>30 minutes → PYQ practice</li>
+    <li>30 minutes → Final self-test</li>
+</ul>
+
+</div>
+
+
+<!-- MATHEMATICS -->
+
+<div class="subject">
+
+<h2>📐 Engineering Mathematics — BT102</h2>
+
+
+<div class="unit">
+
+<h3>Unit 1 — Differential Calculus</h3>
+
+<ul>
+    <li>Taylor's theorem</li>
+    <li>Maclaurin's theorem</li>
+    <li>Partial differentiation</li>
+    <li>Euler's theorem</li>
+    <li>Maxima and minima</li>
+    <li>Curvature</li>
+</ul>
+
+
+<div class="formula">
+
+<b>Maclaurin Series</b>
+
+<br><br>
+
+f(x) = f(0) + xf'(0) + x²f''(0)/2!
++ x³f'''(0)/3! + ...
+
+</div>
+
+
+<div class="formula">
+
+<b>Euler's Theorem</b>
+
+<br><br>
+
+x(∂z/∂x) + y(∂z/∂y) = nz
+
+</div>
+
+
+<div class="formula">
+
+<b>Radius of Curvature</b>
+
+<br><br>
+
+ρ =
+[1 + (dy/dx)²]³ᐟ²
+/
+|d²y/dx²|
+
+</div>
+
+</div>
+
+
+<div class="unit">
+
+<h3>Unit 2 — Integral Calculus</h3>
+
+<ul>
+    <li>Definite integrals</li>
+    <li>Beta function</li>
+    <li>Gamma function</li>
+    <li>Double integration</li>
+    <li>Triple integration</li>
+</ul>
+
+
+<div class="formula">
+
+<b>Gamma Function</b>
+
+<br><br>
+
+Γ(n) = (n − 1)!
+
+</div>
+
+
+<div class="formula">
+
+<b>Beta-Gamma Relation</b>
+
+<br><br>
+
+B(m,n) =
+Γ(m)Γ(n) / Γ(m+n)
+
+</div>
+
+
+<div class="formula">
+
+<b>Definite Integral</b>
+
+<br><br>
+
+∫ₐᵇ f(x) dx = F(b) − F(a)
+
+</div>
+
+</div>
+
+
+<div class="unit">
+
+<h3>Unit 3 — Differential Equations</h3>
+
+<ul>
+    <li>First-order differential equations</li>
+    <li>Exact differential equations</li>
+    <li>Linear differential equations</li>
+    <li>Clairaut's equation</li>
+    <li>Higher-order differential equations</li>
+    <li>Complementary function</li>
+    <li>Particular integral</li>
+    <li>Variation of parameters</li>
+</ul>
+
+
+<div class="formula">
+
+<b>Linear Differential Equation</b>
+
+<br><br>
+
+dy/dx + Py = Q
+
+<br><br>
+
+IF = e^(∫P dx)
+
+</div>
+
+
+<div class="formula">
+
+<b>Exact Equation</b>
+
+<br><br>
+
+Mdx + Ndy = 0
+
+<br><br>
+
+Condition:
+
+∂M/∂y = ∂N/∂x
+
+</div>
+
+</div>
+
+
+<div class="unit">
+
+<h3>Unit 4 — Matrices</h3>
+
+<ul>
+    <li>Rank of matrix</li>
+    <li>System of linear equations</li>
+    <li>Consistency</li>
+    <li>Eigen values</li>
+    <li>Eigen vectors</li>
+    <li>Cayley-Hamilton theorem</li>
+</ul>
+
+
+<div class="formula">
+
+<b>Eigen Values</b>
+
+<br><br>
+
+|A − λI| = 0
+
+</div>
+
+
+<div class="formula">
+
+<b>Eigen Vector</b>
+
+<br><br>
+
+(A − λI)X = 0
+
+</div>
+
+
+<div class="formula">
+
+<b>Consistency</b>
+
+<br><br>
+
+rank(A) = rank(A|B)
+
+</div>
+
+
+<div class="formula">
+
+<b>Cayley-Hamilton</b>
+
+<br><br>
+
+Every square matrix satisfies its own
+characteristic equation.
+
+</div>
+
+</div>
+
+
+<div class="unit">
+
+<h3>Unit 5 — Logic & Graph Theory</h3>
+
+<ul>
+    <li>Boolean algebra</li>
+    <li>Principle of duality</li>
+    <li>Fuzzy logic</li>
+    <li>Graphs</li>
+    <li>Degree of vertex</li>
+    <li>Paths and cycles</li>
+    <li>Trees</li>
+</ul>
+
+
+<div class="formula">
+
+A + 0 = A
+
+<br>
+A · 1 = A
+
+<br>
+A + 1 = 1
+
+<br>
+A · 0 = 0
+
+<br>
+A + A' = 1
+
+<br>
+A · A' = 0
+
+</div>
+
+
+<div class="formula">
+
+<b>Tree:</b>
+
+<br><br>
+
+Number of edges = Number of vertices − 1
+
+</div>
+
+</div>
+
+
+<div class="unit">
+
+<h3>🔥 Mathematics Important Questions</h3>
+
+<ul>
+    <li>State and apply Taylor's theorem.</li>
+    <li>Expand functions using Maclaurin's theorem.</li>
+    <li>Explain Euler's theorem.</li>
+    <li>Find maxima and minima of functions of two variables.</li>
+    <li>Evaluate Beta and Gamma functions.</li>
+    <li>Solve differential equations.</li>
+    <li>Find rank of a matrix.</li>
+    <li>Find eigen values and eigen vectors.</li>
+    <li>Apply Cayley-Hamilton theorem.</li>
+    <li>Solve Boolean algebra problems.</li>
+    <li>Explain graph and tree concepts.</li>
+</ul>
+
+</div>
+
+</div>
+
+
+<!-- PHYSICS -->
+
+<div class="subject">
+
+<h2>⚛️ Engineering Physics — BT201</h2>
+
+
+<div class="unit">
+
+<h3>Unit 1 — Quantum Mechanics</h3>
+
+<ul>
+    <li>de Broglie hypothesis</li>
+    <li>Heisenberg uncertainty principle</li>
+    <li>Wave function</li>
+    <li>Schrödinger equation</li>
+    <li>Particle in one-dimensional box</li>
+</ul>
+
+
+<div class="formula">
+
+<b>de Broglie Wavelength</b>
+
+<br><br>
+
+λ = h/p = h/mv
+
+</div>
+
+
+<div class="formula">
+
+<b>Uncertainty Principle</b>
+
+<br><br>
+
+ΔxΔp ≥ ħ/2
+
+</div>
+
+
+<div class="formula">
+
+<b>Particle in One-Dimensional Box</b>
+
+<br><br>
+
+Eₙ = n²h² / 8mL²
+
+</div>
+
+</div>
+
+
+<div class="unit">
+
+<h3>Unit 2 — Wave Optics</h3>
+
+<ul>
+    <li>Interference</li>
+    <li>Young's double slit experiment</li>
+    <li>Newton's rings</li>
+    <li>Michelson interferometer</li>
+    <li>Fraunhofer diffraction</li>
+    <li>Rayleigh criterion</li>
+    <li>Diffraction grating</li>
+</ul>
+
+
+<div class="formula">
+
+<b>YDSE Fringe Width</b>
+
+<br><br>
+
+β = λD/d
+
+</div>
+
+
+<div class="formula">
+
+<b>Single Slit Diffraction</b>
+
+<br><br>
+
+a sinθ = nλ
+
+</div>
+
+
+<div class="formula">
+
+<b>Rayleigh Criterion</b>
+
+<br><br>
+
+θ = 1.22λ/D
+
+</div>
+
+
+<div class="formula">
+
+<b>Grating Equation</b>
+
+<br><br>
+
+d sinθ = nλ
+
+</div>
+
+</div>
+
+
+<div class="unit">
+
+<h3>Unit 3 — Solid State</h3>
+
+<ul>
+    <li>Crystal structure</li>
+    <li>Free electron theory</li>
+    <li>Fermi level</li>
+    <li>Semiconductors</li>
+    <li>Intrinsic semiconductor</li>
+    <li>Extrinsic semiconductor</li>
+    <li>PN junction</li>
+    <li>Zener diode</li>
+</ul>
+
+
+<div class="formula">
+
+<b>Intrinsic Semiconductor</b>
+
+<br><br>
+
+Pure semiconductor without intentionally
+added impurity.
+
+</div>
+
+
+<div class="formula">
+
+<b>Extrinsic Semiconductor</b>
+
+<br><br>
+
+Semiconductor whose electrical properties
+are modified by adding suitable impurities.
+
+</div>
+
+</div>
+
+
+<div class="unit">
+
+<h3>Unit 4 — Lasers & Optical Fiber</h3>
+
+<ul>
+    <li>Absorption</li>
+    <li>Spontaneous emission</li>
+    <li>Stimulated emission</li>
+    <li>Population inversion</li>
+    <li>Laser properties</li>
+    <li>Optical fiber</li>
+    <li>Total internal reflection</li>
+    <li>Numerical aperture</li>
+</ul>
+
+
+<div class="formula">
+
+<b>LASER</b>
+
+<br><br>
+
+Light Amplification by Stimulated Emission
+of Radiation.
+
+</div>
+
+
+<div class="formula">
+
+<b>Important Laser Properties</b>
+
+<br><br>
+
+• Coherence
+<br>
+• Monochromaticity
+<br>
+• Directionality
+<br>
+• High intensity
+
+</div>
+
+</div>
+
+
+<div class="unit">
+
+<h3>Unit 5 — Electromagnetism</h3>
+
+<ul>
+    <li>Electric field</li>
+    <li>Electric potential</li>
+    <li>Electric displacement</li>
+    <li>Gradient</li>
+    <li>Divergence</li>
+    <li>Curl</li>
+    <li>Gauss theorem</li>
+    <li>Stokes theorem</li>
+    <li>Maxwell's equations</li>
+    <li>Poynting vector</li>
+</ul>
+
+
+<div class="formula">
+
+<b>Electric Field</b>
+
+<br><br>
+
+E = -∇V
+
+</div>
+
+
+<div class="formula">
+
+<b>Poynting Vector</b>
+
+<br><br>
+
+S = E × H
+
+</div>
+
+</div>
+
+
+<div class="unit">
+
+<h3>🔥 Physics Important Questions</h3>
+
+<ul>
+    <li>Explain de Broglie's hypothesis.</li>
+    <li>State Heisenberg uncertainty principle.</li>
+    <li>Derive Schrödinger wave equation.</li>
+    <li>Explain particle in one-dimensional box.</li>
+    <li>Explain Young's double slit experiment.</li>
+    <li>Derive fringe width.</li>
+    <li>Explain Newton's rings.</li>
+    <li>Explain diffraction grating.</li>
+    <li>Explain resolving power.</li>
+    <li>Explain intrinsic and extrinsic semiconductors.</li>
+    <li>Explain PN junction and Zener diode.</li>
+    <li>Explain laser principle and population inversion.</li>
+    <li>Explain optical fiber.</li>
+    <li>Explain Maxwell's equations.</li>
+    <li>Explain Poynting vector.</li>
+</ul>
+
+</div>
+
+</div>
+
+
+<!-- LAST MINUTE -->
+
+<div class="subject">
+
+<h2>🚨 Last-Minute Revision</h2>
+
+
+<div class="checklist">
+
+<div class="check">
+    ✅ Revise all important formulas
+</div>
+
+<div class="check">
+    ✅ Revise definitions
+</div>
+
+<div class="check">
+    ✅ Practice numericals
+</div>
+
+<div class="check">
+    ✅ Solve PYQ-style questions
+</div>
+
+<div class="check">
+    ✅ Learn important derivations
+</div>
+
+<div class="check">
+    ✅ Revise diagrams
+</div>
+
+<div class="check">
+    ✅ Check units and symbols
+</div>
+
+<div class="check">
+    ✅ Attempt self-test
+</div>
+
+</div>
+
+</div>
+
+
+<!-- SELF TEST -->
+
+<div class="subject">
+
+<h2>🧠 Final Self-Test</h2>
+
+
+<div class="question">
+
+<p>
+<b>1.</b> Write the de Broglie wavelength formula.
+</p>
+
+<button onclick="showAnswer('a1')">
+Show Answer
+</button>
+
+<div id="a1" class="answer">
+λ = h/p = h/mv
+</div>
+
+</div>
+
+
+<div class="question">
+
+<p>
+<b>2.</b> Write the YDSE fringe-width formula.
+</p>
+
+<button onclick="showAnswer('a2')">
+Show Answer
+</button>
+
+<div id="a2" class="answer">
+β = λD/d
+</div>
+
+</div>
+
+
+<div class="question">
+
+<p>
+<b>3.</b> Write the eigen-value equation.
+</p>
+
+<button onclick="showAnswer('a3')">
+Show Answer
+</button>
+
+<div id="a3" class="answer">
+|A − λI| = 0
+</div>
+
+</div>
+
+
+<div class="question">
+
+<p>
+<b>4.</b> Write the energy formula for a particle in a box.
+</p>
+
+<button onclick="showAnswer('a4')">
+Show Answer
+</button>
+
+<div id="a4" class="answer">
+Eₙ = n²h² / 8mL²
+</div>
+
+</div>
+
+
+<div class="question">
+
+<p>
+<b>5.</b> State the grating equation.
+</p>
+
+<button onclick="showAnswer('a5')">
+Show Answer
+</button>
+
+<div id="a5" class="answer">
+d sinθ = nλ
+</div>
+
+</div>
+
+
+<div class="question">
+
+<p>
+<b>6.</b> What is the condition for consistency of AX = B?
+</p>
+
+<button onclick="showAnswer('a6')">
+Show Answer
+</button>
+
+<div id="a6" class="answer">
+rank(A) = rank(A|B)
+</div>
+
+</div>
+
+
+<div class="question">
+
+<p>
+<b>7.</b> What is population inversion?
+</p>
+
+<button onclick="showAnswer('a7')">
+Show Answer
+</button>
+
+<div id="a7" class="answer">
+Population inversion is the condition in which the population of the
+relevant upper laser level is greater than that of the lower level.
+</div>
+
+</div>
+
+
+<div class="question">
+
+<p>
+<b>8.</b> Write the Poynting vector.
+</p>
+
+<button onclick="showAnswer('a8')">
+Show Answer
+</button>
+
+<div id="a8" class="answer">
+S = E × H
+</div>
+
+</div>
+
+</div>
+
+
+<a href="college-dashboard.html" class="back-btn">
+    ← Back to College Dashboard
+</a>
+
+</div>
+
+
+<footer>
+
+<p>
+© 2026 ShikshaSetu | Exam Revision
+</p>
+
+</footer>
+
+
+<script>
+
+function showAnswer(id){
+
+    const answer = document.getElementById(id);
+
+    if(answer.style.display === "block"){
+        answer.style.display = "none";
+    }
+    else{
+        answer.style.display = "block";
+    }
+
+}
+
+</script>
+
+</body>
+</html>
+```

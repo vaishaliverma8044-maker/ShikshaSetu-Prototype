@@ -1,0 +1,279 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>ShikshaSetu | School Classes</title>
+
+  <link rel="stylesheet" href="../style.css">
+
+  <style>
+    .class-choice-page {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 70px 20px;
+    }
+
+    .class-header {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .class-icon {
+      width: 75px;
+      height: 75px;
+      margin: 0 auto 18px;
+      border-radius: 20px;
+      background: #e8f4fc;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 38px;
+    }
+
+    .class-header h1 {
+      font-size: 40px;
+      margin: 12px 0;
+      color: #294b66;
+    }
+
+    .class-header p {
+      color: #607d94;
+      font-size: 17px;
+      line-height: 1.7;
+    }
+
+    .class-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .class-card {
+      background: white;
+      border-radius: 22px;
+      padding: 40px 30px;
+      text-align: center;
+      text-decoration: none;
+      color: inherit;
+      border: 1px solid #e0edf5;
+      box-shadow: 0 10px 30px rgba(23, 105, 170, 0.08);
+      transition: 0.25s ease;
+    }
+
+    .class-card:hover {
+      transform: translateY(-7px);
+      box-shadow: 0 18px 35px rgba(23, 105, 170, 0.16);
+      border-color: #3199df;
+    }
+
+    .class-number {
+      width: 95px;
+      height: 95px;
+      margin: 0 auto 22px;
+      border-radius: 25px;
+      background: #eef8ff;
+      color: #1769aa;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 30px;
+      font-weight: 800;
+    }
+
+    .class-card h2 {
+      color: #294b66;
+      margin-bottom: 12px;
+      font-size: 26px;
+    }
+
+    .class-card p {
+      color: #6b8498;
+      line-height: 1.6;
+      margin-bottom: 25px;
+    }
+
+    .class-button {
+      display: inline-block;
+      padding: 12px 24px;
+      border-radius: 10px;
+      background: #1769aa;
+      color: white;
+      font-weight: 600;
+    }
+
+    .back-section {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .back-button {
+      text-decoration: none;
+      color: #1769aa;
+      font-weight: 600;
+    }
+
+    @media (max-width: 700px) {
+      .class-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .class-header h1 {
+        font-size: 32px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- LOGIN PROTECTION -->
+  <script>
+    if (localStorage.getItem("shikshaSetuLoggedIn") !== "true") {
+      window.location.href = "login.html";
+    }
+  </script>
+
+
+  <!-- HEADER -->
+  <header class="topbar">
+
+    <div class="brand">
+
+      <div class="brand-icon">
+        S
+      </div>
+
+      <div>
+        <strong>ShikshaSetu</strong>
+        <small>Education Beyond Connectivity</small>
+      </div>
+
+    </div>
+
+
+    <div class="top-actions">
+
+      <span class="network-badge" id="networkBadge">
+        ● Online
+      </span>
+
+      <a href="dashboard.html" class="btn btn-outline">
+        Dashboard
+      </a>
+
+    </div>
+
+  </header>
+
+
+  <!-- MAIN CONTENT -->
+  <main class="class-choice-page">
+
+    <section class="class-header">
+
+      <div class="class-icon">
+        🏫
+      </div>
+
+      <span class="eyebrow">
+        SCHOOL RESOURCES
+      </span>
+
+      <h1>
+        Which class are you in?
+      </h1>
+
+      <p>
+        Select your class to access subject-wise notes,
+        PYQs, revision material and practice resources.
+      </p>
+
+    </section>
+
+
+    <!-- CLASS OPTIONS -->
+    <section class="class-grid">
+
+
+      <!-- CLASS 11 -->
+      <a href="11th-dashboard.html" class="class-card">
+
+        <div class="class-number">
+          11
+        </div>
+
+        <h2>
+          Class 11th
+        </h2>
+
+        <p>
+          Access Class 11 subjects, study notes,
+          important questions, PYQs and practice material.
+        </p>
+
+        <span class="class-button">
+          Open Class 11th →
+        </span>
+
+      </a>
+
+
+      <!-- CLASS 12 -->
+      <a href="12th-dashboard.html" class="class-card">
+
+        <div class="class-number">
+          12
+        </div>
+
+        <h2>
+          Class 12th
+        </h2>
+
+        <p>
+          Access Class 12 subjects, board preparation,
+          important questions, PYQs and revision material.
+        </p>
+
+        <span class="class-button">
+          Open Class 12th →
+        </span>
+
+      </a>
+
+    </section>
+
+
+    <!-- BACK -->
+    <div class="back-section">
+
+      <a href="learning.html" class="back-button">
+        ← Back to Learning Resources
+      </a>
+
+    </div>
+
+  </main>
+
+
+  <!-- FOOTER -->
+  <footer class="footer">
+
+    <b>ShikshaSetu</b>
+    —
+    Learn Anywhere. In Your Language. With or Without Internet.
+
+  </footer>
+
+
+  <script src="../app.js"></script>
+
+</body>
+
+</html>
+```

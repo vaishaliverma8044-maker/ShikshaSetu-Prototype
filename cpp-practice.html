@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>C++ Practice Programs - ShikshaSetu</title>
+
+<style>
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:#f5f9fc;
+  color:#294b66;
+}
+
+.page{
+  max-width:1100px;
+  margin:auto;
+  padding:25px 18px 50px;
+}
+
+.back{
+  display:inline-block;
+  text-decoration:none;
+  color:#1769aa;
+  background:white;
+  border:1px solid #d6e4ee;
+  padding:10px 16px;
+  border-radius:10px;
+  margin-bottom:20px;
+  font-weight:600;
+}
+
+.header{
+  background:linear-gradient(135deg,#1769aa,#3199df);
+  color:white;
+  border-radius:18px;
+  padding:30px;
+  margin-bottom:25px;
+}
+
+.header h1{
+  margin:0 0 10px;
+  font-size:30px;
+}
+
+.header p{
+  margin:0;
+  line-height:1.6;
+}
+
+.card{
+  background:white;
+  border:1px solid #e0ebf3;
+  border-radius:16px;
+  padding:22px;
+  margin-bottom:18px;
+  box-shadow:0 5px 18px rgba(31,76,105,.05);
+}
+
+.card h2{
+  margin:0 0 10px;
+  color:#1769aa;
+  font-size:20px;
+}
+
+.card p{
+  line-height:1.6;
+}
+
+pre{
+  background:#f3f7fa;
+  border-radius:10px;
+  padding:15px;
+  overflow:auto;
+  line-height:1.5;
+  border-left:4px solid #3199df;
+}
+
+.tag{
+  display:inline-block;
+  background:#eef7ff;
+  color:#1769aa;
+  padding:5px 10px;
+  border-radius:20px;
+  font-size:12px;
+  font-weight:bold;
+  margin-bottom:10px;
+}
+
+@media(max-width:600px){
+  .header h1{font-size:25px}
+}
+</style>
+
+</head>
+
+<body>
+
+<main class="page">
+
+<a href="offline.html" class="back">← Back to Offline Library</a>
+
+<section class="header">
+  <h1>🧑‍💻 C++ Practice Programs</h1>
+  <p>
+    Beginner-friendly C++ programs for practicing input/output,
+    conditions, loops, functions, arrays and basic programming logic.
+  </p>
+</section>
+
+<div class="card">
+  <span class="tag">1 • Input / Output</span>
+  <h2>Print Hello World</h2>
+  <pre>#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+cout << "Hello, World!";
+return 0;
+}</pre>
+
+</div>
+
+<div class="card">
+  <span class="tag">2 • Input / Output</span>
+  <h2>Add Two Numbers</h2>
+  <pre>#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+int a, b;
+cin >> a >> b;
+
+```
+cout &lt;&lt; "Sum = " &lt;&lt; a + b;
+
+return 0;
+```
+
+}</pre>
+
+</div>
+
+<div class="card">
+  <span class="tag">3 • Operators</span>
+  <h2>Area of a Circle</h2>
+  <pre>#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+float radius;
+cin >> radius;
+
+```
+float area = 3.14 * radius * radius;
+
+cout &lt;&lt; "Area = " &lt;&lt; area;
+
+return 0;
+```
+
+}</pre>
+
+</div>
+
+<div class="card">
+  <span class="tag">4 • If-Else</span>
+  <h2>Check Even or Odd</h2>
+  <pre>#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+int n;
+cin >> n;
+
+```
+if(n % 2 == 0)
+    cout &lt;&lt; "Even";
+else
+    cout &lt;&lt; "Odd";
+
+return 0;
+```
+
+}</pre>
+
+</div>
+
+<div class="card">
+  <span class="tag">5 • If-Else</span>
+  <h2>Check Positive, Negative or Zero</h2>
+  <pre>#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+int n;
+cin >> n;
+
+```
+if(n &gt; 0)
+    cout &lt;&lt; "Positive";
+else if(n &lt; 0)
+    cout &lt;&lt; "Negative";
+else
+    cout &lt;&lt; "Zero";
+
+return 0;
+```
+
+}</pre>
+
+</div>
+
+<div class="card">
+  <span class="tag">6 • If-Else</span>
+  <h2>Find Largest of Three Numbers</h2>
+  <pre>#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+int a, b, c;
+cin >> a >> b >> c;
+
+```
+if(a &gt;= b &amp;&amp; a &gt;= c)
+    cout &lt;&lt; a;
+else if(b &gt;= a &amp;&amp; b &gt;= c)
+    cout &lt;&lt; b;
+else
+    cout &lt;&lt; c;
+
+return 0;
+```
+
+}</pre>
+
+</div>
+
+<div class="card">
+  <span class="tag">7 • Loops</span>
+  <h2>Print Numbers 1 to 10</h2>
+  <pre>#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+
+```
+for(int i = 1; i &lt;= 10; i++)
+    cout &lt;&lt; i &lt;&lt; " ";
+
+return 0;
+```
+
+}</pre>
+
+</div>
+
+<div class="card">
+  <span class="tag">8 • Loops</span>
+  <h2>Print Multiplication Table</h2>
+  <pre>#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+
+```
+int n;
+cin &gt;&gt; n;
+
+for(int i = 1; i &lt;= 10; i++)
+    cout &lt;&lt; n &lt;&lt; " x " &lt;&lt; i
+         &lt;&lt; " = " &lt;&lt; n * i &lt;&lt; endl;
+
+return 0;
+```
+
+}</pre>
+
+</div>
+
+<div class="card">
+  <span class="tag">9 • Loops</span>
+  <h2>Find Factorial</h2>
+  <pre>#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+
+```
+int n;
+long long fact = 1;
+
+cin &gt;&gt; n;
+
+for(int i = 1; i &lt;= n; i++)
+    fact *= i;
+
+cout &lt;&lt; "Factorial = " &lt;&lt; fact;
+
+return 0;
+```
+
+}

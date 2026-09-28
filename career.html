@@ -1,0 +1,2395 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Career Navigator - ShikshaSetu</title>
+
+<style>
+
+/* =========================
+   RESET
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    overflow-x:hidden;
+}
+
+body{
+    font-family:Arial, sans-serif;
+    background:#f4f9ff;
+    color:#173b54;
+    overflow-x:hidden;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.header{
+    width:100%;
+    padding:16px 35px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    background:linear-gradient(
+        135deg,
+        #3199df,
+        #68caff
+    );
+
+    color:white;
+
+    box-shadow:0 3px 12px rgba(0,0,0,.12);
+}
+
+.logo{
+    font-size:25px;
+    font-weight:bold;
+}
+
+.header-right{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.header-label{
+    background:rgba(255,255,255,.2);
+    padding:8px 13px;
+    border-radius:20px;
+    font-size:13px;
+}
+
+.back-btn{
+    border:none;
+    background:white;
+    color:#1976b8;
+
+    padding:9px 15px;
+    border-radius:8px;
+
+    font-weight:bold;
+    cursor:pointer;
+}
+
+
+/* =========================
+   CONTAINER
+========================= */
+
+.container{
+    width:100%;
+    max-width:1150px;
+    margin:auto;
+
+    padding:30px 20px 45px;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    text-align:center;
+    margin-bottom:28px;
+}
+
+.hero-icon{
+    width:72px;
+    height:72px;
+
+    margin:auto;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:linear-gradient(
+        135deg,
+        #3199df,
+        #76d3ff
+    );
+
+    font-size:35px;
+
+    box-shadow:
+        0 8px 22px rgba(49,153,223,.25);
+}
+
+.hero h1{
+    margin-top:14px;
+
+    font-size:31px;
+    color:#174c6d;
+}
+
+.hero p{
+    margin-top:8px;
+
+    color:#617c8d;
+    font-size:15px;
+
+    line-height:1.6;
+}
+
+
+/* =========================
+   STEPS
+========================= */
+
+.steps{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    gap:8px;
+
+    margin-bottom:25px;
+}
+
+.step{
+    display:flex;
+    align-items:center;
+    gap:6px;
+
+    color:#91a5b2;
+
+    font-size:12px;
+    font-weight:bold;
+}
+
+.step-number{
+    width:27px;
+    height:27px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:#e4f2fb;
+    color:#6b8798;
+}
+
+.step.active{
+    color:#2381ba;
+}
+
+.step.active .step-number{
+    background:#3199df;
+    color:white;
+}
+
+.step-line{
+    width:45px;
+    height:2px;
+    background:#dbeaf3;
+}
+
+
+/* =========================
+   NAVIGATOR CARD
+========================= */
+
+.navigator-card{
+    background:white;
+
+    border-radius:18px;
+
+    padding:25px;
+
+    box-shadow:
+        0 7px 25px rgba(0,0,0,.07);
+
+    border:1px solid #e5f1f8;
+}
+
+
+/* =========================
+   QUESTION
+========================= */
+
+.question{
+    display:none;
+}
+
+.question.active{
+    display:block;
+}
+
+.question-number{
+    color:#3199df;
+    font-size:12px;
+    font-weight:bold;
+    margin-bottom:7px;
+}
+
+.question h2{
+    color:#174c6d;
+    font-size:23px;
+}
+
+.question-subtitle{
+    color:#718898;
+    font-size:13px;
+    margin-top:7px;
+}
+
+
+/* =========================
+   OPTIONS
+========================= */
+
+.options{
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:14px;
+
+    margin-top:22px;
+}
+
+.option{
+    position:relative;
+
+    border:2px solid #e0edf5;
+
+    background:#fbfdff;
+
+    border-radius:13px;
+
+    padding:17px;
+
+    cursor:pointer;
+
+    transition:.2s;
+}
+
+.option:hover{
+    border-color:#8ccdf0;
+    background:#f4fbff;
+    transform:translateY(-2px);
+}
+
+.option.selected{
+    border-color:#3199df;
+    background:#edf8ff;
+}
+
+.option-icon{
+    font-size:27px;
+    margin-bottom:9px;
+}
+
+.option-title{
+    font-weight:bold;
+    color:#24556f;
+    font-size:15px;
+}
+
+.option-text{
+    margin-top:5px;
+    color:#718898;
+    font-size:12px;
+    line-height:1.5;
+}
+
+.check{
+    position:absolute;
+
+    top:12px;
+    right:12px;
+
+    width:23px;
+    height:23px;
+
+    border-radius:50%;
+
+    display:none;
+    align-items:center;
+    justify-content:center;
+
+    background:#3199df;
+    color:white;
+
+    font-size:12px;
+}
+
+.option.selected .check{
+    display:flex;
+}
+
+
+/* =========================
+   BUTTONS
+========================= */
+
+.navigation{
+    display:flex;
+    justify-content:space-between;
+
+    gap:10px;
+
+    margin-top:25px;
+}
+
+.nav-btn{
+    border:none;
+
+    padding:11px 20px;
+
+    border-radius:9px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+}
+
+.prev-btn{
+    background:#edf6fb;
+    color:#477087;
+}
+
+.next-btn{
+    background:#3199df;
+    color:white;
+}
+
+.next-btn:hover{
+    background:#197dbd;
+}
+
+.nav-btn:disabled{
+    opacity:.5;
+    cursor:not-allowed;
+}
+
+
+/* =========================
+   RESULT
+========================= */
+
+.result{
+    display:none;
+}
+
+.result.active{
+    display:block;
+}
+
+.result-header{
+    text-align:center;
+}
+
+.result-header .result-icon{
+    font-size:45px;
+}
+
+.result-header h2{
+    margin-top:7px;
+    color:#174c6d;
+    font-size:26px;
+}
+
+.result-header p{
+    margin-top:6px;
+    color:#6e8593;
+    font-size:13px;
+}
+
+
+/* =========================
+   CAREER CARDS
+========================= */
+
+.career-grid{
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:15px;
+
+    margin-top:25px;
+}
+
+.career-card{
+    border:1px solid #e0edf5;
+
+    border-radius:14px;
+
+    padding:18px;
+
+    background:#fbfdff;
+}
+
+.career-icon{
+    width:48px;
+    height:48px;
+
+    border-radius:12px;
+
+    background:#e8f6ff;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:25px;
+}
+
+.career-card h3{
+    margin-top:12px;
+
+    color:#205675;
+    font-size:17px;
+}
+
+.career-card p{
+    margin-top:7px;
+
+    color:#718898;
+    font-size:12px;
+    line-height:1.5;
+}
+
+.career-tags{
+    display:flex;
+    flex-wrap:wrap;
+
+    gap:6px;
+
+    margin-top:12px;
+}
+
+.career-tag{
+    background:#eef8ff;
+    color:#2875a1;
+
+    padding:5px 8px;
+
+    border-radius:12px;
+
+    font-size:10px;
+}
+
+.view-career{
+    width:100%;
+
+    margin-top:14px;
+
+    padding:9px;
+
+    border:1px solid #cfe5f2;
+
+    background:white;
+
+    color:#2778a8;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    font-weight:bold;
+}
+
+
+/* =========================
+   CAREER DETAIL
+========================= */
+
+.detail-box{
+    display:none;
+
+    margin-top:22px;
+
+    padding:20px;
+
+    border-radius:14px;
+
+    background:#f7fbfe;
+
+    border:1px solid #dceef7;
+}
+
+.detail-box.active{
+    display:block;
+}
+
+.detail-box h3{
+    color:#174c6d;
+}
+
+.detail-box p{
+    margin-top:7px;
+
+    color:#5e7888;
+
+    font-size:13px;
+    line-height:1.6;
+}
+
+.detail-columns{
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:15px;
+
+    margin-top:17px;
+}
+
+.detail-section{
+    background:white;
+
+    padding:15px;
+
+    border-radius:10px;
+}
+
+.detail-section h4{
+    color:#2778a8;
+    font-size:13px;
+}
+
+.detail-section ul{
+    padding-left:18px;
+
+    margin-top:7px;
+
+    color:#617b8a;
+
+    font-size:12px;
+
+    line-height:1.8;
+}
+
+.learn-btn{
+    display:inline-block;
+
+    margin-top:16px;
+
+    padding:10px 15px;
+
+    background:#3199df;
+
+    color:white;
+
+    border-radius:8px;
+
+    text-decoration:none;
+
+    font-size:12px;
+
+    font-weight:bold;
+}
+
+
+/* =========================
+   RETAKE
+========================= */
+
+.retake{
+    display:block;
+
+    width:max-content;
+
+    margin:25px auto 0;
+
+    border:none;
+
+    background:#edf7fd;
+
+    color:#2875a1;
+
+    padding:10px 17px;
+
+    border-radius:9px;
+
+    cursor:pointer;
+
+    font-weight:bold;
+}
+
+
+/* =========================
+   INFO
+========================= */
+
+.info-box{
+    margin-top:20px;
+
+    padding:14px 16px;
+
+    border-radius:10px;
+
+    background:#fffbea;
+
+    border:1px solid #f0e3aa;
+
+    color:#74642c;
+
+    font-size:12px;
+
+    line-height:1.6;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:850px){
+
+    .career-grid{
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+}
+
+
+@media(max-width:650px){
+
+    .header{
+        padding:13px 14px;
+    }
+
+    .logo{
+        font-size:20px;
+    }
+
+    .header-label{
+        display:none;
+    }
+
+    .back-btn{
+        padding:8px 11px;
+        font-size:12px;
+    }
+
+    .container{
+        padding:22px 11px 35px;
+    }
+
+    .hero-icon{
+        width:60px;
+        height:60px;
+        font-size:29px;
+    }
+
+    .hero h1{
+        font-size:24px;
+    }
+
+    .hero p{
+        font-size:13px;
+    }
+
+    .steps{
+        gap:4px;
+    }
+
+    .step-line{
+        width:18px;
+    }
+
+    .step{
+        font-size:9px;
+    }
+
+    .step-number{
+        width:24px;
+        height:24px;
+    }
+
+    .navigator-card{
+        padding:17px;
+    }
+
+    .question h2{
+        font-size:20px;
+    }
+
+    .options{
+        grid-template-columns:1fr;
+        gap:10px;
+    }
+
+    .option{
+        padding:14px;
+    }
+
+    .navigation{
+        margin-top:20px;
+    }
+
+    .nav-btn{
+        padding:10px 15px;
+    }
+
+    .career-grid{
+        grid-template-columns:1fr;
+    }
+
+    .detail-columns{
+        grid-template-columns:1fr;
+    }
+
+}
+
+
+@media(max-width:380px){
+
+    .hero h1{
+        font-size:21px;
+    }
+
+    .navigator-card{
+        padding:14px;
+    }
+
+    .step{
+        font-size:8px;
+    }
+
+    .step-line{
+        width:10px;
+    }
+
+}
+
+
+/* =========================
+   HIDDEN
+========================= */
+
+.hidden{
+    display:none !important;
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header class="header">
+
+    <div class="logo">
+        📘 ShikshaSetu
+    </div>
+
+    <div class="header-right">
+
+        <span class="header-label">
+            🎯 Career Navigator
+        </span>
+
+        <button
+            class="back-btn"
+            onclick="goBack()"
+        >
+            ← Back
+        </button>
+
+    </div>
+
+</header>
+
+
+
+<main class="container">
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero">
+
+    <div class="hero-icon">
+        🎯
+    </div>
+
+    <h1>
+        Career Navigator
+    </h1>
+
+    <p>
+        Explore career paths based on your interests,
+        strengths and education level.
+    </p>
+
+</section>
+
+
+
+<!-- =========================
+     STEPS
+========================= -->
+
+<div class="steps">
+
+    <div class="step active" id="step1">
+        <span class="step-number">1</span>
+        Level
+    </div>
+
+    <div class="step-line"></div>
+
+    <div class="step" id="step2">
+        <span class="step-number">2</span>
+        Interest
+    </div>
+
+    <div class="step-line"></div>
+
+    <div class="step" id="step3">
+        <span class="step-number">3</span>
+        Strength
+    </div>
+
+    <div class="step-line"></div>
+
+    <div class="step" id="step4">
+        <span class="step-number">4</span>
+        Results
+    </div>
+
+</div>
+
+
+
+<!-- =========================
+     NAVIGATOR
+========================= -->
+
+<section class="navigator-card">
+
+
+<!-- QUESTION 1 -->
+
+<div class="question active" id="question1">
+
+    <div class="question-number">
+        STEP 1 OF 3
+    </div>
+
+    <h2>
+        What is your current education level?
+    </h2>
+
+    <p class="question-subtitle">
+        Choose the option that best describes you.
+    </p>
+
+
+    <div class="options">
+
+        <div
+            class="option"
+            data-value="school"
+            onclick="selectOption(this)"
+        >
+
+            <div class="option-icon">
+                🏫
+            </div>
+
+            <div class="option-title">
+                School Student
+            </div>
+
+            <div class="option-text">
+                Class 11th / 12th and preparing
+                for higher studies.
+            </div>
+
+            <div class="check">
+                ✓
+            </div>
+
+        </div>
+
+
+        <div
+            class="option"
+            data-value="college"
+            onclick="selectOption(this)"
+        >
+
+            <div class="option-icon">
+                🎓
+            </div>
+
+            <div class="option-title">
+                College Student
+            </div>
+
+            <div class="option-text">
+                Diploma, undergraduate or
+                higher education.
+            </div>
+
+            <div class="check">
+                ✓
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- QUESTION 2 -->
+
+<div class="question" id="question2">
+
+    <div class="question-number">
+        STEP 2 OF 3
+    </div>
+
+    <h2>
+        What are you most interested in?
+    </h2>
+
+    <p class="question-subtitle">
+        Choose the area you enjoy learning about.
+    </p>
+
+
+    <div class="options">
+
+        <div
+            class="option"
+            data-value="technology"
+            onclick="selectOption(this)"
+        >
+
+            <div class="option-icon">
+                💻
+            </div>
+
+            <div class="option-title">
+                Technology
+            </div>
+
+            <div class="option-text">
+                Coding, computers, software,
+                AI and digital technologies.
+            </div>
+
+            <div class="check">
+                ✓
+            </div>
+
+        </div>
+
+
+        <div
+            class="option"
+            data-value="science"
+            onclick="selectOption(this)"
+        >
+
+            <div class="option-icon">
+                🔬
+            </div>
+
+            <div class="option-title">
+                Science
+            </div>
+
+            <div class="option-text">
+                Physics, chemistry, biology,
+                research and experiments.
+            </div>
+
+            <div class="check">
+                ✓
+            </div>
+
+        </div>
+
+
+        <div
+            class="option"
+            data-value="business"
+            onclick="selectOption(this)"
+        >
+
+            <div class="option-icon">
+                📊
+            </div>
+
+            <div class="option-title">
+                Business
+            </div>
+
+            <div class="option-text">
+                Finance, management,
+                entrepreneurship and marketing.
+            </div>
+
+            <div class="check">
+                ✓
+            </div>
+
+        </div>
+
+
+        <div
+            class="option"
+            data-value="creative"
+            onclick="selectOption(this)"
+        >
+
+            <div class="option-icon">
+                🎨
+            </div>
+
+            <div class="option-title">
+                Creative
+            </div>
+
+            <div class="option-text">
+                Design, writing, media,
+                animation and creative work.
+            </div>
+
+            <div class="check">
+                ✓
+            </div>
+
+        </div>
+
+
+        <div
+            class="option"
+            data-value="health"
+            onclick="selectOption(this)"
+        >
+
+            <div class="option-icon">
+                🩺
+            </div>
+
+            <div class="option-title">
+                Healthcare
+            </div>
+
+            <div class="option-text">
+                Medicine, healthcare,
+                biology and patient care.
+            </div>
+
+            <div class="check">
+                ✓
+            </div>
+
+        </div>
+
+
+        <div
+            class="option"
+            data-value="law"
+            onclick="selectOption(this)"
+        >
+
+            <div class="option-icon">
+                ⚖️
+            </div>
+
+            <div class="option-title">
+                Law & Public Service
+            </div>
+
+            <div class="option-text">
+                Law, government, administration
+                and public service.
+            </div>
+
+            <div class="check">
+                ✓
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- QUESTION 3 -->
+
+<div class="question" id="question3">
+
+    <div class="question-number">
+        STEP 3 OF 3
+    </div>
+
+    <h2>
+        What is your strongest skill?
+    </h2>
+
+    <p class="question-subtitle">
+        Select the strength you enjoy using the most.
+    </p>
+
+
+    <div class="options">
+
+        <div
+            class="option"
+            data-value="problem"
+            onclick="selectOption(this)"
+        >
+
+            <div class="option-icon">
+                🧩
+            </div>
+
+            <div class="option-title">
+                Problem Solving
+            </div>
+
+            <div class="option-text">
+                I enjoy finding solutions
+                to difficult problems.
+            </div>
+
+            <div class="check">
+                ✓
+            </div>
+
+        </div>
+
+
+        <div
+            class="option"
+            data-value="communication"
+            onclick="selectOption(this)"
+        >
+
+            <div class="option-icon">
+                🗣️
+            </div>
+
+            <div class="option-title">
+                Communication
+            </div>
+
+            <div class="option-text">
+                I enjoy explaining ideas
+                and communicating with others.
+            </div>
+
+            <div class="check">
+                ✓
+            </div>
+
+        </div>
+
+
+        <div
+            class="option"
+            data-value="creativity"
+            onclick="selectOption(this)"
+        >
+
+            <div class="option-icon">
+                💡
+            </div>
+
+            <div class="option-title">
+                Creativity
+            </div>
+
+            <div class="option-text">
+                I like creating new ideas,
+                designs and solutions.
+            </div>
+
+            <div class="check">
+                ✓
+            </div>
+
+        </div>
+
+
+        <div
+            class="option"
+            data-value="analysis"
+            onclick="selectOption(this)"
+        >
+
+            <div class="option-icon">
+                📈
+            </div>
+
+            <div class="option-title">
+                Analytical Thinking
+            </div>
+
+            <div class="option-text">
+                I enjoy working with data,
+                logic and patterns.
+            </div>
+
+            <div class="check">
+                ✓
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================
+     NAVIGATION
+========================= -->
+
+<div class="navigation">
+
+    <button
+        class="nav-btn prev-btn"
+        id="prevBtn"
+        onclick="previousQuestion()"
+        disabled
+    >
+        ← Previous
+    </button>
+
+    <button
+        class="nav-btn next-btn"
+        id="nextBtn"
+        onclick="nextQuestion()"
+    >
+        Next →
+    </button>
+
+</div>
+
+
+
+<!-- =========================
+     RESULT
+========================= -->
+
+<div class="result" id="result">
+
+    <div class="result-header">
+
+        <div class="result-icon">
+            🧭
+        </div>
+
+        <h2>
+            Your Career Paths
+        </h2>
+
+        <p>
+            Based on the choices you selected,
+            here are some areas you can explore.
+        </p>
+
+    </div>
+
+
+    <div
+        class="career-grid"
+        id="careerGrid"
+    >
+    </div>
+
+
+    <div
+        class="detail-box"
+        id="detailBox"
+    >
+
+        <h3 id="detailTitle">
+            Career Details
+        </h3>
+
+        <p id="detailDescription">
+        </p>
+
+
+        <div class="detail-columns">
+
+            <div class="detail-section">
+
+                <h4>
+                    🎓 Education Path
+                </h4>
+
+                <ul id="detailEducation">
+                </ul>
+
+            </div>
+
+
+            <div class="detail-section">
+
+                <h4>
+                    🛠️ Important Skills
+                </h4>
+
+                <ul id="detailSkills">
+                </ul>
+
+            </div>
+
+        </div>
+
+
+        <a
+            id="learnLink"
+            class="learn-btn"
+            href="./learning.html"
+        >
+            📚 Explore Learning Resources
+        </a>
+
+    </div>
+
+
+    <button
+        class="retake"
+        onclick="restartNavigator()"
+    >
+        ↻ Explore Again
+    </button>
+
+</div>
+
+
+</section>
+
+
+
+<!-- INFO -->
+
+<div class="info-box">
+
+    💡 <strong>Remember:</strong>
+    Career Navigator is a guidance tool, not a final career
+    decision. Explore different paths, understand their
+    requirements, and discuss important choices with parents,
+    teachers or career counsellors.
+
+</div>
+
+
+</main>
+
+
+
+<script>
+
+/* =========================
+   DATA
+========================= */
+
+let currentQuestion = 1;
+
+let answers = {
+    level: "",
+    interest: "",
+    strength: ""
+};
+
+
+/* =========================
+   CAREER DATA
+========================= */
+
+const careers = {
+
+    technology: [
+
+        {
+            icon:"💻",
+            title:"Software Development",
+            description:
+            "Build websites, applications and software systems using programming and problem-solving skills.",
+            tags:["C++","Programming","Problem Solving"],
+            education:[
+                "B.Tech / B.E. in Computer Science or IT",
+                "BCA / B.Sc. Computer Science",
+                "Relevant programming and development courses"
+            ],
+            skills:[
+                "Programming",
+                "Data Structures & Algorithms",
+                "Problem Solving",
+                "Communication"
+            ],
+            link:"./cpp-notes.html"
+        },
+
+        {
+            icon:"🤖",
+            title:"AI & Machine Learning",
+            description:
+            "Work with data, algorithms and computational models to build intelligent systems.",
+            tags:["Python","Maths","AI"],
+            education:[
+                "B.Tech / B.E. in CSE, IT or related field",
+                "Data Science / AI / ML learning",
+                "Mathematics and statistics foundations"
+            ],
+            skills:[
+                "Python",
+                "Mathematics",
+                "Statistics",
+                "Problem Solving"
+            ],
+            link:"./learning.html"
+        },
+
+        {
+            icon:"🔐",
+            title:"Cybersecurity",
+            description:
+            "Learn how digital systems and information can be protected from security threats.",
+            tags:["Security","Networks","Linux"],
+            education:[
+                "B.Tech / B.E. in CSE, IT or related field",
+                "Networking fundamentals",
+                "Cybersecurity certifications or courses"
+            ],
+            skills:[
+                "Networking",
+                "Logical Thinking",
+                "Problem Solving",
+                "Attention to Detail"
+            ],
+            link:"./learning.html"
+        }
+
+    ],
+
+
+    science: [
+
+        {
+            icon:"🔬",
+            title:"Research & Science",
+            description:
+            "Explore scientific questions through experiments, analysis and research.",
+            tags:["Research","Science","Analysis"],
+            education:[
+                "Bachelor's degree in a relevant science field",
+                "Higher studies may be useful for research careers",
+                "Subject-specific practical learning"
+            ],
+            skills:[
+                "Analytical Thinking",
+                "Research",
+                "Observation",
+                "Problem Solving"
+            ],
+            link:"./learning.html"
+        },
+
+        {
+            icon:"🧪",
+            title:"Biotechnology",
+            description:
+            "Apply biology and technology to areas such as healthcare, agriculture and research.",
+            tags:["Biology","Research","Technology"],
+            education:[
+                "B.Sc. / B.Tech. in Biotechnology or related field",
+                "Laboratory learning",
+                "Higher studies for many research roles"
+            ],
+            skills:[
+                "Biology",
+                "Research",
+                "Analysis",
+                "Laboratory Skills"
+            ],
+            link:"./learning.html"
+        },
+
+        {
+            icon:"⚛️",
+            title:"Physics & Applied Science",
+            description:
+            "Study physical systems and apply scientific principles to technology and research.",
+            tags:["Physics","Maths","Research"],
+            education:[
+                "B.Sc. / B.Tech. in a relevant field",
+                "Strong mathematics and physics foundation",
+                "Higher studies for many research roles"
+            ],
+            skills:[
+                "Mathematics",
+                "Physics",
+                "Analytical Thinking",
+                "Research"
+            ],
+            link:"./physics-notes.html"
+        }
+
+    ],
+
+
+    business: [
+
+        {
+            icon:"📊",
+            title:"Business & Management",
+            description:
+            "Explore management, operations, marketing and organizational decision-making.",
+            tags:["Management","Business","Communication"],
+            education:[
+                "BBA / B.Com or other relevant degree",
+                "Management and business courses",
+                "Practical projects and internships"
+            ],
+            skills:[
+                "Communication",
+                "Leadership",
+                "Decision Making",
+                "Problem Solving"
+            ],
+            link:"./learning.html"
+        },
+
+        {
+            icon:"💰",
+            title:"Finance",
+            description:
+            "Work with financial information, planning, analysis and business decisions.",
+            tags:["Finance","Analysis","Business"],
+            education:[
+                "B.Com / BBA or relevant degree",
+                "Finance and accounting foundations",
+                "Professional courses where appropriate"
+            ],
+            skills:[
+                "Numerical Skills",
+                "Analysis",
+                "Attention to Detail",
+                "Communication"
+            ],
+            link:"./learning.html"
+        },
+
+        {
+            icon:"🚀",
+            title:"Entrepreneurship",
+            description:
+            "Develop ideas into products, services or organizations and learn how businesses operate.",
+            tags:["Ideas","Business","Leadership"],
+            education:[
+                "Any relevant academic background",
+                "Business and entrepreneurship learning",
+                "Projects and practical experience"
+            ],
+            skills:[
+                "Creativity",
+                "Communication",
+                "Leadership",
+                "Problem Solving"
+            ],
+            link:"./learning.html"
+        }
+
+    ],
+
+
+    creative: [
+
+        {
+            icon:"🎨",
+            title:"UI/UX Design",
+            description:
+            "Design digital interfaces and user experiences for websites and applications.",
+            tags:["Design","UI","UX"],
+            education:[
+                "Design / Computer / related degree or courses",
+                "UI/UX tools and portfolio development",
+                "Practical design projects"
+            ],
+            skills:[
+                "Creativity",
+                "Visual Thinking",
+                "User Research",
+                "Communication"
+            ],
+            link:"./learning.html"
+        },
+
+        {
+            icon:"🎬",
+            title:"Media & Content",
+            description:
+            "Create written, visual or video content for digital and traditional media.",
+            tags:["Writing","Media","Content"],
+            education:[
+                "Relevant degree or skill-based courses",
+                "Portfolio development",
+                "Communication and media practice"
+            ],
+            skills:[
+                "Writing",
+                "Creativity",
+                "Communication",
+                "Storytelling"
+            ],
+            link:"./learning.html"
+        },
+
+        {
+            icon:"✨",
+            title:"Animation & Design",
+            description:
+            "Create visual experiences through illustration, animation and digital design.",
+            tags:["Animation","Design","Creative"],
+            education:[
+                "Animation / Design / Fine Arts or related learning",
+                "Design software practice",
+                "Portfolio development"
+            ],
+            skills:[
+                "Creativity",
+                "Visual Thinking",
+                "Design",
+                "Attention to Detail"
+            ],
+            link:"./learning.html"
+        }
+
+    ],
+
+
+    health: [
+
+        {
+            icon:"🩺",
+            title:"Healthcare",
+            description:
+            "Explore careers focused on health, patient care, medical science and healthcare services.",
+            tags:["Healthcare","Biology","Care"],
+            education:[
+                "Relevant healthcare or medical education",
+                "Course requirements vary by profession",
+                "Professional registration may apply to some roles"
+            ],
+            skills:[
+                "Communication",
+                "Scientific Thinking",
+                "Empathy",
+                "Attention to Detail"
+            ],
+            link:"./learning.html"
+        },
+
+        {
+            icon:"🧬",
+            title:"Life Sciences",
+            description:
+            "Study living systems and explore careers in research, laboratories and related fields.",
+            tags:["Biology","Research","Science"],
+            education:[
+                "B.Sc. / relevant life science degree",
+                "Laboratory and research experience",
+                "Higher studies for some research roles"
+            ],
+            skills:[
+                "Research",
+                "Observation",
+                "Analysis",
+                "Problem Solving"
+            ],
+            link:"./learning.html"
+        },
+
+        {
+            icon:"🔬",
+            title:"Medical Research",
+            description:
+            "Explore scientific research related to health, disease and medical technologies.",
+            tags:["Research","Medicine","Science"],
+            education:[
+                "Relevant science or healthcare degree",
+                "Research methodology",
+                "Higher studies may be required for advanced research roles"
+            ],
+            skills:[
+                "Research",
+                "Analysis",
+                "Scientific Thinking",
+                "Problem Solving"
+            ],
+            link:"./learning.html"
+        }
+
+    ],
+
+
+    law: [
+
+        {
+            icon:"⚖️",
+            title:"Law",
+            description:
+            "Study legal systems and explore careers related to law, legal research and advocacy.",
+            tags:["Law","Research","Communication"],
+            education:[
+                "LL.B. or integrated law programme",
+                "Legal research and writing",
+                "Relevant entrance requirements may apply"
+            ],
+            skills:[
+                "Communication",
+                "Research",
+                "Logical Thinking",
+                "Writing"
+            ],
+            link:"./learning.html"
+        },
+
+        {
+            icon:"🏛️",
+            title:"Public Administration",
+            description:
+            "Explore administration, governance and public-service related career pathways.",
+            tags:["Government","Administration","Service"],
+            education:[
+                "Relevant bachelor's degree",
+                "Competitive examinations may be required for some roles",
+                "General awareness and subject preparation"
+            ],
+            skills:[
+                "Communication",
+                "Analysis",
+                "Decision Making",
+                "Leadership"
+            ],
+            link:"./learning.html"
+        },
+
+        {
+            icon:"🌐",
+            title:"Public Policy",
+            description:
+            "Explore how public programmes and policies are researched, designed and evaluated.",
+            tags:["Policy","Research","Governance"],
+            education:[
+                "Relevant bachelor's degree",
+                "Public policy / economics / social science learning",
+                "Research and analytical experience"
+            ],
+            skills:[
+                "Research",
+                "Analysis",
+                "Communication",
+                "Problem Solving"
+            ],
+            link:"./learning.html"
+        }
+
+    ]
+
+};
+
+
+/* =========================
+   SELECT OPTION
+========================= */
+
+function selectOption(element){
+
+    const question =
+        element.closest(".question");
+
+    const options =
+        question.querySelectorAll(".option");
+
+    options.forEach(function(option){
+
+        option.classList.remove("selected");
+
+    });
+
+    element.classList.add("selected");
+
+}
+
+
+/* =========================
+   GET SELECTED
+========================= */
+
+function getSelected(questionNumber){
+
+    const question =
+        document.getElementById(
+            "question" + questionNumber
+        );
+
+    const selected =
+        question.querySelector(
+            ".option.selected"
+        );
+
+    if(!selected){
+
+        return null;
+
+    }
+
+    return selected.dataset.value;
+
+}
+
+
+/* =========================
+   NEXT QUESTION
+========================= */
+
+function nextQuestion(){
+
+    const selected =
+        getSelected(currentQuestion);
+
+
+    if(!selected){
+
+        alert(
+            "Please select an option before continuing."
+        );
+
+        return;
+
+    }
+
+
+    if(currentQuestion === 1){
+
+        answers.level = selected;
+
+    }
+
+
+    if(currentQuestion === 2){
+
+        answers.interest = selected;
+
+    }
+
+
+    if(currentQuestion === 3){
+
+        answers.strength = selected;
+
+        showResults();
+
+        return;
+
+    }
+
+
+    document.getElementById(
+        "question" + currentQuestion
+    ).classList.remove("active");
+
+
+    currentQuestion++;
+
+
+    document.getElementById(
+        "question" + currentQuestion
+    ).classList.add("active");
+
+
+    updateSteps();
+
+    updateButtons();
+
+}
+
+
+/* =========================
+   PREVIOUS
+========================= */
+
+function previousQuestion(){
+
+    if(currentQuestion <= 1){
+
+        return;
+
+    }
+
+
+    document.getElementById(
+        "question" + currentQuestion
+    ).classList.remove("active");
+
+
+    currentQuestion--;
+
+
+    document.getElementById(
+        "question" + currentQuestion
+    ).classList.add("active");
+
+
+    updateSteps();
+
+    updateButtons();
+
+}
+
+
+/* =========================
+   UPDATE BUTTONS
+========================= */
+
+function updateButtons(){
+
+    const prev =
+        document.getElementById(
+            "prevBtn"
+        );
+
+    const next =
+        document.getElementById(
+            "nextBtn"
+        );
+
+
+    prev.disabled =
+        currentQuestion === 1;
+
+
+    if(currentQuestion === 3){
+
+        next.textContent =
+            "View Careers →";
+
+    }else{
+
+        next.textContent =
+            "Next →";
+
+    }
+
+}
+
+
+/* =========================
+   UPDATE STEPS
+========================= */
+
+function updateSteps(){
+
+    document
+        .querySelectorAll(".step")
+        .forEach(function(step){
+
+            step.classList.remove("active");
+
+        });
+
+
+    for(
+        let i = 1;
+        i <= currentQuestion;
+        i++
+    ){
+
+        const step =
+            document.getElementById(
+                "step" + i
+            );
+
+        if(step){
+
+            step.classList.add("active");
+
+        }
+
+    }
+
+}
+
+
+/* =========================
+   SHOW RESULTS
+========================= */
+
+function showResults(){
+
+    document.getElementById(
+        "question3"
+    ).classList.remove("active");
+
+
+    document.querySelector(
+        ".navigation"
+    ).classList.add("hidden");
+
+
+    document.getElementById(
+        "result"
+    ).classList.add("active");
+
+
+    document.getElementById(
+        "step4"
+    ).classList.add("active");
+
+
+    const grid =
+        document.getElementById(
+            "careerGrid"
+        );
+
+
+    grid.innerHTML = "";
+
+
+    let selectedCareers =
+        careers[answers.interest] || [];
+
+
+    /*
+       Small personalization:
+       Reorder career cards according
+       to selected strength.
+    */
+
+    if(
+        answers.strength === "creativity"
+    ){
+
+        selectedCareers =
+            selectedCareers.slice().reverse();
+
+    }
+
+
+    selectedCareers.forEach(
+        function(career, index){
+
+            const card =
+                document.createElement("div");
+
+            card.className =
+                "career-card";
+
+
+            let tagsHTML = "";
+
+
+            career.tags.forEach(
+                function(tag){
+
+                    tagsHTML +=
+                    `
+                    <span class="career-tag">
+                        ${tag}
+                    </span>
+                    `;
+
+                }
+            );
+
+
+            card.innerHTML =
+
+            `
+            <div class="career-icon">
+                ${career.icon}
+            </div>
+
+            <h3>
+                ${career.title}
+            </h3>
+
+            <p>
+                ${career.description}
+            </p>
+
+            <div class="career-tags">
+                ${tagsHTML}
+            </div>
+
+            <button
+                class="view-career"
+                onclick="showCareerDetail(${getCareerIndex(
+                    answers.interest,
+                    index
+                )})"
+            >
+                View Career Path
+            </button>
+            `;
+
+
+            grid.appendChild(card);
+
+        }
+    );
+
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+}
+
+
+/* =========================
+   CAREER INDEX
+========================= */
+
+let currentCareerList = [];
+
+
+function getCareerIndex(
+    interest,
+    index
+){
+
+    currentCareerList =
+        careers[interest] || [];
+
+    return index;
+
+}
+
+
+/* =========================
+   CAREER DETAILS
+========================= */
+
+function showCareerDetail(index){
+
+    const career =
+        currentCareerList[index];
+
+
+    if(!career){
+
+        return;
+
+    }
+
+
+    document.getElementById(
+        "detailTitle"
+    ).textContent =
+        career.icon + " " + career.title;
+
+
+    document.getElementById(
+        "detailDescription"
+    ).textContent =
+        career.description;
+
+
+    const education =
+        document.getElementById(
+            "detailEducation"
+        );
+
+    education.innerHTML = "";
+
+
+    career.education.forEach(
+        function(item){
+
+            const li =
+                document.createElement("li");
+
+            li.textContent = item;
+
+            education.appendChild(li);
+
+        }
+    );
+
+
+    const skills =
+        document.getElementById(
+            "detailSkills"
+        );
+
+    skills.innerHTML = "";
+
+
+    career.skills.forEach(
+        function(item){
+
+            const li =
+                document.createElement("li");
+
+            li.textContent = item;
+
+            skills.appendChild(li);
+
+        }
+    );
+
+
+    document.getElementById(
+        "learnLink"
+    ).href =
+        career.link;
+
+
+    const detail =
+        document.getElementById(
+            "detailBox"
+        );
+
+
+    detail.classList.add("active");
+
+
+    detail.scrollIntoView({
+        behavior:"smooth",
+        block:"start"
+    });
+
+}
+
+
+/* =========================
+   RESTART
+========================= */
+
+function restartNavigator(){
+
+    currentQuestion = 1;
+
+
+    answers = {
+        level:"",
+        interest:"",
+        strength:""
+    };
+
+
+    document
+        .querySelectorAll(".question")
+        .forEach(function(question){
+
+            question.classList.remove("active");
+
+        });
+
+
+    document.getElementById(
+        "question1"
+    ).classList.add("active");
+
+
+    document
+        .querySelectorAll(".option")
+        .forEach(function(option){
+
+            option.classList.remove("selected");
+
+        });
+
+
+    document.getElementById(
+        "result"
+    ).classList.remove("active");
+
+
+    document.getElementById(
+        "detailBox"
+    ).classList.remove("active");
+
+
+    document.querySelector(
+        ".navigation"
+    ).classList.remove("hidden");
+
+
+    document.getElementById(
+        "step4"
+    ).classList.remove("active");
+
+
+    updateSteps();
+
+    updateButtons();
+
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+}
+
+
+/* =========================
+   BACK
+========================= */
+
+function goBack(){
+
+    window.history.back();
+
+}
+
+
+/* =========================
+   INITIAL
+========================= */
+
+updateButtons();
+
+</script>
+
+</body>
+
+</html>
+```

@@ -1,0 +1,530 @@
+<html lang="en"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>ShikshaSetu | Student Dashboard</title> <link rel="stylesheet" href="../style.css"> <style> /* ========================= DASHBOARD ========================= */ .dashboard-container{ max-width:1120px; margin:auto; padding:30px 20px 60px; } /* WELCOME */ .dashboard-welcome{ display:flex; justify-content:space-between; align-items:center; gap:25px; padding:35px; margin-bottom:28px; background:linear-gradient( 135deg, #eef8ff, #f8fbff ); border:1px solid #d9eafa; border-radius:24px; } .dashboard-welcome h1{ margin:8px 0; color:#0d4777; font-size:36px; } .dashboard-welcome p{ color:#5d7185; font-size:16px; } /* STUDENT */ .student-box{ display:flex; align-items:center; gap:12px; background:white; padding:14px 20px; border:1px solid #dce8f3; border-radius:18px; min-width:170px; } .student-avatar{ width:50px; height:50px; border-radius:50%; background:#1877bd; color:white; display:flex; align-items:center; justify-content:center; font-size:20px; font-weight:bold; } .student-box b{ color:#163f61; display:block; } .student-box small{ display:block; color:#789; margin-top:3px; } /* STATS */ .stats-grid{ display:grid; grid-template-columns: repeat(4,1fr); gap:18px; margin-bottom:48px; } .stat-card{ background:white; border:1px solid #dce8f3; border-radius:20px; padding:24px; display:flex; align-items:center; gap:16px; box-shadow: 0 8px 25px rgba(20,80,120,.05); } .stat-icon{ width:50px; height:50px; border-radius:14px; background:#eaf5ff; display:flex; align-items:center; justify-content:center; font-size:25px; } .stat-card b{ display:block; font-size:27px; color:#104b7b; } .stat-card small{ color:#708398; font-size:13px; } /* SECTION */ .section-title{ margin-bottom:22px; } .section-title span{ font-size:13px; color:#1375bd; font-weight:bold; letter-spacing:1px; } .section-title h2{ color:#0d4777; margin-top:8px; font-size:28px; } /* FEATURE CARDS */ .feature-grid{ display:grid; grid-template-columns: repeat(3,1fr); gap:20px; } .feature-card{ background:white; border:1px solid #dce8f3; border-radius:20px; padding:25px; text-decoration:none; transition:.2s; display:block; } .feature-card:hover{ transform:translateY(-4px); box-shadow: 0 12px 30px rgba(20,80,120,.1); } .feature-icon{ width:55px; height:55px; border-radius:15px; background:#eaf5ff; display:flex; align-items:center; justify-content:center; font-size:28px; margin-bottom:16px; } .feature-card h3{ color:#104b7b; margin-bottom:8px; } .feature-card p{ color:#718398; line-height:1.6; margin:0; } /* PROGRESS */ .progress-section{ margin-top:48px; } .progress-box{ background:white; border:1px solid #dce8f3; border-radius:20px; padding:25px; } .progress-header{ display:flex; justify-content:space-between; align-items:center; gap:15px; } .progress-header strong{ color:#174d78; } .progress-percent{ color:#1877bd; font-weight:bold; } .progress-bar{ width:100%; height:13px; background:#e8f1f7; border-radius:20px; overflow:hidden; margin-top:15px; } .progress-fill{ height:100%; width:0%; background:#2185c5; border-radius:20px; transition:.5s; } /* RECENT ACTIVITY */ .activity-section{ margin-top:48px; } .activity-list{ display:grid; gap:12px; } .activity-item{ background:white; border:1px solid #dce8f3; border-radius:16px; padding:18px 20px; display:flex; justify-content:space-between; align-items:center; gap:20px; } .activity-left{ display:flex; align-items:center; gap:14px; } .activity-icon{ width:42px; height:42px; border-radius:12px; background:#eaf5ff; display:flex; align-items:center; justify-content:center; } .activity-title{ color:#174d78; font-weight:bold; } .activity-category{ display:block; color:#8191a1; font-size:13px; margin-top:4px; } .activity-time{ color:#8191a1; font-size:13px; } .empty-activity{ background:#f7fbff; border:1px dashed #bfd7ea; padding:28px; border-radius:16px; color:#6d8092; text-align:center; } /* LOGOUT */ .logout-btn{ border:1px solid #d9534f; color:#c0392b; background:white; padding:9px 15px; border-radius:8px; cursor:pointer; font-size:14px; } .logout-btn:hover{ background:#fff5f5; } /* MOBILE */ @media(max-width:900px){ .stats-grid{ grid-template-columns: repeat(2,1fr); } .feature-grid{ grid-template-columns: repeat(2,1fr); } } @media(max-width:650px){ .dashboard-container{ padding:20px 15px 50px; } .dashboard-welcome{ flex-direction:column; align-items:flex-start; padding:25px; } .dashboard-welcome h1{ font-size:28px; } .student-box{ width:100%; box-sizing:border-box; } .stats-grid{ grid-template-columns:1fr; } .feature-grid{ grid-template-columns:1fr; } .activity-item{ flex-direction:column; align-items:flex-start; } .activity-time{ margin-left:56px; } } </style> </head> <body> <!-- ========================= HEADER ========================= --> <header class="topbar">
+<div class="brand">
+
+    <div class="brand-icon">
+        S
+    </div>
+
+    <div>
+
+        <strong>
+            ShikshaSetu
+        </strong>
+
+        <small>
+            Student Dashboard
+        </small>
+
+    </div>
+
+</div>
+
+
+<div class="top-actions">
+
+    <span
+        class="network-badge"
+        id="networkBadge">
+
+        ● Online
+
+    </span>
+
+
+    <a
+        href="../index.html"
+        class="btn btn-outline">
+
+        Home
+
+    </a>
+
+
+    <button
+        class="logout-btn"
+        onclick="logoutUser()">
+
+        Logout
+
+    </button>
+
+</div>
+</header> <!-- ========================= MAIN ========================= --> <main class="dashboard-container"> <!-- WELCOME --> <section class="dashboard-welcome">
+<div>
+
+    <span class="eyebrow">
+        STUDENT DASHBOARD
+    </span>
+
+
+    <h1 id="welcomeText">
+
+        Welcome to ShikshaSetu 👋
+
+    </h1>
+
+
+    <p>
+
+        Learn, practice and build your career —
+        even with limited internet connectivity.
+
+    </p>
+
+</div>
+
+
+<div class="student-box">
+
+    <div
+        class="student-avatar"
+        id="studentAvatar">
+
+        S
+
+    </div>
+
+
+    <div>
+
+        <b id="studentName">
+
+            Student
+
+        </b>
+
+
+        <small>
+
+            Student
+
+        </small>
+
+    </div>
+
+</div>
+</section> <!-- ========================= DYNAMIC STATS ========================= --> <section class="stats-grid">
+<!-- RESOURCES -->
+
+<div class="stat-card">
+
+    <div class="stat-icon">
+
+        📚
+
+    </div>
+
+
+    <div>
+
+        <b id="resourcesViewed">
+
+            0
+
+        </b>
+
+
+        <small>
+
+            Resources Viewed
+
+        </small>
+
+    </div>
+
+</div>
+
+
+
+<!-- OFFLINE -->
+
+<div class="stat-card">
+
+    <div class="stat-icon">
+
+        📥
+
+    </div>
+
+
+    <div>
+
+        <b id="offlineUsed">
+
+            0
+
+        </b>
+
+
+        <small>
+
+            Offline Resources Used
+
+        </small>
+
+    </div>
+
+</div>
+
+
+
+<!-- PROGRESS -->
+
+<div class="stat-card">
+
+    <div class="stat-icon">
+
+        🎯
+
+    </div>
+
+
+    <div>
+
+        <b id="learningProgress">
+
+            0%
+
+        </b>
+
+
+        <small>
+
+            Learning Progress
+
+        </small>
+
+    </div>
+
+</div>
+
+
+
+<!-- QUIZ -->
+
+<div class="stat-card">
+
+    <div class="stat-icon">
+
+        🏆
+
+    </div>
+
+
+    <div>
+
+        <b id="quizzesCompleted">
+
+            0
+
+        </b>
+
+
+        <small>
+
+            Quizzes Completed
+
+        </small>
+
+    </div>
+
+</div>
+</section> <!-- ========================= LEARNING HUB ========================= --> <section>
+<div class="section-title">
+
+    <span>
+
+        LEARNING HUB
+
+    </span>
+
+
+    <h2>
+
+        What do you want to do today?
+
+    </h2>
+
+</div>
+
+
+
+<div class="feature-grid">
+
+
+    <!-- LEARNING -->
+
+    <a
+        href="learning.html"
+        class="feature-card"
+        data-activity="Learning Resources"
+        data-category="Learning">
+
+        <div class="feature-icon">
+
+            📚
+
+        </div>
+
+
+        <h3>
+
+            Learning Resources
+
+        </h3>
+
+
+        <p>
+
+            Study C++, DSA, Mathematics,
+            Physics and other subjects.
+
+        </p>
+
+    </a>
+
+
+
+    <!-- OFFLINE -->
+
+    <a
+        href="offline.html"
+        class="feature-card"
+        data-activity="Offline Library"
+        data-category="Offline Library">
+
+        <div class="feature-icon">
+
+            📥
+
+        </div>
+
+
+        <h3>
+
+            Offline Library
+
+        </h3>
+
+
+        <p>
+
+            Access offline notes,
+            PYQs and revision material.
+
+        </p>
+
+    </a>
+
+
+
+    <!-- AI -->
+
+    <a
+        href="ai-assistant.html"
+        class="feature-card"
+        data-activity="AI Doubt Assistant"
+        data-category="AI">
+
+        <div class="feature-icon">
+
+            🤖
+
+        </div>
+
+
+        <h3>
+
+            AI Doubt Assistant
+
+        </h3>
+
+
+        <p>
+
+            Ask your study doubts and
+            get simple explanations.
+
+        </p>
+
+    </a>
+
+
+
+    <!-- SCHOLARSHIP -->
+
+    <a
+        href="scholarship.html"
+        class="feature-card"
+        data-activity="Scholarships"
+        data-category="Career">
+
+        <div class="feature-icon">
+
+            🎓
+
+        </div>
+
+
+        <h3>
+
+            Scholarships
+
+        </h3>
+
+
+        <p>
+
+            Explore scholarship opportunities
+            for students.
+
+        </p>
+
+    </a>
+
+
+
+    <!-- CAREER -->
+
+    <a
+        href="career-navigator.html"
+        class="feature-card"
+        data-activity="Career Navigator"
+        data-category="Career">
+
+        <div class="feature-icon">
+
+            🧭
+
+        </div>
+
+
+        <h3>
+
+            Career Navigator
+
+        </h3>
+
+
+        <p>
+
+            Explore careers according to
+            your interests and strengths.
+
+        </p>
+
+    </a>
+
+
+
+    <!-- MENTOR -->
+
+    <a
+        href="digital-mentoring.html"
+        class="feature-card"
+        data-activity="Digital Mentoring"
+        data-category="Mentoring">
+
+        <div class="feature-icon">
+
+            👨‍🏫
+
+        </div>
+
+
+        <h3>
+
+            Digital Mentoring
+
+        </h3>
+
+
+        <p>
+
+            Get guidance for studies,
+            skills and career preparation.
+
+        </p>
+
+    </a>
+
+
+</div>
+</section> <!-- ========================= PROGRESS ========================= --> <section class="progress-section">
+<div class="section-title">
+
+    <span>
+
+        YOUR PROGRESS
+
+    </span>
+
+
+    <h2>
+
+        Learning Progress
+
+    </h2>
+
+</div>
+
+
+<div class="progress-box">
+
+
+    <div class="progress-header">
+
+        <strong id="progressText">
+
+            Start learning to build your progress.
+
+        </strong>
+
+
+        <span
+            class="progress-percent"
+            id="progressPercent">
+
+            0%
+
+        </span>
+
+    </div>
+
+
+    <div class="progress-bar">
+
+        <div
+            class="progress-fill"
+            id="progressFill">
+
+        </div>
+
+    </div>
+
+</div>
+</section> <!-- ========================= RECENT ACTIVITY ========================= --> <section class="activity-section">
+<div class="section-title">
+
+    <span>
+
+        RECENT ACTIVITY
+
+    </span>
+
+
+    <h2>
+
+        What you recently studied
+
+    </h2>
+
+</div>
+
+
+<div
+    class="activity-list"
+    id="activityList">
+
+</div>
+</section> </main> <!-- ========================= APP.JS ========================= --> <script src="../app.js"></script> <script> /* ===================================== SHIKSHASETU DASHBOARD ACTIVITY SYSTEM ===================================== */ /* ---------- STORAGE ---------- */ function getActivityData(){ try{ const saved = localStorage.getItem( "shikshaSetuActivity" ); if(saved){ return JSON.parse(saved); } }catch(error){ console.log( "Activity data error:", error ); } return { resources: {}, offline: {}, quizzes: {}, completed: {}, recent: [] }; } /* ---------- SAVE ---------- */ function saveActivityData(data){ localStorage.setItem( "shikshaSetuActivity", JSON.stringify(data) ); } /* ---------- RECORD ACTIVITY ---------- */ function recordActivity( id, title, category ){ const data = getActivityData(); if(!data.resources){ data.resources = {}; } if(!data.recent){ data.recent = []; } if(!data.resources[id]){ data.resources[id] = { title:title, category:category, opened:0, completed:false }; } data.resources[id].opened++; /* Remove duplicate */ data.recent = data.recent.filter( item => item.id !== id ); /* Add latest activity */ data.recent.unshift({ id:id, title:title, category:category, time:Date.now() }); /* Only last 8 */ data.recent = data.recent.slice(0,8); saveActivityData(data); } /* ---------- UPDATE DASHBOARD ---------- */ function updateDashboard(){ const data = getActivityData(); const resources = Object.values( data.resources || {} ); const offline = Object.values( data.offline || {} ); const quizzes = Object.values( data.quizzes || {} ); const completed = Object.values( data.completed || {} ); /* RESOURCES */ document.getElementById( "resourcesViewed" ).textContent = resources.length; /* OFFLINE */ document.getElementById( "offlineUsed" ).textContent = offline.length; /* QUIZZES */ document.getElementById( "quizzesCompleted" ).textContent = quizzes.length; /* PROGRESS */ let progress = 0; if(resources.length > 0){ progress = Math.round( ( completed.length / resources.length ) * 100 ); } /* LIMIT */ if(progress > 100){ progress = 100; } document.getElementById( "learningProgress" ).textContent = progress + "%"; document.getElementById( "progressPercent" ).textContent = progress + "%"; document.getElementById( "progressFill" ).style.width = progress + "%"; if(progress === 0){ document.getElementById( "progressText" ).textContent = "Start learning to build your progress."; } else{ document.getElementById( "progressText" ).textContent = "You have completed " + progress + "% of your tracked learning."; } renderRecentActivity( data.recent || [] ); } /* ---------- RECENT ACTIVITY ---------- */ function renderRecentActivity( activities ){ const list = document.getElementById( "activityList" ); list.innerHTML = ""; if( !activities || activities.length === 0 ){ list.innerHTML = ` <div class="empty-activity"> 📚 No learning activity yet. <br><br> Open a learning resource to see your activity here. </div> `; return; } activities.forEach( function(item){ const div = document.createElement( "div" ); div.className = "activity-item"; div.innerHTML = ` <div class="activity-left"> <div class="activity-icon"> 📖 </div> <div> <div class="activity-title"> ${escapeHTML( item.title )} </div> <span class="activity-category"> ${escapeHTML( item.category || "Learning" )} </span> </div> </div> <span class="activity-time"> Recently opened </span> `; list.appendChild(div); } ); } /* ---------- SAFE TEXT ---------- */ function escapeHTML(text){ const div = document.createElement( "div" ); div.textContent = text || ""; return div.innerHTML; } /* ---------- STUDENT NAME ---------- */ function loadStudent(){ const name = localStorage.getItem( "shikshaSetuStudentName" ) || localStorage.getItem( "shikshaSetuUser" ) || "Student"; document.getElementById( "studentName" ).textContent = name; document.getElementById( "studentAvatar" ).textContent = name .charAt(0) .toUpperCase(); document.getElementById( "welcomeText" ).textContent = "Welcome to ShikshaSetu, " + name + " 👋"; } /* ---------- FEATURE CLICK ---------- */ function setupFeatureTracking(){ const cards = document.querySelectorAll( ".feature-card" ); cards.forEach( function(card){ card.addEventListener( "click", function(){ const title = card.dataset.activity; const category = card.dataset.category; recordActivity( "dashboard-" + title .toLowerCase() .replace( /\s+/g, "-" ), title, category ); } ); } ); } /* ---------- LOGOUT ---------- */ function logoutUser(){ localStorage.removeItem( "shikshaSetuLoggedIn" ); localStorage.removeItem( "shikshaSetuUser" ); localStorage.removeItem( "shikshaSetuStudentName" ); window.location.href = "login.html"; } /* ---------- NETWORK ---------- */ function updateNetwork(){ const badge = document.getElementById( "networkBadge" ); if(navigator.onLine){ badge.textContent = "● Online"; } else{ badge.textContent = "● Offline"; } } window.addEventListener( "online", updateNetwork ); window.addEventListener( "offline", updateNetwork ); /* ===================================== START DASHBOARD ===================================== */ document.addEventListener( "DOMContentLoaded", function(){ /* LOGIN CHECK */ if( localStorage.getItem( "shikshaSetuLoggedIn" ) !== "true" ){ window.location.href = "login.html"; return; } loadStudent(); setupFeatureTracking(); updateDashboard(); updateNetwork(); } ); /* Update if another tab changes data */ window.addEventListener( "storage", function(event){ if( event.key === "shikshaSetuActivity" ){ updateDashboard(); } } ); </script> </body> </html>

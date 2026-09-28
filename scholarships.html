@@ -1,0 +1,2399 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Scholarships - ShikshaSetu</title>
+
+<style>
+
+/* =========================
+   RESET
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    width:100%;
+    overflow-x:hidden;
+}
+
+body{
+    width:100%;
+    min-height:100vh;
+    font-family:Arial, sans-serif;
+    background:#f4f9ff;
+    color:#18324a;
+    overflow-x:hidden;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.header{
+    width:100%;
+    background:linear-gradient(135deg,#3199df,#65c7ff);
+    color:white;
+    padding:16px 35px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:15px;
+
+    box-shadow:0 3px 12px rgba(0,0,0,.12);
+}
+
+.logo{
+    font-size:25px;
+    font-weight:bold;
+}
+
+.header-right{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.status{
+    background:rgba(255,255,255,.2);
+    padding:8px 13px;
+    border-radius:20px;
+    font-size:13px;
+}
+
+.back-btn{
+    border:none;
+    background:white;
+    color:#1976b8;
+    padding:9px 15px;
+    border-radius:8px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+
+/* =========================
+   MAIN
+========================= */
+
+.container{
+    width:100%;
+    max-width:1200px;
+    margin:auto;
+    padding:30px 20px 40px;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    text-align:center;
+    margin-bottom:25px;
+}
+
+.hero-icon{
+    width:70px;
+    height:70px;
+    margin:auto;
+
+    border-radius:50%;
+
+    background:linear-gradient(
+        135deg,
+        #3199df,
+        #74d1ff
+    );
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:34px;
+
+    box-shadow:
+        0 7px 20px rgba(49,153,223,.25);
+}
+
+.hero h1{
+    margin-top:14px;
+    color:#16496c;
+    font-size:31px;
+}
+
+.hero p{
+    margin-top:7px;
+    color:#607d91;
+    font-size:15px;
+}
+
+
+/* =========================
+   SEARCH
+========================= */
+
+.search-box{
+    background:white;
+    padding:18px;
+    border-radius:15px;
+
+    box-shadow:
+        0 5px 20px rgba(0,0,0,.06);
+
+    margin-bottom:20px;
+}
+
+.search-row{
+    display:flex;
+    gap:10px;
+}
+
+.search-input{
+    flex:1;
+    min-width:0;
+
+    border:1px solid #cfe4f3;
+    border-radius:9px;
+
+    padding:13px 15px;
+
+    outline:none;
+    font-size:14px;
+}
+
+.search-input:focus{
+    border-color:#3199df;
+}
+
+.search-btn{
+    border:none;
+    background:#3199df;
+    color:white;
+
+    padding:0 22px;
+
+    border-radius:9px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.search-btn:hover{
+    background:#197dbd;
+}
+
+
+/* =========================
+   FILTERS
+========================= */
+
+.filters{
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:12px;
+
+    margin-top:15px;
+}
+
+.filter-group label{
+    display:block;
+
+    font-size:12px;
+    font-weight:bold;
+
+    color:#607d91;
+
+    margin-bottom:6px;
+}
+
+.filter-group select{
+    width:100%;
+
+    padding:10px;
+
+    border:1px solid #cfe4f3;
+    border-radius:8px;
+
+    background:#f8fcff;
+
+    color:#21445c;
+
+    outline:none;
+}
+
+
+/* =========================
+   TOP ACTIONS
+========================= */
+
+.top-actions{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    gap:10px;
+
+    margin:20px 0 14px;
+}
+
+.result-count{
+    color:#4d687b;
+    font-size:14px;
+}
+
+.reset-btn{
+    border:1px solid #cfe4f3;
+    background:white;
+
+    color:#2778a8;
+
+    padding:8px 13px;
+
+    border-radius:8px;
+
+    cursor:pointer;
+}
+
+
+/* =========================
+   SCHOLARSHIP GRID
+========================= */
+
+.scholarship-grid{
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:18px;
+}
+
+
+/* =========================
+   CARD
+========================= */
+
+.scholarship-card{
+    position:relative;
+
+    background:white;
+
+    border-radius:15px;
+
+    padding:20px;
+
+    box-shadow:
+        0 5px 20px rgba(0,0,0,.06);
+
+    border:1px solid #e8f2f8;
+
+    transition:.2s;
+}
+
+.scholarship-card:hover{
+    transform:translateY(-3px);
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,.09);
+}
+
+.card-top{
+    display:flex;
+    justify-content:space-between;
+    gap:10px;
+}
+
+.card-icon{
+    width:48px;
+    height:48px;
+
+    min-width:48px;
+
+    border-radius:12px;
+
+    background:#e8f6ff;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:24px;
+}
+
+.save-btn{
+    width:35px;
+    height:35px;
+
+    border-radius:50%;
+
+    border:1px solid #d6e9f4;
+
+    background:white;
+
+    cursor:pointer;
+
+    font-size:18px;
+
+    color:#8aa4b4;
+}
+
+.save-btn.saved{
+    background:#e9f7ff;
+    color:#3199df;
+}
+
+
+.card-title{
+    margin-top:14px;
+
+    color:#174b6d;
+
+    font-size:17px;
+
+    line-height:1.4;
+}
+
+.provider{
+    margin-top:6px;
+
+    color:#7891a2;
+
+    font-size:12px;
+}
+
+.badges{
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:7px;
+
+    margin-top:12px;
+}
+
+.badge{
+    padding:5px 9px;
+
+    border-radius:15px;
+
+    font-size:11px;
+
+    background:#eef8ff;
+
+    color:#2875a1;
+}
+
+.badge.merit{
+    background:#eef9f1;
+    color:#287548;
+}
+
+.badge.welfare{
+    background:#fff6e9;
+    color:#9a681d;
+}
+
+.card-description{
+    margin-top:13px;
+
+    color:#526f82;
+
+    font-size:13px;
+
+    line-height:1.5;
+}
+
+.deadline{
+    margin-top:13px;
+
+    padding:10px;
+
+    border-radius:8px;
+
+    background:#f7fbfe;
+
+    font-size:12px;
+
+    color:#536f80;
+}
+
+.deadline strong{
+    color:#195b86;
+}
+
+.card-actions{
+    display:flex;
+
+    gap:8px;
+
+    margin-top:15px;
+}
+
+.details-btn,
+.apply-btn{
+
+    flex:1;
+
+    padding:10px;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    font-weight:bold;
+
+    font-size:12px;
+
+    text-align:center;
+}
+
+.details-btn{
+    border:1px solid #cfe4f3;
+    background:white;
+    color:#2778a8;
+}
+
+.apply-btn{
+    border:none;
+    background:#3199df;
+    color:white;
+}
+
+.apply-btn:hover{
+    background:#197dbd;
+}
+
+
+/* =========================
+   NO RESULTS
+========================= */
+
+.no-results{
+    display:none;
+
+    background:white;
+
+    border-radius:15px;
+
+    padding:40px 20px;
+
+    text-align:center;
+
+    color:#6b8494;
+
+    box-shadow:
+        0 5px 20px rgba(0,0,0,.05);
+}
+
+.no-results .icon{
+    font-size:40px;
+    margin-bottom:10px;
+}
+
+
+/* =========================
+   INFO BOX
+========================= */
+
+.info-box{
+    margin-top:22px;
+
+    background:#fffbea;
+
+    border:1px solid #f0e3aa;
+
+    padding:14px 16px;
+
+    border-radius:10px;
+
+    color:#74642c;
+
+    font-size:12px;
+
+    line-height:1.6;
+}
+
+
+/* =========================
+   MODAL
+========================= */
+
+.modal{
+    display:none;
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(13,43,61,.55);
+
+    z-index:1000;
+
+    align-items:center;
+    justify-content:center;
+
+    padding:20px;
+}
+
+.modal-box{
+    width:100%;
+    max-width:550px;
+
+    max-height:90vh;
+
+    overflow-y:auto;
+
+    background:white;
+
+    border-radius:16px;
+
+    padding:24px;
+
+    position:relative;
+}
+
+.close-modal{
+    position:absolute;
+
+    right:15px;
+    top:15px;
+
+    width:32px;
+    height:32px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#edf7ff;
+
+    color:#2778a8;
+
+    cursor:pointer;
+
+    font-size:17px;
+}
+
+.modal-box h2{
+    color:#174b6d;
+
+    padding-right:35px;
+
+    line-height:1.4;
+}
+
+.modal-provider{
+    margin-top:6px;
+
+    color:#7891a2;
+
+    font-size:13px;
+}
+
+.modal-section{
+    margin-top:18px;
+}
+
+.modal-section h4{
+    color:#195b86;
+
+    margin-bottom:7px;
+}
+
+.modal-section p{
+    color:#526f82;
+
+    font-size:13px;
+
+    line-height:1.6;
+}
+
+.modal-list{
+    padding-left:20px;
+
+    color:#526f82;
+
+    font-size:13px;
+
+    line-height:1.8;
+}
+
+.modal-apply{
+    display:block;
+
+    margin-top:20px;
+
+    text-align:center;
+
+    padding:12px;
+
+    border-radius:9px;
+
+    background:#3199df;
+
+    color:white;
+
+    text-decoration:none;
+
+    font-weight:bold;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:800px){
+
+    .scholarship-grid{
+        grid-template-columns:1fr;
+    }
+
+    .filters{
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+}
+
+
+@media(max-width:600px){
+
+    .header{
+        padding:13px 14px;
+    }
+
+    .logo{
+        font-size:20px;
+    }
+
+    .status{
+        display:none;
+    }
+
+    .back-btn{
+        padding:8px 11px;
+        font-size:12px;
+    }
+
+    .container{
+        padding:22px 11px 30px;
+    }
+
+    .hero-icon{
+        width:58px;
+        height:58px;
+        font-size:28px;
+    }
+
+    .hero h1{
+        font-size:24px;
+    }
+
+    .hero p{
+        font-size:13px;
+        line-height:1.5;
+    }
+
+    .search-box{
+        padding:13px;
+    }
+
+    .search-row{
+        flex-direction:column;
+    }
+
+    .search-input{
+        width:100%;
+        height:46px;
+    }
+
+    .search-btn{
+        width:100%;
+        height:44px;
+    }
+
+    .filters{
+        grid-template-columns:1fr;
+        gap:9px;
+    }
+
+    .top-actions{
+        align-items:flex-start;
+    }
+
+    .result-count{
+        font-size:12px;
+    }
+
+    .scholarship-card{
+        padding:16px;
+    }
+
+    .card-title{
+        font-size:16px;
+    }
+
+    .card-actions{
+        flex-direction:column;
+    }
+
+    .details-btn,
+    .apply-btn{
+        width:100%;
+    }
+
+}
+
+
+@media(max-width:380px){
+
+    .logo{
+        font-size:18px;
+    }
+
+    .hero h1{
+        font-size:21px;
+    }
+
+    .card-top{
+        gap:7px;
+    }
+
+}
+
+
+/* =========================
+   HIDDEN
+========================= */
+
+.hidden{
+    display:none !important;
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header class="header">
+
+    <div class="logo">
+        📘 ShikshaSetu
+    </div>
+
+    <div class="header-right">
+
+        <span class="status">
+            🎓 Scholarship Finder
+        </span>
+
+        <button
+            class="back-btn"
+            onclick="goBack()"
+        >
+            ← Back
+        </button>
+
+    </div>
+
+</header>
+
+
+
+<!-- =========================
+     MAIN
+========================= -->
+
+<main class="container">
+
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <div class="hero-icon">
+            🎓
+        </div>
+
+        <h1>
+            Scholarship Finder
+        </h1>
+
+        <p>
+            Find scholarships and financial support opportunities
+            according to your education level.
+        </p>
+
+    </section>
+
+
+
+    <!-- =========================
+         SEARCH + FILTERS
+    ========================= -->
+
+    <section class="search-box">
+
+        <div class="search-row">
+
+            <input
+                type="text"
+                id="searchInput"
+                class="search-input"
+                placeholder="🔍 Search scholarship by name, category or provider..."
+                oninput="filterScholarships()"
+            >
+
+            <button
+                class="search-btn"
+                onclick="filterScholarships()"
+            >
+                Search
+            </button>
+
+        </div>
+
+
+
+        <div class="filters">
+
+
+            <!-- LEVEL -->
+
+            <div class="filter-group">
+
+                <label>
+                    Education Level
+                </label>
+
+                <select
+                    id="levelFilter"
+                    onchange="filterScholarships()"
+                >
+
+                    <option value="all">
+                        All Levels
+                    </option>
+
+                    <option value="school">
+                        School
+                    </option>
+
+                    <option value="college">
+                        College / University
+                    </option>
+
+                    <option value="technical">
+                        Technical Education
+                    </option>
+
+                </select>
+
+            </div>
+
+
+
+            <!-- TYPE -->
+
+            <div class="filter-group">
+
+                <label>
+                    Scholarship Type
+                </label>
+
+                <select
+                    id="typeFilter"
+                    onchange="filterScholarships()"
+                >
+
+                    <option value="all">
+                        All Types
+                    </option>
+
+                    <option value="merit">
+                        Merit Based
+                    </option>
+
+                    <option value="welfare">
+                        Welfare Based
+                    </option>
+
+                </select>
+
+            </div>
+
+
+
+            <!-- CATEGORY -->
+
+            <div class="filter-group">
+
+                <label>
+                    Student Category
+                </label>
+
+                <select
+                    id="categoryFilter"
+                    onchange="filterScholarships()"
+                >
+
+                    <option value="all">
+                        All Categories
+                    </option>
+
+                    <option value="general">
+                        General / Merit
+                    </option>
+
+                    <option value="obc">
+                        OBC / EBC / DNT
+                    </option>
+
+                    <option value="sc">
+                        SC
+                    </option>
+
+                    <option value="st">
+                        ST
+                    </option>
+
+                    <option value="girls">
+                        Girls
+                    </option>
+
+                    <option value="disability">
+                        Students with Disabilities
+                    </option>
+
+                </select>
+
+            </div>
+
+
+
+            <!-- SAVED -->
+
+            <div class="filter-group">
+
+                <label>
+                    Saved
+                </label>
+
+                <select
+                    id="savedFilter"
+                    onchange="filterScholarships()"
+                >
+
+                    <option value="all">
+                        All Scholarships
+                    </option>
+
+                    <option value="saved">
+                        Saved Only
+                    </option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- TOP ACTIONS -->
+
+    <div class="top-actions">
+
+        <div
+            class="result-count"
+            id="resultCount"
+        >
+            Showing scholarships
+        </div>
+
+        <button
+            class="reset-btn"
+            onclick="resetFilters()"
+        >
+            ↻ Reset Filters
+        </button>
+
+    </div>
+
+
+
+    <!-- =========================
+         SCHOLARSHIP CARDS
+    ========================= -->
+
+    <section
+        class="scholarship-grid"
+        id="scholarshipGrid"
+    >
+
+
+
+        <!-- CARD 1 -->
+
+        <article
+            class="scholarship-card"
+            data-level="college technical"
+            data-type="merit"
+            data-category="girls"
+            data-name="AICTE Pragati Scholarship Scheme for Girl Students Technical Degree"
+        >
+
+            <div class="card-top">
+
+                <div class="card-icon">
+                    👩‍🎓
+                </div>
+
+                <button
+                    class="save-btn"
+                    onclick="toggleSave(this)"
+                    title="Save scholarship"
+                >
+                    ♡
+                </button>
+
+            </div>
+
+
+            <h2 class="card-title">
+                AICTE Pragati Scholarship Scheme
+                for Girl Students
+            </h2>
+
+            <div class="provider">
+                AICTE
+            </div>
+
+
+            <div class="badges">
+
+                <span class="badge">
+                    Technical Degree
+                </span>
+
+                <span class="badge merit">
+                    Merit Based
+                </span>
+
+                <span class="badge">
+                    Girls
+                </span>
+
+            </div>
+
+
+            <p class="card-description">
+                Scholarship scheme for eligible girl students
+                pursuing technical degree programmes.
+            </p>
+
+
+            <div class="deadline">
+                📅 Student application deadline:
+                <strong>31 Oct 2026</strong>
+            </div>
+
+
+            <div class="card-actions">
+
+                <button
+                    class="details-btn"
+                    onclick="showDetails('pragati')"
+                >
+                    View Details
+                </button>
+
+                <a
+    class="apply-btn"
+    href="https://scholarships.gov.in/All-Scholarships"
+>
+    🎓 View Scholarship
+</a>
+            </div>
+
+        </article>
+
+
+
+        <!-- CARD 2 -->
+
+        <article
+            class="scholarship-card"
+            data-level="college technical"
+            data-type="welfare"
+            data-category="disability"
+            data-name="AICTE Saksham Scholarship Scheme Specially Abled Technical Degree"
+        >
+
+            <div class="card-top">
+
+                <div class="card-icon">
+                    ♿
+                </div>
+
+                <button
+                    class="save-btn"
+                    onclick="toggleSave(this)"
+                >
+                    ♡
+                </button>
+
+            </div>
+
+
+            <h2 class="card-title">
+                AICTE Saksham Scholarship Scheme
+            </h2>
+
+            <div class="provider">
+                AICTE
+            </div>
+
+
+            <div class="badges">
+
+                <span class="badge">
+                    Technical Degree
+                </span>
+
+                <span class="badge welfare">
+                    Welfare Based
+                </span>
+
+                <span class="badge">
+                    Disability
+                </span>
+
+            </div>
+
+
+            <p class="card-description">
+                Welfare-based scholarship for eligible
+                specially abled students in technical education.
+            </p>
+
+
+            <div class="deadline">
+                📅 Student application deadline:
+                <strong>31 Oct 2026</strong>
+            </div>
+
+
+            <div class="card-actions">
+
+                <button
+                    class="details-btn"
+                    onclick="showDetails('saksham')"
+                >
+                    View Details
+                </button>
+
+             <a
+    class="apply-btn"
+    href="https://scholarships.gov.in/All-Scholarships"
+>
+    🎓 View Scholarship
+</a>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- CARD 3 -->
+
+        <article
+            class="scholarship-card"
+            data-level="college"
+            data-type="merit"
+            data-category="general"
+            data-name="PM USP Central Sector Scheme Scholarship College University Students"
+        >
+
+            <div class="card-top">
+
+                <div class="card-icon">
+                    🏛️
+                </div>
+
+                <button
+                    class="save-btn"
+                    onclick="toggleSave(this)"
+                >
+                    ♡
+                </button>
+
+            </div>
+
+
+            <h2 class="card-title">
+                PM-USP Central Sector Scheme
+                of Scholarship
+            </h2>
+
+            <div class="provider">
+                Department of Higher Education
+            </div>
+
+
+            <div class="badges">
+
+                <span class="badge">
+                    College / University
+                </span>
+
+                <span class="badge merit">
+                    Merit Based
+                </span>
+
+            </div>
+
+
+            <p class="card-description">
+                Central sector scholarship scheme for
+                eligible college and university students.
+            </p>
+
+
+            <div class="deadline">
+                📅 Renewal application deadline:
+                <strong>30 Sep 2026</strong>
+            </div>
+
+
+            <div class="card-actions">
+
+                <button
+                    class="details-btn"
+                    onclick="showDetails('pmusp')"
+                >
+                    View Details
+                </button>
+
+                <a
+    class="apply-btn"
+    href="https://scholarships.gov.in/All-Scholarships"
+>
+    🎓 View Scholarship
+</a>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- CARD 4 -->
+
+        <article
+            class="scholarship-card"
+            data-level="school college"
+            data-type="merit"
+            data-category="obc"
+            data-name="PM YASASVI Top Class Education Schools College OBC EBC DNT"
+        >
+
+            <div class="card-top">
+
+                <div class="card-icon">
+                    📚
+                </div>
+
+                <button
+                    class="save-btn"
+                    onclick="toggleSave(this)"
+                >
+                    ♡
+                </button>
+
+            </div>
+
+
+            <h2 class="card-title">
+                PM YASASVI Top Class Education
+            </h2>
+
+            <div class="provider">
+                Department of Social Justice & Empowerment
+            </div>
+
+
+            <div class="badges">
+
+                <span class="badge">
+                    OBC / EBC / DNT
+                </span>
+
+                <span class="badge merit">
+                    Merit Based
+                </span>
+
+            </div>
+
+
+            <p class="card-description">
+                Education support scheme for eligible
+                OBC, EBC and DNT students.
+            </p>
+
+
+            <div class="deadline">
+                📅 Student application deadline:
+                <strong>31 Oct 2026</strong>
+            </div>
+
+
+            <div class="card-actions">
+
+                <button
+                    class="details-btn"
+                    onclick="showDetails('yashasvi')"
+                >
+                    View Details
+                </button>
+
+              <a
+    class="apply-btn"
+    href="https://scholarships.gov.in/All-Scholarships"
+>
+    🎓 View Scholarship
+</a>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- CARD 5 -->
+
+        <article
+            class="scholarship-card"
+            data-level="college"
+            data-type="merit"
+            data-category="sc"
+            data-name="Central Sector Scholarship Top Class Education SC Students"
+        >
+
+            <div class="card-top">
+
+                <div class="card-icon">
+                    🎓
+                </div>
+
+                <button
+                    class="save-btn"
+                    onclick="toggleSave(this)"
+                >
+                    ♡
+                </button>
+
+            </div>
+
+
+            <h2 class="card-title">
+                Central Sector Scholarship
+                of Top Class Education for SC Students
+            </h2>
+
+            <div class="provider">
+                Department of Social Justice & Empowerment
+            </div>
+
+
+            <div class="badges">
+
+                <span class="badge">
+                    College
+                </span>
+
+                <span class="badge merit">
+                    Merit Based
+                </span>
+
+                <span class="badge">
+                    SC
+                </span>
+
+            </div>
+
+
+            <p class="card-description">
+                Scholarship opportunity for eligible SC students
+                pursuing higher education.
+            </p>
+
+
+            <div class="deadline">
+                📅 Student application deadline:
+                <strong>31 Oct 2026</strong>
+            </div>
+
+
+            <div class="card-actions">
+
+                <button
+                    class="details-btn"
+                    onclick="showDetails('sc')"
+                >
+                    View Details
+                </button>
+
+             <a
+    class="apply-btn"
+    href="https://scholarships.gov.in/All-Scholarships"
+>
+    🎓 View Scholarship
+</a>
+            </div>
+
+        </article>
+
+
+
+        <!-- CARD 6 -->
+
+        <article
+            class="scholarship-card"
+            data-level="college"
+            data-type="merit"
+            data-category="st"
+            data-name="National Fellowship Scholarship Higher Education ST Students"
+        >
+
+            <div class="card-top">
+
+                <div class="card-icon">
+                    🌱
+                </div>
+
+                <button
+                    class="save-btn"
+                    onclick="toggleSave(this)"
+                >
+                    ♡
+                </button>
+
+            </div>
+
+
+            <h2 class="card-title">
+                National Fellowship and Scholarship
+                for Higher Education of ST Students
+            </h2>
+
+            <div class="provider">
+                Ministry of Tribal Affairs
+            </div>
+
+
+            <div class="badges">
+
+                <span class="badge">
+                    Higher Education
+                </span>
+
+                <span class="badge merit">
+                    Merit Based
+                </span>
+
+                <span class="badge">
+                    ST
+                </span>
+
+            </div>
+
+
+            <p class="card-description">
+                Scholarship support for eligible ST students
+                pursuing higher education.
+            </p>
+
+
+            <div class="deadline">
+                📅 Student application deadline:
+                <strong>31 Oct 2026</strong>
+            </div>
+
+
+            <div class="card-actions">
+
+                <button
+                    class="details-btn"
+                    onclick="showDetails('st')"
+                >
+                    View Details
+                </button>
+
+             <a
+    class="apply-btn"
+    href="https://scholarships.gov.in/All-Scholarships"
+>
+    🎓 View Scholarship
+</a>
+            </div>
+
+        </article>
+
+
+
+        <!-- CARD 7 -->
+
+        <article
+            class="scholarship-card"
+            data-level="school"
+            data-type="merit"
+            data-category="general"
+            data-name="National Means Cum Merit Scholarship NMMS"
+        >
+
+            <div class="card-top">
+
+                <div class="card-icon">
+                    🏫
+                </div>
+
+                <button
+                    class="save-btn"
+                    onclick="toggleSave(this)"
+                >
+                    ♡
+                </button>
+
+            </div>
+
+
+            <h2 class="card-title">
+                National Means Cum Merit Scholarship
+            </h2>
+
+            <div class="provider">
+                Department of School Education & Literacy
+            </div>
+
+
+            <div class="badges">
+
+                <span class="badge">
+                    School
+                </span>
+
+                <span class="badge merit">
+                    Merit Based
+                </span>
+
+            </div>
+
+
+            <p class="card-description">
+                Scholarship scheme listed on NSP for eligible
+                school students.
+            </p>
+
+
+            <div class="deadline">
+                📅 Student application deadline:
+                <strong>30 Sep 2026</strong>
+            </div>
+
+
+            <div class="card-actions">
+
+                <button
+                    class="details-btn"
+                    onclick="showDetails('nmms')"
+                >
+                    View Details
+                </button>
+
+               <a
+    class="apply-btn"
+    href="https://scholarships.gov.in/All-Scholarships"
+>
+    🎓 View Scholarship
+</a>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- CARD 8 -->
+
+        <article
+            class="scholarship-card"
+            data-level="college technical"
+            data-type="welfare"
+            data-category="general"
+            data-name="AICTE Swanath Scholarship Technical Degree"
+        >
+
+            <div class="card-top">
+
+                <div class="card-icon">
+                    💻
+                </div>
+
+                <button
+                    class="save-btn"
+                    onclick="toggleSave(this)"
+                >
+                    ♡
+                </button>
+
+            </div>
+
+
+            <h2 class="card-title">
+                AICTE Swanath Scholarship Scheme
+            </h2>
+
+            <div class="provider">
+                AICTE
+            </div>
+
+
+            <div class="badges">
+
+                <span class="badge">
+                    Technical Degree
+                </span>
+
+                <span class="badge welfare">
+                    Welfare Based
+                </span>
+
+            </div>
+
+
+            <p class="card-description">
+                Welfare-based scholarship scheme for eligible
+                students in technical degree programmes.
+            </p>
+
+
+            <div class="deadline">
+                📅 Student application deadline:
+                <strong>31 Oct 2026</strong>
+            </div>
+
+
+            <div class="card-actions">
+
+                <button
+                    class="details-btn"
+                    onclick="showDetails('swanath')"
+                >
+                    View Details
+                </button>
+
+              <a
+    class="apply-btn"
+    href="https://scholarships.gov.in/All-Scholarships"
+>
+    🎓 View Scholarship
+</a>
+
+            </div>
+
+        </article>
+
+
+    </section>
+
+
+
+    <!-- NO RESULTS -->
+
+    <div
+        class="no-results"
+        id="noResults"
+    >
+
+        <div class="icon">
+            🔍
+        </div>
+
+        <h3>
+            No scholarship found
+        </h3>
+
+        <p style="margin-top:7px;">
+            Try changing your search or filters.
+        </p>
+
+    </div>
+
+
+
+    <!-- INFO -->
+
+    <div class="info-box">
+
+        ⚠️ <strong>Important:</strong>
+
+        Scholarship eligibility, dates and requirements can
+        change. Always verify the latest eligibility and
+        application details on the official scholarship portal
+        before applying.
+
+        <br><br>
+
+        🔐 For NSP applications, a One Time Registration (OTR)
+        is required according to the current NSP information.
+
+    </div>
+
+
+</main>
+
+
+
+<!-- =========================
+     DETAILS MODAL
+========================= -->
+
+<div
+    class="modal"
+    id="detailsModal"
+    onclick="closeModalOutside(event)"
+>
+
+    <div class="modal-box">
+
+        <button
+            class="close-modal"
+            onclick="closeModal()"
+        >
+            ✕
+        </button>
+
+
+        <h2 id="modalTitle">
+            Scholarship Details
+        </h2>
+
+        <div
+            class="modal-provider"
+            id="modalProvider"
+        >
+        </div>
+
+
+        <div class="modal-section">
+
+            <h4>
+                📌 About
+            </h4>
+
+            <p id="modalAbout">
+            </p>
+
+        </div>
+
+
+        <div class="modal-section">
+
+            <h4>
+                👨‍🎓 Eligibility
+            </h4>
+
+            <ul
+                class="modal-list"
+                id="modalEligibility"
+            >
+            </ul>
+
+        </div>
+
+
+        <div class="modal-section">
+
+            <h4>
+                📅 Application
+            </h4>
+
+            <p id="modalDeadline">
+            </p>
+
+        </div>
+
+
+       <a
+    class="apply-btn"
+    href="https://scholarships.gov.in/All-Scholarships"
+>
+    🎓 View Scholarship
+</a>
+
+    </div>
+
+</div>
+
+
+
+<script>
+
+/* =========================
+   BACK BUTTON
+========================= */
+
+function goBack(){
+
+    window.history.back();
+
+}
+
+
+/* =========================
+   SEARCH + FILTER
+========================= */
+
+function filterScholarships(){
+
+    const search =
+        document.getElementById(
+            "searchInput"
+        ).value.toLowerCase().trim();
+
+
+    const level =
+        document.getElementById(
+            "levelFilter"
+        ).value;
+
+
+    const type =
+        document.getElementById(
+            "typeFilter"
+        ).value;
+
+
+    const category =
+        document.getElementById(
+            "categoryFilter"
+        ).value;
+
+
+    const saved =
+        document.getElementById(
+            "savedFilter"
+        ).value;
+
+
+    const cards =
+        document.querySelectorAll(
+            ".scholarship-card"
+        );
+
+
+    let visible = 0;
+
+
+    cards.forEach(function(card){
+
+        const name =
+            card.dataset.name.toLowerCase();
+
+        const cardLevel =
+            card.dataset.level;
+
+        const cardType =
+            card.dataset.type;
+
+        const cardCategory =
+            card.dataset.category;
+
+
+        const matchesSearch =
+            search === "" ||
+            name.includes(search);
+
+
+        const matchesLevel =
+            level === "all" ||
+            cardLevel.includes(level);
+
+
+        const matchesType =
+            type === "all" ||
+            cardType === type;
+
+
+        const matchesCategory =
+            category === "all" ||
+            cardCategory === category;
+
+
+        const saveButton =
+            card.querySelector(".save-btn");
+
+        const isSaved =
+            saveButton.classList.contains("saved");
+
+
+        const matchesSaved =
+            saved === "all" ||
+            (saved === "saved" && isSaved);
+
+
+        if(
+            matchesSearch &&
+            matchesLevel &&
+            matchesType &&
+            matchesCategory &&
+            matchesSaved
+        ){
+
+            card.classList.remove("hidden");
+
+            visible++;
+
+        }else{
+
+            card.classList.add("hidden");
+
+        }
+
+    });
+
+
+    document.getElementById(
+        "resultCount"
+    ).textContent =
+        "Showing " + visible + " scholarship" +
+        (visible !== 1 ? "s" : "");
+
+
+    document.getElementById(
+        "noResults"
+    ).style.display =
+        visible === 0 ? "block" : "none";
+
+}
+
+
+/* =========================
+   RESET
+========================= */
+
+function resetFilters(){
+
+    document.getElementById(
+        "searchInput"
+    ).value = "";
+
+
+    document.getElementById(
+        "levelFilter"
+    ).value = "all";
+
+
+    document.getElementById(
+        "typeFilter"
+    ).value = "all";
+
+
+    document.getElementById(
+        "categoryFilter"
+    ).value = "all";
+
+
+    document.getElementById(
+        "savedFilter"
+    ).value = "all";
+
+
+    filterScholarships();
+
+}
+
+
+/* =========================
+   SAVE
+========================= */
+
+function toggleSave(button){
+
+    button.classList.toggle("saved");
+
+
+    if(
+        button.classList.contains("saved")
+    ){
+
+        button.innerHTML = "♥";
+
+    }else{
+
+        button.innerHTML = "♡";
+
+    }
+
+
+    filterScholarships();
+
+}
+
+
+/* =========================
+   DETAILS DATA
+========================= */
+
+const scholarshipDetails = {
+
+    pragati:{
+
+        title:
+        "AICTE Pragati Scholarship Scheme for Girl Students",
+
+        provider:
+        "AICTE",
+
+        about:
+        "A merit-based scholarship scheme listed on the National Scholarship Portal for eligible girl students pursuing technical degree programmes.",
+
+        eligibility:[
+
+            "Girl students",
+
+            "Eligible technical degree programme",
+
+            "Other scheme-specific eligibility conditions apply"
+
+        ],
+
+        deadline:
+        "The NSP listing currently shows student applications open until 31 October 2026."
+
+    },
+
+
+    saksham:{
+
+        title:
+        "AICTE Saksham Scholarship Scheme",
+
+        provider:
+        "AICTE",
+
+        about:
+        "A welfare-based scholarship scheme listed for eligible specially abled students pursuing technical education.",
+
+        eligibility:[
+
+            "Eligible specially abled students",
+
+            "Technical education programme",
+
+            "Other scheme-specific conditions apply"
+
+        ],
+
+        deadline:
+        "The NSP listing currently shows student applications open until 31 October 2026."
+
+    },
+
+
+    pmusp:{
+
+        title:
+        "PM-USP Central Sector Scheme of Scholarship",
+
+        provider:
+        "Department of Higher Education",
+
+        about:
+        "A central sector merit-based scholarship scheme for eligible college and university students.",
+
+        eligibility:[
+
+            "Eligible college or university students",
+
+            "Merit-based criteria apply",
+
+            "Other scheme-specific conditions apply"
+
+        ],
+
+        deadline:
+        "For the current renewal listing, the student application deadline shown by NSP is 30 September 2026."
+
+    },
+
+
+    yashasvi:{
+
+        title:
+        "PM YASASVI Top Class Education",
+
+        provider:
+        "Department of Social Justice & Empowerment",
+
+        about:
+        "A scholarship scheme listed for eligible OBC, EBC and DNT students in school or college categories.",
+
+        eligibility:[
+
+            "Eligible OBC, EBC or DNT students",
+
+            "Education-level requirements apply",
+
+            "Other scheme-specific conditions apply"
+
+        ],
+
+        deadline:
+        "The current NSP listing shows student applications open until 31 October 2026."
+
+    },
+
+
+    sc:{
+
+        title:
+        "Central Sector Scholarship of Top Class Education for SC Students",
+
+        provider:
+        "Department of Social Justice & Empowerment",
+
+        about:
+        "A merit-based scholarship scheme listed on NSP for eligible SC students pursuing higher education.",
+
+        eligibility:[
+
+            "Eligible SC students",
+
+            "Higher education programme",
+
+            "Other scheme-specific conditions apply"
+
+        ],
+
+        deadline:
+        "The NSP listing currently shows student applications open until 31 October 2026."
+
+    },
+
+
+    st:{
+
+        title:
+        "National Fellowship and Scholarship for Higher Education of ST Students",
+
+        provider:
+        "Ministry of Tribal Affairs",
+
+        about:
+        "A merit-based scholarship scheme listed on NSP for eligible ST students pursuing higher education.",
+
+        eligibility:[
+
+            "Eligible ST students",
+
+            "Higher education",
+
+            "Other scheme-specific conditions apply"
+
+        ],
+
+        deadline:
+        "The NSP listing currently shows student applications open until 31 October 2026."
+
+    },
+
+
+    nmms:{
+
+        title:
+        "National Means Cum Merit Scholarship",
+
+        provider:
+        "Department of School Education & Literacy",
+
+        about:
+        "A merit-based scholarship scheme listed on NSP for eligible school students.",
+
+        eligibility:[
+
+            "Eligible school students",
+
+            "Merit and scheme-specific conditions apply",
+
+            "Other eligibility requirements apply"
+
+        ],
+
+        deadline:
+        "The NSP listing currently shows student applications open until 30 September 2026."
+
+    },
+
+
+    swanath:{
+
+        title:
+        "AICTE Swanath Scholarship Scheme",
+
+        provider:
+        "AICTE",
+
+        about:
+        "A welfare-based scholarship scheme listed on NSP for eligible students in technical degree programmes.",
+
+        eligibility:[
+
+            "Eligible technical degree students",
+
+            "Welfare-based eligibility conditions apply",
+
+            "Other scheme-specific requirements apply"
+
+        ],
+
+        deadline:
+        "The NSP listing currently shows student applications open until 31 October 2026."
+
+    }
+
+};
+
+
+/* =========================
+   SHOW DETAILS
+========================= */
+
+function showDetails(id){
+
+    const data =
+        scholarshipDetails[id];
+
+
+    if(!data) return;
+
+
+    document.getElementById(
+        "modalTitle"
+    ).textContent =
+        data.title;
+
+
+    document.getElementById(
+        "modalProvider"
+    ).textContent =
+        data.provider;
+
+
+    document.getElementById(
+        "modalAbout"
+    ).textContent =
+        data.about;
+
+
+    document.getElementById(
+        "modalDeadline"
+    ).textContent =
+        data.deadline;
+
+
+    const list =
+        document.getElementById(
+            "modalEligibility"
+        );
+
+
+    list.innerHTML = "";
+
+
+    data.eligibility.forEach(
+        function(item){
+
+            const li =
+                document.createElement("li");
+
+            li.textContent = item;
+
+            list.appendChild(li);
+
+        }
+    );
+
+
+    document.getElementById(
+        "detailsModal"
+    ).style.display = "flex";
+
+}
+
+
+/* =========================
+   CLOSE MODAL
+========================= */
+
+function closeModal(){
+
+    document.getElementById(
+        "detailsModal"
+    ).style.display = "none";
+
+}
+
+
+function closeModalOutside(event){
+
+    if(
+        event.target.id ===
+        "detailsModal"
+    ){
+
+        closeModal();
+
+    }
+
+}
+
+
+/* =========================
+   INITIAL COUNT
+========================= */
+
+filterScholarships();
+
+</script>
+
+</body>
+
+</html>
+```

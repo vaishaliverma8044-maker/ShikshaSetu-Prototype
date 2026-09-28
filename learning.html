@@ -1,0 +1,318 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>ShikshaSetu | Learning Resources</title>
+
+  <link rel="stylesheet" href="../style.css">
+
+  <style>
+    .student-choice-page {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 70px 20px;
+    }
+
+    .choice-header {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .choice-header h1 {
+      font-size: 42px;
+      margin: 12px 0;
+      color: #294b66;
+    }
+
+    .choice-header p {
+      font-size: 17px;
+      color: #607d94;
+      max-width: 650px;
+      margin: auto;
+      line-height: 1.7;
+    }
+
+    .choice-icon {
+      width: 75px;
+      height: 75px;
+      margin: 0 auto 18px;
+      border-radius: 20px;
+      background: #e8f4fc;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 38px;
+    }
+
+    .student-choice-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+      max-width: 850px;
+      margin: auto;
+    }
+
+    .student-choice-card {
+      background: white;
+      border-radius: 22px;
+      padding: 40px 30px;
+      text-align: center;
+      text-decoration: none;
+      color: inherit;
+      border: 1px solid #e0edf5;
+      box-shadow: 0 10px 30px rgba(23, 105, 170, 0.08);
+      transition: 0.25s ease;
+    }
+
+    .student-choice-card:hover {
+      transform: translateY(-7px);
+      box-shadow: 0 18px 35px rgba(23, 105, 170, 0.16);
+      border-color: #3199df;
+    }
+
+    .choice-card-icon {
+      width: 90px;
+      height: 90px;
+      margin: 0 auto 22px;
+      border-radius: 24px;
+      background: #eef8ff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 48px;
+    }
+
+    .student-choice-card h2 {
+      color: #294b66;
+      margin-bottom: 12px;
+      font-size: 25px;
+    }
+
+    .student-choice-card p {
+      color: #6b8498;
+      line-height: 1.6;
+      margin-bottom: 25px;
+    }
+
+    .choice-button {
+      display: inline-block;
+      padding: 12px 25px;
+      border-radius: 10px;
+      background: #1769aa;
+      color: white;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .back-section {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .back-button {
+      display: inline-block;
+      text-decoration: none;
+      color: #1769aa;
+      font-weight: 600;
+    }
+
+    @media (max-width: 700px) {
+      .student-choice-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .choice-header h1 {
+        font-size: 32px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- LOGIN PROTECTION -->
+  <script>
+    if (localStorage.getItem("shikshaSetuLoggedIn") !== "true") {
+      window.location.href = "login.html";
+    }
+  </script>
+
+
+  <!-- HEADER -->
+  <header class="topbar">
+
+    <div class="brand">
+
+      <div class="brand-icon">
+        S
+      </div>
+
+      <div>
+        <strong>ShikshaSetu</strong>
+        <small>Education Beyond Connectivity</small>
+      </div>
+
+    </div>
+
+
+    <div class="top-actions">
+
+      <span class="network-badge" id="networkBadge">
+        ● Online
+      </span>
+
+      <a href="dashboard.html" class="btn btn-outline">
+        Dashboard
+      </a>
+
+    </div>
+
+  </header>
+
+
+  <!-- MAIN CONTENT -->
+  <main class="student-choice-page">
+
+    <section class="choice-header">
+
+      <div class="choice-icon">
+        🎓
+      </div>
+
+      <span class="eyebrow">
+        LEARNING RESOURCES
+      </span>
+
+      <h1>
+        You are a student?
+      </h1>
+
+      <p>
+        Select your education level to access the right
+        learning resources, notes, practice material and
+        exam preparation content.
+      </p>
+
+    </section>
+
+
+    <!-- SCHOOL / COLLEGE OPTIONS -->
+    <section class="student-choice-grid">
+
+
+      <!-- SCHOOL -->
+      <a href="school-class.html" class="student-choice-card">
+
+        <div class="choice-card-icon">
+          🏫
+        </div>
+
+        <h2>
+          School Student
+        </h2>
+
+        <p>
+          For students studying in Class 11th and 12th.
+          Access class-wise notes, subjects, PYQs,
+          revision material and career guidance.
+        </p>
+
+        <span class="choice-button">
+          Continue as School Student →
+        </span>
+
+      </a>
+
+
+      <!-- COLLEGE -->
+      <a href="college-dashboard.html" class="student-choice-card">
+
+        <div class="choice-card-icon">
+          🎓
+        </div>
+
+        <h2>
+          College Student
+        </h2>
+
+        <p>
+          For college students including first-year
+          engineering students. Access subjects, notes,
+          PYQs, practice and exam preparation.
+        </p>
+
+        <span class="choice-button">
+          Continue as College Student →
+        </span>
+
+      </a>
+
+    </section>
+
+
+    <!-- BACK -->
+    <div class="back-section">
+
+      <a href="dashboard.html" class="back-button">
+        ← Back to Dashboard
+      </a>
+
+    </div>
+
+  </main>
+
+
+  <!-- FOOTER -->
+  <footer class="footer">
+
+    <b>ShikshaSetu</b>
+    —
+    Learn Anywhere. In Your Language. With or Without Internet.
+
+  </footer>
+
+
+  <script src="../app.js"></script>
+```html
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const buttons = document.querySelectorAll("a");
+
+    buttons.forEach(function (button) {
+
+        button.addEventListener("click", function () {
+
+            const link = button.getAttribute("href");
+
+            // Sirf actual learning resource pages ko track karega
+            if (!link || link.startsWith("#")) return;
+
+            let title = button.textContent.trim();
+
+            // Activity Tracker available hai to activity save karo
+            if (typeof ShikshaSetuActivity !== "undefined") {
+
+                const id = "learning-" + link;
+
+                ShikshaSetuActivity.openResource(
+                    id,
+                    title,
+                    "Learning Resources"
+                );
+            }
+
+        });
+
+    });
+
+});
+</script>
+
+</body>
+
+</html>

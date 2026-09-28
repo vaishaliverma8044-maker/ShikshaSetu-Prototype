@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>C++ Complete Notes - ShikshaSetu</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f8fc;
+      color: #243b53;
+      line-height: 1.7;
+    }
+
+    /* HEADER */
+    .header {
+      background: #1769aa;
+      color: white;
+      padding: 16px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    .header-buttons {
+      display: flex;
+      gap: 10px;
+    }
+
+    .header-btn {
+      border: none;
+      padding: 10px 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      background: white;
+      color: #1769aa;
+    }
+
+    .header-btn:hover {
+      background: #eaf5ff;
+    }
+
+    /* MAIN */
+    .container {
+      width: 92%;
+      max-width: 1050px;
+      margin: 30px auto 60px;
+    }
+
+    .hero {
+      background: white;
+      padding: 35px;
+      border-radius: 18px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+      margin-bottom: 25px;
+    }
+
+    .hero h1 {
+      color: #1769aa;
+      margin-bottom: 10px;
+      font-size: 32px;
+    }
+
+    .hero p {
+      color: #587083;
+    }
+
+    .tag {
+      display: inline-block;
+      background: #e8f4ff;
+      color: #1769aa;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 13px;
+      margin-bottom: 15px;
+      font-weight: bold;
+    }
+
+    /* CONTENT */
+    .note-section {
+      background: white;
+      margin-bottom: 25px;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    }
+
+    .note-section h2 {
+      color: #1769aa;
+      margin-bottom: 18px;
+      font-size: 25px;
+      border-bottom: 2px solid #e5eef5;
+      padding-bottom: 10px;
+    }
+
+    .note-section h3 {
+      color: #294b66;
+      margin-top: 22px;
+      margin-bottom: 8px;
+    }
+
+    .note-section p {
+      margin-bottom: 12px;
+    }
+
+    .note-section ul,
+    .note-section ol {
+      margin-left: 25px;
+      margin-bottom: 15px;
+    }
+
+    .note-section li {
+      margin-bottom: 7px;
+    }
+
+    /* DEFINITION */
+    .definition {
+      background: #eef7ff;
+      border-left: 5px solid #1769aa;
+      padding: 15px 18px;
+      border-radius: 8px;
+      margin: 15px 0;
+    }
+
+    .important {
+      background: #fff8e8;
+      border-left: 5px solid #e5a400;
+      padding: 15px 18px;
+      border-radius: 8px;
+      margin: 15px 0;
+    }
+
+    .tip {
+      background: #eefaf2;
+      border-left: 5px solid #32a05a;
+      padding: 15px 18px;
+      border-radius: 8px;
+      margin: 15px 0;
+    }
+
+    /* CODE */
+    pre {
+      background: #172b3a;
+      color: #f3f7fa;
+      padding: 20px;
+      border-radius: 10px;
+      overflow-x: auto;
+      margin: 15px 0;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    code {
+      font-family: Consolas, monospace;
+    }
+
+    /* OUTPUT */
+    .output {
+      background: #f1f4f6;
+      border: 1px solid #d8e1e7;
+      padding: 15px;
+      border-radius: 8px;
+      margin: 12px 0;
+    }
+
+    .output strong {
+      color: #1769aa;
+    }
+
+    /* TABLE */
+    .table-wrapper {
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 15px 0;
+    }
+
+    th,
+    td {
+      border: 1px solid #d8e1e7;
+      padding: 12px;
+      text-align: left;
+    }
+
+    th {
+      background: #eaf5ff;
+      color: #1769aa;
+    }
+
+    /* BUTTON */
+    .back-btn {
+      display: inline-block;
+      background: #1769aa;
+      color: white;
+      padding: 11px 18px;
+      border-radius: 8px;
+      text-decoration: none;
+      margin-bottom: 20px;
+    }
+
+    .back-btn:hover {
+      background: #125587;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #173b56;
+      color: white;
+      text-align: center;
+      padding: 25px;
+      margin-top: 40px;
+    }
+
+    /* PRINT */
+    .no-print {
+      display: block;
+    }
+
+    @media print {
+      body {
+        background: white;
+        color: black;
+      }
+
+      .header,
+      .no-print,
+      footer {
+        display: none !important;
+      }
+
+      .container {
+        width: 100%;
+        max-width: none;
+        margin: 0;
+      }
+
+      .hero,
+      .note-section {
+        box-shadow: none;
+        border: none;
+        page-break-inside: avoid;
+      }
+
+      .note-section {
+        margin-bottom: 15px;
+      }
+
+      pre {
+        white-space: pre-wrap;
+        color: black;
+        background: #f3f3f3;
+        border: 1px solid #ccc;
+      }
+
+      h2 {
+        page-break-after: avoid;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .header {
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .hero {
+        padding: 22px;
+      }
+
+      .hero h1 {
+        font-size: 26px;
+      }
+
+      .note-section {
+        padding: 20px;
+      }
+
+      .note-section h2 {
+        font-size: 21px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="header no-print">
+    <div class="logo">📚 ShikshaSetu</div>
+
+    <div class="header-buttons">
+      <button class="header-btn" onclick="window.print()">
+        🖨️ Save as PDF
+      </button>
+
+      <button class="header-btn" onclick="history.back()">
+        ← Back
+      </button>
+    </div>
+  </header>
+
+
+  <main class="container">
+
+    <a href="offline.html" class="back-btn no-print">
+      ← Back to Offline Library
+    </a>
+
+
+    <!-- INTRO -->
+    <section class="hero">
+      <span class="tag">FIRST YEAR ENGINEERING • C++</span>
+
+      <h1>Complete C++ Programming Notes</h1>
+
+      <p>
+        Beginner-friendly notes covering the important fundamentals of
+        C++ programming with definitions, explanations, examples and programs.
+      </p>
+    </section>
+
+
+    <!-- 1 -->
+    <section class="note-section">
+
+      <h2>1. Introduction to C++</h2>
+
+      <h3>Definition</h3>
+
+      <div class="definition">
+        <strong>C++</strong> is a general-purpose programming language
+        developed by Bjarne Stroustrup. It supports both procedural and
+        object-oriented programming.
+      </div>
+
+      <h3>Why Learn C++?</h3>
+
+      <ul>
+        <li>It is widely used for learning programming fundamentals.</li>
+        <li>It is commonly used for Data Structures and Algorithms.</li>
+        <li>It supports Object-Oriented Programming.</li>
+        <li>It provides good control over memory and system resources.</li>
+        <li>It is useful for competitive programming.</li>
+      </ul>
+
+      <h3>Basic C++ Program</h3>
+
+      <pre><code>#include &lt;iostream&gt;
+using namespace std;
+
+int main()
+{
+    cout &lt;&lt; "Hello World";
+
+    return 0;
+}</code></pre>
+
+      <div class="output">
+        <strong>Output:</strong><br>
+        Hello World
+      </div>
+
+      <h3>Important Points</h3>
+
+      <ul>
+        <li><code>#include &lt;iostream&gt;</code> is used for input/output.</li>
+        <li><code>main()</code> is the starting point of the program.</li>
+        <li><code>cout</code> is used to display output.</li>
+        <li><code>return 0</code> indicates successful execution.</li>
+      </ul>
+
+    </section>
+
+
+    <!-- 2 -->
+    <section class="note-section">
+
+      <h2>2. Variables and Data Types</h2>
+
+      <h3>Variable</h3>
+
+      <div class="definition">
+        A variable is a named memory location used to store a value.
+      </div>
+
+      <h3>Example</h3>
+
+      <pre><code>int age = 18;
+float marks = 85.5;
+char grade = 'A';</code></pre>
+
+      <h3>Common Data Types</h3>
+
+      <div class="table-wrapper">
+
+        <table>
+          <tr>
+            <th>Data Type</th>
+            <th>Purpose</th>
+            <th>Example</th>
+          </tr>
+
+          <tr>
+            <td>int</td>
+            <td>Integer values</td>
+            <td>10</td>
+          </tr>
+
+          <tr>
+            <td>float</td>
+            <td>Decimal values</td>
+            <td>10.5</td>
+          </tr>
+
+          <tr>
+            <td>double</td>
+            <td>More precise decimal values</td>
+            <td>25.6789</td>
+          </tr>
+
+          <tr>
+            <td>char</td>
+            <td>Single character</td>
+            <td>'A'</td>
+          </tr>
+
+          <tr>
+            <td>bool</td>
+            <td>True or false</td>
+            <td>true</td>
+          </tr>
+
+          <tr>
+            <td>string</td>
+            <td>Collection of characters</td>
+            <td>"Hello"</td>
+          </tr>
+        </table>
+
+      </div>
+
+      <h3>Input from User</h3>
+
+      <pre><code>#include &lt;iostream&gt;
+using namespace std;
+
+int main()
+{
+    int age;
+
+    cout &lt;&lt; "Enter age: ";
+    cin &gt;&gt; age;
+
+    cout &lt;&lt; "Your age is " &lt;&lt; age;
+
+    return 0;
+}</code></pre>
+
+      <div class="important">
+        <strong>Remember:</strong>
+        <code>cin</code> is generally used to take input and
+        <code>cout</code> is used to display output.
+      </div>
+
+    </section>
+
+
+    <!-- 3 -->
+    <section class="note-section">
+
+      <h2>3. Operators in C++</h2>
+
+      <p>
+        Operators are symbols used to perform operations on values and variables.
+      </p>
+
+      <h3>Arithmetic Operators</h3>
+
+      <div class="table-wrapper">
+
+        <table>
+          <tr>
+            <th>Operator</th>
+            <th>Meaning</th>
+            <th>Example</th>
+          </tr>
+
+          <tr>
+            <td>+</td>
+            <td>Addition</td>
+            <td>a + b</td>
+          </tr>
+
+          <tr>
+            <td>-</td>
+            <td>Subtraction</td>
+            <td>a - b</td>
+          </tr>
+
+          <tr>
+            <td>*</td>
+            <td>Multiplication</td>
+            <td>a * b</td>
+          </tr>
+
+          <tr>
+            <td>/</td>
+            <td>Division</td>
+            <td>a / b</td>
+          </tr>
+
+          <tr>
+            <td>%</td>
+            <td>Remainder</td>
+            <td>a % b</td>
+          </tr>
+        </table>
+
+      </div>
+
+      <h3>Relational Operators</h3>
+
+      <ul>
+        <li><code>==</code> Equal to</li>
+        <li><code>!=</code> Not equal to</li>
+        <li><code>&gt;</code> Greater than</li>
+        <li><code>&lt;</code> Less than</li>
+        <li><code>&gt;=</code> Greater than or equal to</li>
+        <li><code>&lt;=</code> Less than or equal to</li>
+      </ul>
+
+      <h3>Logical Operators</h3>
+
+      <ul>
+        <li><code>&amp;&amp;</code> AND</li>
+        <li><code>||</code> OR</li>
+        <li><code>!</code> NOT</li>
+      </ul>
+
+      <h3>Example</h3>
+
+      <pre><code>int a = 10;
+int b = 5;
+
+cout &lt;&lt; a + b;
+cout &lt;&lt; a - b;
+cout &lt;&lt; a * b;</code></pre>
+
+    </section>
+
+
+    <!-- 4 -->
+    <section class="note-section">
+
+      <h2>4. Conditional Statements</h2>
+
+      <div class="definition">
+        Conditional statements are used when a program needs to make
+        decisions based on a condition.
+      </div>
+
+      <h3>if Statement</h3>
+
+      <pre><code>int age = 18;
+
+if(age >= 18)
+{
+    cout &lt;&lt; "Eligible";
+}</code></pre>
+
+      <h3>if-else Statement</h3>
+
+      <pre><code>int number;
+
+cin &gt;&gt; number;
+
+if(number % 2 == 0)
+{
+    cout &lt;&lt; "Even";
+}
+else
+{
+    cout &lt;&lt; "Odd";
+}</code></pre>
+
+      <h3>else-if Ladder</h3>
+
+      <pre><code>int marks;
+
+cin &gt;&gt; marks;
+
+if(marks >= 90)
+{
+    cout &lt;&lt; "Grade A";
+}
+else if(marks >= 75)
+{
+    cout &lt;&lt; "Grade B";
+}
+else if(marks >= 50)
+{
+    cout &lt;&lt; "Grade C";
+}
+else
+{
+    cout &lt;&lt; "Fail";
+}</code></pre>
+
+      <div class="tip">
+        <strong>Exam Tip:</strong>
+        Always check the conditions from top to bottom in an
+        <code>if-else-if</code> ladder.
+      </div>
+
+    </section>
+
+
+    <!-- 5 -->
+    <section class="note-section">
+
+      <h2>5. Loops in C++</h2>
+
+      <p>
+        Loops are used to execute a block of statements repeatedly.
+      </p>
+
+      <h3>Types of Loops</h3>
+
+      <ol>
+        <li>for loop</li>
+        <li>while loop</li>
+        <li>do-while loop</li>
+      </ol>
+
+      <h3>for Loop</h3>
+
+      <pre><code>for(int i = 1; i &lt;= 5; i++)
+{
+    cout &lt;&lt; i &lt;&lt; endl;
+}</code></pre>
+
+      <div class="output">
+        <strong>Output:</strong><br>
+        1<br>
+        2<br>
+        3<br>
+        4<br>
+        5
+      </div>
+
+      <h3>while Loop</h3>
+
+      <pre><code>int i = 1;
+
+while(i &lt;= 5)
+{
+    cout &lt;&lt; i &lt;&lt; endl;
+    i++;
+}</code></pre>
+
+      <h3>do-while Loop</h3>
+
+      <pre><code>int i = 1;
+
+do
+{
+    cout &lt;&lt; i &lt;&lt; endl;
+    i++;
+}
+while(i &lt;= 5);</code></pre>
+
+      <div class="important">
+        <strong>Important:</strong>
+        A do-while loop executes its body at least once because
+        the condition is checked after the body.
+      </div>
+
+    </section>
+
+
+    <!-- 6 -->
+    <section class="note-section">
+
+      <h2>6. Functions</h2>
+
+      <div class="definition">
+        A function is a block of code designed to perform a specific task.
+        Functions help make programs modular and reusable.
+      </div>
+
+      <h3>Basic Function</h3>
+
+      <pre><code>#include &lt;iostream&gt;
+using namespace std;
+
+void greet()
+{
+    cout &lt;&lt; "Welcome to C++";
+}
+
+int main()
+{
+    greet();
+
+    return 0;
+}</code></pre>
+
+      <h3>Function with Parameters</h3>
+
+      <pre><code>#include &lt;iostream&gt;
+using namespace std;
+
+int add(int a, int b)
+{
+    return a + b;
+}
+
+int main()
+{
+    int result = add(10, 20);
+
+    cout &lt;&lt; result;
+
+    return 0;
+}</code></pre>
+
+      <div class="output">
+        <strong>Output:</strong><br>
+        30
+      </div>
+
+      <h3>Advantages of Functions</h3>
+
+      <ul>
+        <li>Code reusability</li>
+        <li>Better program organization</li>
+        <li>Easier debugging</li>
+        <li>Reduces repeated code</li>
+      </ul>
+
+    </section>
+
+
+    <!-- 7 -->
+    <section class="note-section">
+
+      <h2>7. Arrays and Strings</h2>
+
+      <h3>Array</h3>
+
+      <div class="definition">
+        An array is a collection of elements of the same data type
+        stored in contiguous memory locations.
+      </div>
+
+      <h3>Example</h3>
+
+      <pre><code>int marks[5] = {80, 75, 90, 85, 70};
+
+cout &lt;&lt; marks[0];</code></pre>
+
+      <div class="output">
+        <strong>Output:</strong><br>
+        80
+      </div>
+
+      <h3>Array Traversal</h3>
+
+      <pre><code>int numbers[5] = {10, 20, 30, 40, 50};
+
+for(int i = 0; i &lt; 5; i++)
+{
+    cout &lt;&lt; numbers[i] &lt;&lt; endl;
+}</code></pre>
+
+      <h3>String</h3>
+
+      <p>
+        A string is a sequence of characters.
+      </p>
+
+      <pre><code>#include &lt;iostream&gt;
+#include &lt;string&gt;
+using namespace std;
+
+int main()
+{
+    string name;
+
+    cout &lt;&lt; "Enter your name: ";
+    cin &gt;&gt; name;
+
+    cout &lt;&lt; "Hello " &lt;&lt; name;
+
+    return 0;
+}</code></pre>
+
+      <div class="tip">
+        <strong>Important:</strong>
+        Array indexing normally starts from <strong>0</strong>.
+      </div>
+
+    </section>
+
+
+    <!-- 8 -->
+    <section class="note-section">
+
+      <h2>8. Pointers Basics</h2>
+
+      <div class="definition">
+        A pointer is a variable that stores the memory address of another variable.
+      </div>
+
+      <h3>Example</h3>
+
+      <pre><code>int number = 10;
+
+int *ptr = &amp;number;
+
+cout &lt;&lt; number &lt;&lt; endl;
+cout &lt;&lt; &amp;number &lt;&lt; endl;
+cout &lt;&lt; ptr &lt;&lt; endl;
+cout &lt;&lt; *ptr &lt;&lt; endl;</code></pre>
+
+      <h3>Important Symbols</h3>
+
+      <ul>
+        <li><code>&amp;</code> can be used to obtain an address.</li>
+        <li><code>*</code> is used with a pointer to access the stored value.</li>
+      </ul>
+
+      <div class="important">
+        <strong>Remember:</strong>
+        A pointer stores an address, not the actual value of the
+        variable it points to.
+      </div>
+
+    </section>
+
+
+    <!-- 9 -->
+    <section class="note-section">
+
+      <h2>9. Object-Oriented Programming Basics</h2>
+
+      <div class="definition">
+        Object-Oriented Programming (OOP) is a programming approach
+        based on objects and classes.
+      </div>
+
+      <h3>Important OOP Concepts</h3>
+
+      <ul>
+        <li>Class</li>
+        <li>Object</li>
+        <li>Encapsulation</li>
+        <li>Inheritance</li>
+        <li>Polymorphism</li>
+        <li>Abstraction</li>
+      </ul>
+
+      <h3>Class and Object Example</h3>
+
+      <pre><code>#include &lt;iostream&gt;
+using namespace std;
+
+class Student
+{
+public:
+
+    string name;
+    int age;
+
+    void display()
+    {
+        cout &lt;&lt; name &lt;&lt; endl;
+        cout &lt;&lt; age &lt;&lt; endl;
+    }
+};
+
+int main()
+{
+    Student s1;
+
+    s1.name = "Rahul";
+    s1.age = 18;
+
+    s1.display();
+
+    return 0;
+}</code></pre>
+
+      <div class="output">
+        <strong>Output:</strong><br>
+        Rahul<br>
+        18
+      </div>
+
+      <h3>Class</h3>
+
+      <p>
+        A class is a blueprint or template used to create objects.
+      </p>
+
+      <h3>Object</h3>
+
+      <p>
+        An object is an instance of a class.
+      </p>
+
+    </section>
+
+
+    <!-- 10 -->
+    <section class="note-section">
+
+      <h2>10. Important C++ Exam Questions</h2>
+
+      <h3>Short Answer Questions</h3>
+
+      <ol>
+        <li>What is C++?</li>
+        <li>What is a variable?</li>
+        <li>What are data types?</li>
+        <li>What is an operator?</li>
+        <li>What is a loop?</li>
+        <li>What is a function?</li>
+        <li>What is an array?</li>
+        <li>What is a pointer?</li>
+        <li>What is a class?</li>
+        <li>What is an object?</li>
+      </ol>
+
+      <h3>Programming Questions</h3>
+
+      <ol>
+        <li>Write a program to check whether a number is even or odd.</li>
+        <li>Write a program to find the largest of three numbers.</li>
+        <li>Write a program to print numbers from 1 to 10.</li>
+        <li>Write a program to calculate the sum of two numbers.</li>
+        <li>Write a program to calculate factorial of a number.</li>
+        <li>Write a program to find the sum of elements of an array.</li>
+        <li>Write a program to reverse a number.</li>
+        <li>Write a program to check whether a number is prime.</li>
+      </ol>
+
+      <div class="tip">
+        <strong>Study Tip:</strong>
+        Pehle concept samjho, phir example code khud type karke run karo.
+        Sirf code yaad karne ke bajay logic samajhna important hai.
+      </div>
+
+    </section>
+
+
+    <!-- QUICK REVISION -->
+    <section class="note-section">
+
+      <h2>⚡ Quick Revision</h2>
+
+      <div class="table-wrapper">
+
+        <table>
+
+          <tr>
+            <th>Topic</th>
+            <th>Remember</th>
+          </tr>
+
+          <tr>
+            <td>Output</td>
+            <td>cout</td>
+          </tr>
+
+          <tr>
+            <td>Input</td>
+            <td>cin</td>
+          </tr>
+
+          <tr>
+            <td>Condition</td>
+            <td>if / else</td>
+          </tr>
+
+          <tr>
+            <td>Repetition</td>
+            <td>for / while / do-while</td>
+          </tr>
+
+          <tr>
+            <td>Reusable code</td>
+            <td>Function</td>
+          </tr>
+
+          <tr>
+            <td>Collection</td>
+            <td>Array</td>
+          </tr>
+
+          <tr>
+            <td>Address</td>
+            <td>Pointer</td>
+          </tr>
+
+          <tr>
+            <td>OOP</td>
+            <td>Class and Object</td>
+          </tr>
+
+        </table>
+
+      </div>
+
+    </section>
+
+
+    <section class="hero">
+
+      <h2 style="color:#1769aa; margin-bottom:10px;">
+        🎯 End of C++ Notes
+      </h2>
+
+      <p>
+        Ab aap in notes ko revise kar sakte hain aur examples ko
+        compiler me run karke practice kar sakte hain.
+      </p>
+
+      <br>
+
+      <button
+        class="header-btn no-print"
+        onclick="window.print()"
+      >
+        🖨️ Save These Notes as PDF
+      </button>
+
+    </section>
+
+  </main>
+
+
+  <footer class="no-print">
+    <p>© 2026 ShikshaSetu • Learn Anywhere, Anytime</p>
+  </footer>
+
+
+  <script>
+
+    // Login protection
+    if (localStorage.getItem("shikshaSetuLoggedIn") !== "true") {
+      window.location.href = "login.html";
+    }
+
+  </script>
+
+</body>
+</html>

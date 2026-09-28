@@ -1,0 +1,1817 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AI Doubt Assistant - ShikshaSetu</title>
+
+<style>
+
+/* =========================
+   BASIC RESET
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    width:100%;
+    overflow-x:hidden;
+}
+
+body{
+    width:100%;
+    min-height:100vh;
+    background:#f4f9ff;
+    color:#18324a;
+    font-family:Arial,sans-serif;
+    overflow-x:hidden;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.header{
+    width:100%;
+    background:linear-gradient(135deg,#3199df,#65c7ff);
+    color:white;
+    padding:16px 35px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:15px;
+    box-shadow:0 3px 12px rgba(0,0,0,.12);
+}
+
+.logo{
+    font-size:25px;
+    font-weight:bold;
+}
+
+.header-right{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.status{
+    background:rgba(255,255,255,.2);
+    padding:8px 13px;
+    border-radius:20px;
+    font-size:13px;
+}
+
+.back-btn{
+    background:white;
+    color:#1976b8;
+    border:none;
+    padding:9px 15px;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+
+/* =========================
+   MAIN
+========================= */
+
+.container{
+    width:100%;
+    max-width:1200px;
+    margin:0 auto;
+    padding:28px 20px 35px;
+}
+
+.hero{
+    text-align:center;
+    margin-bottom:25px;
+}
+
+.hero-icon{
+    width:68px;
+    height:68px;
+    margin:auto;
+    border-radius:50%;
+    background:linear-gradient(135deg,#3199df,#74d1ff);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:32px;
+    box-shadow:0 7px 20px rgba(49,153,223,.25);
+}
+
+.hero h1{
+    margin-top:13px;
+    font-size:30px;
+    color:#16496c;
+}
+
+.hero p{
+    margin-top:7px;
+    color:#607d91;
+    font-size:15px;
+}
+
+
+/* =========================
+   WORKSPACE
+========================= */
+
+.workspace{
+    width:100%;
+    display:grid;
+    grid-template-columns:280px minmax(0,1fr);
+    gap:20px;
+    align-items:start;
+}
+
+
+/* =========================
+   SIDEBAR
+========================= */
+
+.sidebar{
+    width:100%;
+    background:white;
+    border-radius:16px;
+    padding:20px;
+    box-shadow:0 5px 20px rgba(0,0,0,.07);
+}
+
+.sidebar h3{
+    color:#195b86;
+    margin-bottom:16px;
+}
+
+.label{
+    display:block;
+    font-size:13px;
+    font-weight:bold;
+    color:#61788a;
+    margin-bottom:7px;
+}
+
+select{
+    width:100%;
+    padding:11px;
+    border:1px solid #cfe4f3;
+    border-radius:9px;
+    background:#f8fcff;
+    color:#21445c;
+    outline:none;
+    margin-bottom:16px;
+    font-size:14px;
+}
+
+.feature{
+    width:100%;
+    padding:11px;
+    background:#f1f9ff;
+    border-radius:10px;
+    margin-top:9px;
+    font-size:13px;
+    line-height:1.45;
+    color:#42647a;
+}
+
+
+/* =========================
+   CHAT CARD
+========================= */
+
+.chat-card{
+    width:100%;
+    min-width:0;
+    background:white;
+    border-radius:16px;
+    box-shadow:0 5px 20px rgba(0,0,0,.07);
+    overflow:hidden;
+}
+
+.chat-header{
+    width:100%;
+    padding:16px 20px;
+    border-bottom:1px solid #e5eef5;
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.bot-avatar{
+    width:42px;
+    height:42px;
+    min-width:42px;
+    border-radius:50%;
+    background:#e6f5ff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:21px;
+}
+
+.chat-header h3{
+    color:#174b6d;
+    font-size:17px;
+}
+
+.chat-header p{
+    font-size:12px;
+    color:#7b93a4;
+    margin-top:3px;
+}
+
+
+/* =========================
+   MESSAGES
+========================= */
+
+.messages{
+    width:100%;
+    height:440px;
+    overflow-y:auto;
+    overflow-x:hidden;
+    padding:20px;
+    background:#fbfdff;
+}
+
+.message{
+    display:flex;
+    width:100%;
+    margin-bottom:17px;
+}
+
+.message.bot{
+    justify-content:flex-start;
+}
+
+.message.user{
+    justify-content:flex-end;
+}
+
+.bubble{
+    max-width:78%;
+    padding:13px 15px;
+    border-radius:14px;
+    font-size:14px;
+    line-height:1.55;
+    overflow-wrap:anywhere;
+    word-break:break-word;
+}
+
+.bot .bubble{
+    background:#edf7ff;
+    color:#284d64;
+    border-bottom-left-radius:4px;
+}
+
+.user .bubble{
+    background:#3199df;
+    color:white;
+    border-bottom-right-radius:4px;
+}
+
+.bubble strong{
+    color:#126497;
+}
+
+.user .bubble strong{
+    color:white;
+}
+
+.step{
+    background:white;
+    padding:9px 11px;
+    margin:7px 0;
+    border-radius:8px;
+    border-left:3px solid #3199df;
+}
+
+
+/* =========================
+   INPUT
+========================= */
+
+.input-area{
+    width:100%;
+    padding:15px;
+    border-top:1px solid #e5eef5;
+    background:white;
+}
+
+.input-tools{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-bottom:9px;
+}
+
+.tool-btn{
+    border:1px solid #cfe4f3;
+    background:#f6fbff;
+    color:#2778a8;
+    padding:8px 11px;
+    border-radius:7px;
+    cursor:pointer;
+    font-size:13px;
+}
+
+.input-row{
+    width:100%;
+    display:flex;
+    gap:9px;
+}
+
+#questionInput{
+    flex:1;
+    min-width:0;
+    resize:none;
+    height:48px;
+    border:1px solid #c8dfed;
+    border-radius:10px;
+    padding:13px;
+    outline:none;
+    font-size:14px;
+}
+
+#questionInput:focus{
+    border-color:#3199df;
+}
+
+.send-btn{
+    flex:0 0 auto;
+    border:none;
+    background:#3199df;
+    color:white;
+    padding:0 21px;
+    border-radius:10px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+
+/* =========================
+   SUGGESTIONS
+========================= */
+
+.suggestions{
+    width:100%;
+    padding:17px 20px 20px;
+    border-top:1px solid #edf2f6;
+}
+
+.suggestions h4{
+    color:#4d687b;
+    margin-bottom:10px;
+    font-size:13px;
+}
+
+.chips{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+}
+
+.chip{
+    border:1px solid #c9e4f3;
+    background:#f6fbff;
+    color:#286a92;
+    padding:8px 11px;
+    border-radius:20px;
+    cursor:pointer;
+    font-size:12px;
+}
+
+
+/* =========================
+   IMAGE PREVIEW
+========================= */
+
+#imagePreviewBox{
+    display:none;
+    width:100%;
+    margin-bottom:10px;
+    padding:10px;
+    background:#f1f9ff;
+    border-radius:9px;
+    align-items:center;
+    gap:10px;
+    overflow:hidden;
+}
+
+#imagePreview{
+    width:60px;
+    height:60px;
+    min-width:60px;
+    object-fit:cover;
+    border-radius:7px;
+}
+
+#imageName{
+    word-break:break-word;
+}
+
+.remove-image{
+    margin-left:auto;
+    border:none;
+    background:#ffe9e9;
+    color:#c0392b;
+    padding:6px 9px;
+    border-radius:6px;
+    cursor:pointer;
+}
+
+
+/* =========================
+   NOTE
+========================= */
+
+.ai-note{
+    margin-top:18px;
+    background:#fffbea;
+    border:1px solid #f0e3aa;
+    padding:12px 15px;
+    border-radius:10px;
+    color:#74642c;
+    font-size:12px;
+    line-height:1.5;
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width:900px){
+
+    .container{
+        padding:24px 16px 30px;
+    }
+
+    .workspace{
+        grid-template-columns:1fr;
+    }
+
+    .sidebar{
+        order:1;
+    }
+
+    .chat-card{
+        order:2;
+    }
+
+    .sidebar{
+        display:grid;
+        grid-template-columns:repeat(2,1fr);
+        gap:10px;
+    }
+
+    .sidebar h3{
+        grid-column:1/-1;
+        margin-bottom:3px;
+    }
+
+    .sidebar .label{
+        margin-top:2px;
+    }
+
+    .sidebar select{
+        margin-bottom:5px;
+    }
+
+    .feature{
+        margin-top:2px;
+    }
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width:600px){
+
+    .header{
+        padding:13px 14px;
+    }
+
+    .logo{
+        font-size:20px;
+    }
+
+    .status{
+        display:none;
+    }
+
+    .back-btn{
+        padding:8px 11px;
+        font-size:12px;
+    }
+
+    .container{
+        padding:20px 10px 25px;
+    }
+
+    .hero{
+        margin-bottom:18px;
+    }
+
+    .hero-icon{
+        width:58px;
+        height:58px;
+        font-size:27px;
+    }
+
+    .hero h1{
+        font-size:24px;
+    }
+
+    .hero p{
+        font-size:13px;
+        padding:0 8px;
+        line-height:1.45;
+    }
+
+
+    /* Sidebar becomes normal vertical */
+
+    .sidebar{
+        display:block;
+        padding:15px;
+        border-radius:12px;
+    }
+
+    .sidebar h3{
+        margin-bottom:14px;
+    }
+
+    .sidebar select{
+        margin-bottom:14px;
+    }
+
+    .feature{
+        margin-top:8px;
+    }
+
+
+    /* Chat */
+
+    .chat-card{
+        border-radius:12px;
+    }
+
+    .chat-header{
+        padding:13px 14px;
+    }
+
+    .messages{
+        height:390px;
+        padding:13px;
+    }
+
+    .bubble{
+        max-width:88%;
+        font-size:13px;
+        padding:11px 12px;
+    }
+
+
+    /* Input tools */
+
+    .input-area{
+        padding:11px;
+    }
+
+    .input-tools{
+        gap:6px;
+    }
+
+    .tool-btn{
+        font-size:11px;
+        padding:7px 9px;
+    }
+
+
+    /* Textarea + Send */
+
+    .input-row{
+        flex-direction:column;
+        gap:7px;
+    }
+
+    #questionInput{
+        width:100%;
+        height:52px;
+        font-size:16px;
+    }
+
+    .send-btn{
+        width:100%;
+        height:44px;
+    }
+
+
+    /* Suggestions */
+
+    .suggestions{
+        padding:14px;
+    }
+
+    .chips{
+        gap:6px;
+    }
+
+    .chip{
+        font-size:11px;
+        padding:7px 9px;
+    }
+
+    .ai-note{
+        font-size:11px;
+        margin-top:12px;
+    }
+
+}
+
+
+/* =====================================================
+   VERY SMALL PHONES
+===================================================== */
+
+@media (max-width:380px){
+
+    .logo{
+        font-size:18px;
+    }
+
+    .back-btn{
+        font-size:11px;
+        padding:7px 9px;
+    }
+
+    .hero h1{
+        font-size:21px;
+    }
+
+    .messages{
+        height:350px;
+    }
+
+    .bubble{
+        max-width:94%;
+        font-size:12px;
+    }
+
+    .tool-btn{
+        flex:1 1 100%;
+        text-align:center;
+    }
+
+    .chip{
+        width:100%;
+        text-align:center;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- HEADER -->
+
+<header class="header">
+
+    <div class="logo">
+        📘 ShikshaSetu
+    </div>
+
+    <div class="header-right">
+
+        <span class="status">
+            🤖 AI Assistant Online
+        </span>
+
+        <button class="back-btn" onclick="goBack()">
+            ← Back
+        </button>
+
+    </div>
+
+</header>
+
+
+
+<!-- MAIN -->
+
+<main class="container">
+
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <div class="hero-icon">
+            🤖
+        </div>
+
+        <h1>AI Doubt Assistant</h1>
+
+        <p>
+            Ask your study doubt and get a simple step-by-step explanation.
+        </p>
+
+    </section>
+
+
+
+    <!-- WORKSPACE -->
+
+    <div class="workspace">
+
+
+        <!-- SIDEBAR -->
+
+        <aside class="sidebar">
+
+            <h3>⚙️ Study Settings</h3>
+
+
+            <label class="label">
+                Select Subject
+            </label>
+
+            <select id="subject">
+
+                <option>Mathematics</option>
+                <option>Physics</option>
+                <option>Chemistry</option>
+                <option>C++</option>
+                <option>DSA</option>
+                <option>Computer Science</option>
+                <option>English</option>
+                <option>Other</option>
+
+            </select>
+
+
+            <label class="label">
+                Explanation Language
+            </label>
+
+            <select id="language">
+
+                <option>English</option>
+                <option>Hindi</option>
+                <option>Hinglish</option>
+
+            </select>
+
+
+            <div class="feature">
+
+                💡 <strong>Step-by-step</strong><br>
+
+                Understand the method instead of only getting the final answer.
+
+            </div>
+
+
+            <div class="feature">
+
+                📚 <strong>Student Friendly</strong><br>
+
+                Simple explanations for students.
+
+            </div>
+
+
+            <div class="feature">
+
+                🔄 <strong>Follow-up Doubts</strong><br>
+
+                Ask another question after the explanation.
+
+            </div>
+
+
+            <div class="feature">
+
+                📷 <strong>Photo Doubts</strong><br>
+
+                Upload a question image.
+
+            </div>
+
+        </aside>
+
+
+
+        <!-- CHAT -->
+
+        <section class="chat-card">
+
+
+            <!-- CHAT HEADER -->
+
+            <div class="chat-header">
+
+                <div class="bot-avatar">
+                    🤖
+                </div>
+
+                <div>
+
+                    <h3>ShikshaSetu AI</h3>
+
+                    <p>
+                        Ready to help with your studies
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- MESSAGES -->
+
+            <div class="messages" id="messages">
+
+                <div class="message bot">
+
+                    <div class="bubble">
+
+                        👋 <strong>
+                            Hi! I'm your ShikshaSetu AI Doubt Assistant.
+                        </strong>
+
+                        <br><br>
+
+                        Ask me about Mathematics, Physics,
+                        Chemistry, C++, DSA and other study topics.
+
+                        <br><br>
+
+                        I'll explain the concept
+                        <strong>step by step</strong>.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- INPUT AREA -->
+
+            <div class="input-area">
+
+
+                <!-- IMAGE PREVIEW -->
+
+                <div id="imagePreviewBox">
+
+                    <img
+                        id="imagePreview"
+                        src=""
+                        alt="Question preview"
+                    >
+
+                    <div>
+
+                        <strong>Question image selected</strong>
+
+                        <br>
+
+                        <small id="imageName"></small>
+
+                    </div>
+
+                    <button
+                        class="remove-image"
+                        onclick="removeImage()"
+                    >
+                        ✕
+                    </button>
+
+                </div>
+
+
+
+                <!-- TOOLS -->
+
+                <div class="input-tools">
+
+                    <label class="tool-btn">
+
+                        📷 Upload Question
+
+                        <input
+                            type="file"
+                            id="imageInput"
+                            accept="image/*"
+                            hidden
+                            onchange="previewImage(event)"
+                        >
+
+                    </label>
+
+
+                    <button
+                        class="tool-btn"
+                        onclick="insertExample()"
+                    >
+                        💡 Example
+                    </button>
+
+
+                    <button
+                        class="tool-btn"
+                        onclick="clearChat()"
+                    >
+                        🗑 Clear Chat
+                    </button>
+
+                </div>
+
+
+
+                <!-- QUESTION INPUT -->
+
+                <div class="input-row">
+
+                    <textarea
+                        id="questionInput"
+                        placeholder="Type your doubt here..."
+                        onkeydown="handleEnter(event)"
+                    ></textarea>
+
+
+                    <button
+                        class="send-btn"
+                        onclick="sendQuestion()"
+                    >
+                        Send ➤
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- SUGGESTIONS -->
+
+            <div class="suggestions">
+
+                <h4>
+                    Try asking:
+                </h4>
+
+                <div class="chips">
+
+                    <button
+                        class="chip"
+                        onclick="useQuestion('Explain Newton second law in simple language')"
+                    >
+                        ⚡ Newton's Law
+                    </button>
+
+
+                    <button
+                        class="chip"
+                        onclick="useQuestion('How do I solve a quadratic equation?')"
+                    >
+                        📐 Quadratic Equation
+                    </button>
+
+
+                    <button
+                        class="chip"
+                        onclick="useQuestion('What is a pointer in C++?')"
+                    >
+                        💻 C++ Pointer
+                    </button>
+
+
+                    <button
+                        class="chip"
+                        onclick="useQuestion('Explain stack and queue in DSA')"
+                    >
+                        🧠 Stack & Queue
+                    </button>
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+    </div>
+
+
+
+    <!-- NOTE -->
+
+    <div class="ai-note">
+
+        ⚠️ <strong>Study Note:</strong>
+
+        AI-generated answers can sometimes contain mistakes.
+        For important exam answers, cross-check with your textbook,
+        notes or teacher.
+
+    </div>
+
+
+</main>
+
+
+
+<script>
+
+/* =========================
+   BACK
+========================= */
+
+function goBack(){
+
+    window.history.back();
+
+}
+
+
+/* =========================
+   SEND QUESTION
+========================= */
+
+function sendQuestion(){
+
+    const input =
+        document.getElementById("questionInput");
+
+    const question =
+        input.value.trim();
+
+    const subject =
+        document.getElementById("subject").value;
+
+    const language =
+        document.getElementById("language").value;
+
+
+    if(question === "" && !selectedImage){
+
+        alert(
+            "Please type a question or upload a question image."
+        );
+
+        return;
+
+    }
+
+
+    if(question !== ""){
+
+        addMessage(question,"user");
+
+    }else{
+
+        addMessage(
+            "📷 I uploaded a question image. Please solve this question.",
+            "user"
+        );
+
+    }
+
+
+    input.value = "";
+
+
+    addTyping();
+
+
+    setTimeout(function(){
+
+        removeTyping();
+
+        const answer =
+            generateDemoAnswer(
+                question,
+                subject,
+                language
+            );
+
+        addMessage(answer,"bot");
+
+    },900);
+
+
+    removeImage();
+
+}
+
+
+/* =========================
+   DEMO RESPONSE
+========================= */
+
+function generateDemoAnswer(
+    question,
+    subject,
+    language
+){
+
+    const q =
+        question.toLowerCase();
+
+
+    if(
+        q.includes("newton") ||
+        q.includes("second law")
+    ){
+
+        if(
+            language === "Hindi" ||
+            language === "Hinglish"
+        ){
+
+            return `
+
+                <strong>
+                    Newton's Second Law
+                </strong>
+
+                <div class="step">
+
+                    <b>Step 1:</b>
+
+                    Newton's second law force aur
+                    acceleration ke relationship ko explain karta hai.
+
+                </div>
+
+
+                <div class="step">
+
+                    <b>Step 2:</b>
+
+                    Formula:
+
+                    <br><br>
+
+                    <strong>F = m × a</strong>
+
+                </div>
+
+
+                <div class="step">
+
+                    <b>Step 3:</b>
+
+                    F = Force,
+                    m = Mass,
+                    a = Acceleration.
+
+                </div>
+
+
+                <div class="step">
+
+                    <b>Example:</b>
+
+                    Mass = 2 kg
+
+                    <br>
+
+                    Acceleration = 3 m/s²
+
+                    <br>
+
+                    F = 2 × 3 = <strong>6 N</strong>
+
+                </div>
+
+            `;
+
+        }
+
+
+        return `
+
+            <strong>
+                Newton's Second Law
+            </strong>
+
+            <div class="step">
+
+                <b>Step 1:</b>
+
+                Newton's second law describes
+                the relationship between force,
+                mass and acceleration.
+
+            </div>
+
+
+            <div class="step">
+
+                <b>Step 2:</b>
+
+                Formula:
+
+                <br><br>
+
+                <strong>F = m × a</strong>
+
+            </div>
+
+
+            <div class="step">
+
+                <b>Step 3:</b>
+
+                F is force,
+                m is mass,
+                a is acceleration.
+
+            </div>
+
+
+            <div class="step">
+
+                <b>Example:</b>
+
+                For a 2 kg object accelerating
+                at 3 m/s²:
+
+                <br>
+
+                F = 2 × 3 = <strong>6 N</strong>
+
+            </div>
+
+        `;
+
+    }
+
+
+
+    if(
+        q.includes("quadratic")
+    ){
+
+        return `
+
+            <strong>
+                Quadratic Equation
+            </strong>
+
+
+            <div class="step">
+
+                <b>Step 1:</b>
+
+                General form:
+
+                <br><br>
+
+                <strong>
+                    ax² + bx + c = 0
+                </strong>
+
+            </div>
+
+
+            <div class="step">
+
+                <b>Step 2:</b>
+
+                Quadratic formula:
+
+                <br><br>
+
+                <strong>
+                    x = (-b ± √(b² - 4ac)) / 2a
+                </strong>
+
+            </div>
+
+
+            <div class="step">
+
+                <b>Step 3:</b>
+
+                Put the values of a, b and c
+                into the formula.
+
+            </div>
+
+        `;
+
+    }
+
+
+
+    if(
+        q.includes("pointer")
+    ){
+
+        return `
+
+            <strong>
+                C++ Pointer
+            </strong>
+
+
+            <div class="step">
+
+                <b>Step 1:</b>
+
+                A pointer is a variable
+                that stores the memory address
+                of another variable.
+
+            </div>
+
+
+            <div class="step">
+
+                <b>Step 2:</b>
+
+                The <strong>&</strong> operator
+                gets the address.
+
+            </div>
+
+
+            <div class="step">
+
+                <b>Step 3:</b>
+
+                The <strong>*</strong> operator
+                is used for dereferencing.
+
+            </div>
+
+        `;
+
+    }
+
+
+
+    if(
+        q.includes("stack") ||
+        q.includes("queue")
+    ){
+
+        return `
+
+            <strong>
+                Stack and Queue
+            </strong>
+
+
+            <div class="step">
+
+                <b>Stack:</b>
+
+                Follows <strong>LIFO</strong> —
+                Last In, First Out.
+
+            </div>
+
+
+            <div class="step">
+
+                <b>Queue:</b>
+
+                Follows <strong>FIFO</strong> —
+                First In, First Out.
+
+            </div>
+
+
+            <div class="step">
+
+                <b>Example:</b>
+
+                Stack is like a pile of books,
+                while queue is like people
+                standing in a line.
+
+            </div>
+
+        `;
+
+    }
+
+
+
+    if(language === "Hindi"){
+
+        return `
+
+            <strong>
+                Let's solve this doubt.
+            </strong>
+
+
+            <div class="step">
+
+                <b>Step 1:</b>
+
+                Aapke question me di gayi
+                information identify karein.
+
+            </div>
+
+
+            <div class="step">
+
+                <b>Step 2:</b>
+
+                Relevant concept ya formula
+                choose karein.
+
+            </div>
+
+
+            <div class="step">
+
+                <b>Step 3:</b>
+
+                Concept ko step-by-step apply karein.
+
+            </div>
+
+
+            <br>
+
+            💡 Exact question bhejne par
+            aur specific explanation milega.
+
+        `;
+
+    }
+
+
+
+    if(language === "Hinglish"){
+
+        return `
+
+            <strong>
+                Let's solve this step by step.
+            </strong>
+
+
+            <div class="step">
+
+                <b>Step 1:</b>
+
+                Question me given information
+                identify karo.
+
+            </div>
+
+
+            <div class="step">
+
+                <b>Step 2:</b>
+
+                Relevant concept ya formula
+                choose karo.
+
+            </div>
+
+
+            <div class="step">
+
+                <b>Step 3:</b>
+
+                Formula/concept apply karo.
+
+            </div>
+
+
+            <div class="step">
+
+                <b>Step 4:</b>
+
+                Final answer check karo.
+
+            </div>
+
+        `;
+
+    }
+
+
+
+    return `
+
+        <strong>
+            Let's understand your doubt.
+        </strong>
+
+
+        <div class="step">
+
+            <b>Step 1:</b>
+
+            Identify the information
+            given in the question.
+
+        </div>
+
+
+        <div class="step">
+
+            <b>Step 2:</b>
+
+            Identify the relevant concept
+            or formula.
+
+        </div>
+
+
+        <div class="step">
+
+            <b>Step 3:</b>
+
+            Apply the concept step by step.
+
+        </div>
+
+
+        <div class="step">
+
+            <b>Step 4:</b>
+
+            Check the final result.
+
+        </div>
+
+
+        <br>
+
+        💡 Send the exact question
+        for a specific explanation.
+
+    `;
+
+}
+
+
+/* =========================
+   ADD MESSAGE
+========================= */
+
+function addMessage(text,type){
+
+    const messages =
+        document.getElementById("messages");
+
+    const message =
+        document.createElement("div");
+
+    message.className =
+        "message " + type;
+
+    message.innerHTML = `
+
+        <div class="bubble">
+            ${text}
+        </div>
+
+    `;
+
+    messages.appendChild(message);
+
+    messages.scrollTop =
+        messages.scrollHeight;
+
+}
+
+
+/* =========================
+   TYPING
+========================= */
+
+function addTyping(){
+
+    const messages =
+        document.getElementById("messages");
+
+    const typing =
+        document.createElement("div");
+
+    typing.className =
+        "message bot";
+
+    typing.id =
+        "typing";
+
+    typing.innerHTML = `
+
+        <div class="bubble">
+
+            🤖 AI is thinking...
+
+        </div>
+
+    `;
+
+    messages.appendChild(typing);
+
+    messages.scrollTop =
+        messages.scrollHeight;
+
+}
+
+
+function removeTyping(){
+
+    const typing =
+        document.getElementById("typing");
+
+    if(typing){
+
+        typing.remove();
+
+    }
+
+}
+
+
+/* =========================
+   ENTER
+========================= */
+
+function handleEnter(event){
+
+    if(
+        event.key === "Enter" &&
+        !event.shiftKey
+    ){
+
+        event.preventDefault();
+
+        sendQuestion();
+
+    }
+
+}
+
+
+/* =========================
+   QUICK QUESTIONS
+========================= */
+
+function useQuestion(question){
+
+    document.getElementById(
+        "questionInput"
+    ).value = question;
+
+    document.getElementById(
+        "questionInput"
+    ).focus();
+
+}
+
+
+function insertExample(){
+
+    document.getElementById(
+        "questionInput"
+    ).value =
+        "Explain Newton's second law with an example.";
+
+    document.getElementById(
+        "questionInput"
+    ).focus();
+
+}
+
+
+/* =========================
+   IMAGE
+========================= */
+
+let selectedImage = false;
+
+
+function previewImage(event){
+
+    const file =
+        event.target.files[0];
+
+    if(!file) return;
+
+    selectedImage = true;
+
+
+    const reader =
+        new FileReader();
+
+
+    reader.onload =
+        function(e){
+
+            document.getElementById(
+                "imagePreview"
+            ).src = e.target.result;
+
+
+            document.getElementById(
+                "imageName"
+            ).textContent = file.name;
+
+
+            document.getElementById(
+                "imagePreviewBox"
+            ).style.display = "flex";
+
+        };
+
+
+    reader.readAsDataURL(file);
+
+}
+
+
+function removeImage(){
+
+    selectedImage = false;
+
+    document.getElementById(
+        "imageInput"
+    ).value = "";
+
+
+    document.getElementById(
+        "imagePreviewBox"
+    ).style.display = "none";
+
+
+    document.getElementById(
+        "imagePreview"
+    ).src = "";
+
+
+    document.getElementById(
+        "imageName"
+    ).textContent = "";
+
+}
+
+
+/* =========================
+   CLEAR CHAT
+========================= */
+
+function clearChat(){
+
+    document.getElementById(
+        "messages"
+    ).innerHTML = `
+
+        <div class="message bot">
+
+            <div class="bubble">
+
+                👋 <strong>Chat cleared!</strong>
+
+                <br><br>
+
+                Ask me your next study doubt.
+
+            </div>
+
+        </div>
+
+    `;
+
+}
+
+</script>
+
+</body>
+</html>
+```
